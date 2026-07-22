@@ -1152,8 +1152,12 @@ class DatabaseEngine {
   private mongoClient: MongoClient | null = null;
   private mongoDb: any = null;
   private connectionPromise: Promise<void> | null = null;
+  public readonly isProduction: boolean;
 
   constructor() {
+    this.isProduction = Boolean(
+      process.env.VERCEL || process.env.NODE_ENV === 'production' || process.env.NOW_REGION
+    );
     this.init();
   }
 
@@ -1183,106 +1187,94 @@ class DatabaseEngine {
     if (!Array.isArray(this.data.testimonials)) this.data.testimonials = [...DEFAULT_TESTIMONIALS];
   }
 
-  private init() {
-    if (fs.existsSync(DB_FILE_PATH)) {
-      try {
-        const fileContent = fs.readFileSync(DB_FILE_PATH, 'utf-8');
-        this.data = JSON.parse(fileContent);
-        this.ensureDataCollections();
+  private seedLocalDefaultsIfNeeded() {
+    let changed = false;
 
-        // Seed industries from industries page if empty
-        if (!this.data.industries || this.data.industries.length === 0) {
-          const page = this.data.pages?.find(p => p && p.slug === '/industries');
-          const gridSec = page?.sections?.find(s => s && (s.type === 'Industries' || s.id === 'industries-grid'));
-          const items = gridSec ? (gridSec.content?.items || []) : [];
-          this.data.industries = items.map((item: any, idx: number) => ({
-            id: item.id || `ind-${idx}-${Date.now()}`,
-            name: item.title || '',
-            slug: (item.slug || item.title || '').toLowerCase().trim().replace(/^\/?industries\/?/, '').replace(/^\//, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
-            shortDescription: item.desc || '',
-            description: item.description || item.desc || '',
-            coverImage: item.image || '',
-            cardImage: item.image || '',
-            icon: item.icon || 'GraduationCap',
-            bannerImage: '',
-            seo: {
-              metaTitle: item.title,
-              metaDescription: item.desc,
-              keywords: ''
-            },
-            cta: {
-              buttonText: item.button || 'Learn More',
-              buttonLink: item.link || ''
-            },
-            status: item.status || 'published',
-            featured: true,
-            sortOrder: idx,
-            createdAt: new Date().toISOString(),
-            updatedAt: new Date().toISOString()
-          }));
-          this.save();
-        }
-
-        // Seed institutions from institution page if empty
-        if (!this.data.institutions || this.data.institutions.length === 0) {
-          const page = this.data.pages?.find(p => p && p.slug === '/institution');
-          const gridSec = page?.sections?.find(s => s && (s.type === 'Institution' || s.id === 'institution-grid' || s.id === 'institution-selector'));
-          const items = gridSec ? (gridSec.content?.items || []) : [];
-          this.data.institutions = items.map((item: any, idx: number) => {
-            const indId = (item.industryIds && item.industryIds.length > 0) ? item.industryIds[0] : 'ind-edu';
-            return {
-              id: item.id || `inst-${idx}-${Date.now()}`,
-              industryId: indId,
-              name: item.title || '',
-              slug: (item.slug || item.title || '').toLowerCase().trim().replace(/^\//, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
-              shortDescription: item.desc || '',
-              description: item.description || item.desc || '',
-              cardImage: item.image || '',
-              coverImage: item.image || '',
-              bannerImage: '',
-              icon: item.icon || 'School',
-              contact: {
-                email: '',
-                phone: '',
-                website: ''
-              },
-              seo: {
-                metaTitle: item.title,
-                metaDescription: item.desc,
-                keywords: ''
-              },
-              cta: {
-                buttonText: item.button || 'Learn More',
-                buttonLink: item.buttonLink || ''
-              },
-              status: item.status || 'published',
-              featured: true,
-              sortOrder: idx,
-              createdAt: new Date().toISOString(),
-              updatedAt: new Date().toISOString()
-            };
-          });
-          this.save();
-        }
-
-        // Ensure Institution menu is removed from header menu links to hide it completely as requested
-        if (this.data && this.data.headerSettings && Array.isArray(this.data.headerSettings.menus)) {
-          const originalLength = this.data.headerSettings.menus.length;
-          this.data.headerSettings.menus = this.data.headerSettings.menus.filter(
-            m => m && m.label !== 'Institution' && m.url !== '/institution'
-          );
-          if (this.data.headerSettings.menus.length !== originalLength) {
-            this.save();
-          }
-        }
-      } catch (err) {
-        console.error('Error reading database file, loading default schemas', err);
-        this.loadDefaults();
-      }
-    } else {
-      this.loadDefaults();
+    // Seed industries from industries page if empty
+    if (!this.data.industries || this.data.industries.length === 0) {
+      const page = this.data.pages?.find(p => p && p.slug === '/industries');
+      const gridSec = page?.sections?.find(s => s && (s.type === 'Industries' || s.id === 'industries-grid'));
+      const items = gridSec ? (gridSec.content?.items || []) : [];
+      this.data.industries = items.map((item: any, idx: number) => ({
+        id: item.id || `ind-${idx}-${Date.now()}`,
+        name: item.title || '',
+        slug: (item.slug || item.title || '').toLowerCase().trim().replace(/^\/?industries\/?/, '').replace(/^\//, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
+        shortDescription: item.desc || '',
+        description: item.description || item.desc || '',
+        coverImage: item.image || '',
+        cardImage: item.image || '',
+        icon: item.icon || 'GraduationCap',
+        bannerImage: '',
+        seo: {
+          metaTitle: item.title,
+          metaDescription: item.desc,
+          keywords: ''
+        },
+        cta: {
+          buttonText: item.button || 'Learn More',
+          buttonLink: item.link || ''
+        },
+        status: item.status || 'published',
+        featured: true,
+        sortOrder: idx,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString()
+      }));
+      changed = true;
     }
-    this.ensureDataCollections();
+
+    // Seed institutions from institution page if empty
+    if (!this.data.institutions || this.data.institutions.length === 0) {
+      const page = this.data.pages?.find(p => p && p.slug === '/institution');
+      const gridSec = page?.sections?.find(s => s && (s.type === 'Institution' || s.id === 'institution-grid' || s.id === 'institution-selector'));
+      const items = gridSec ? (gridSec.content?.items || []) : [];
+      this.data.institutions = items.map((item: any, idx: number) => {
+        const indId = (item.industryIds && item.industryIds.length > 0) ? item.industryIds[0] : 'ind-edu';
+        return {
+          id: item.id || `inst-${idx}-${Date.now()}`,
+          industryId: indId,
+          name: item.title || '',
+          slug: (item.slug || item.title || '').toLowerCase().trim().replace(/^\//, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
+          shortDescription: item.desc || '',
+          description: item.description || item.desc || '',
+          cardImage: item.image || '',
+          coverImage: item.image || '',
+          bannerImage: '',
+          icon: item.icon || 'School',
+          contact: {
+            email: '',
+            phone: '',
+            website: ''
+          },
+          seo: {
+            metaTitle: item.title,
+            metaDescription: item.desc,
+            keywords: ''
+          },
+          cta: {
+            buttonText: item.button || 'Learn More',
+            buttonLink: item.buttonLink || ''
+          },
+          status: item.status || 'published',
+          featured: true,
+          sortOrder: idx,
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString()
+        };
+      });
+      changed = true;
+    }
+
+    // Ensure Institution menu is removed from header menu links
+    if (this.data && this.data.headerSettings && Array.isArray(this.data.headerSettings.menus)) {
+      const originalLength = this.data.headerSettings.menus.length;
+      this.data.headerSettings.menus = this.data.headerSettings.menus.filter(
+        m => m && m.label !== 'Institution' && m.url !== '/institution'
+      );
+      if (this.data.headerSettings.menus.length !== originalLength) {
+        changed = true;
+      }
+    }
 
     // Seeding default zones if not present
     if (!this.data.zones || this.data.zones.length === 0) {
@@ -1333,9 +1325,44 @@ class DatabaseEngine {
           isFeatured: false
         }
       ];
+      changed = true;
+    }
+
+    if (changed && !this.isProduction) {
       this.save();
     }
+  }
+
+  private init() {
+    if (this.isProduction) {
+      console.log('[Database] Production mode');
+      console.log('[Database] Local database skipped (production)');
+      this.ensureDataCollections();
+      return;
+    }
+
+    // Development mode
+    console.log('[Database] Development mode');
+    console.log('[Database] Loading local db.json');
+
+    if (fs.existsSync(DB_FILE_PATH)) {
+      try {
+        const fileContent = fs.readFileSync(DB_FILE_PATH, 'utf-8');
+        this.data = JSON.parse(fileContent);
+        this.ensureDataCollections();
+        this.seedLocalDefaultsIfNeeded();
+      } catch (err: any) {
+        console.error(`[Database] Error reading local db.json (${err?.message || err}). Recreating from default schemas...`);
+        this.loadDefaults();
+      }
+    } else {
+      console.log('[Database] db.json not found. Creating from default schemas...');
+      this.loadDefaults();
+    }
+
+    this.ensureDataCollections();
     this.ensurePublicIds();
+    console.log('[Database] Database initialized successfully');
   }
 
   private loadDefaults() {
@@ -1348,7 +1375,7 @@ class DatabaseEngine {
       caseStudies: DEFAULT_CASE_STUDIES,
       leads: [],
       logs: [
-        { id: 'log-1', userId: 'user-admin', userName: 'System', action: 'Initialize', details: 'Database initialized with 12 enterprise pre-seeded pages.', timestamp: new Date().toISOString() }
+        { id: 'log-1', userId: 'user-admin', userName: 'System', action: 'Initialize', details: 'Database initialized with default schemas.', timestamp: new Date().toISOString() }
       ],
       users: DEFAULT_USERS,
       roles: DEFAULT_ROLES,
@@ -1360,41 +1387,93 @@ class DatabaseEngine {
       solutionLeads: [],
       industries: [],
       institutions: [],
-      modules: []
+      modules: [],
+      technologyEcosystem: [...DEFAULT_TECHNOLOGIES],
+      technologyCategories: [...DEFAULT_TECH_CATEGORIES],
+      testimonials: [...DEFAULT_TESTIMONIALS]
     };
-    this.save();
+    if (!this.isProduction) {
+      this.save();
+    }
   }
 
   public save() {
+    if (this.isProduction) {
+      return;
+    }
     try {
       const targetPath = getDbFilePath();
       fs.writeFileSync(targetPath, JSON.stringify(this.data, null, 2), 'utf-8');
     } catch (err) {
-      console.warn('Note: Local db.json write skipped or failed (expected on Vercel read-only filesystem):', err);
+      console.warn('[Database] Local db.json write skipped or failed:', err);
     }
   }
 
-  public async connect() {
+  public async connect(): Promise<void> {
     if (this.connectionPromise) {
       return this.connectionPromise;
     }
 
     this.connectionPromise = (async () => {
       const uri = process.env.MONGODB_URI;
+
+      if (this.isProduction) {
+        if (!uri) {
+          const errorMsg = 'MONGODB_URI is not defined in production environment.';
+          console.error(`[Database] ${errorMsg}`);
+          this.connectionPromise = null;
+          throw new Error(errorMsg);
+        }
+
+        try {
+          const client = new MongoClient(uri, {
+            serverSelectionTimeoutMS: 5000,
+            connectTimeoutMS: 5000,
+          });
+          await client.connect();
+
+          let dbName = 'nx_solution_cms';
+          try {
+            const parsedUrl = new URL(uri);
+            dbName = parsedUrl.pathname.replace(/^\//, '') || 'nx_solution_cms';
+          } catch (e) {
+            const cleanUri = uri.split('?')[0];
+            const lastSlash = cleanUri.lastIndexOf('/');
+            if (lastSlash !== -1) {
+              dbName = cleanUri.substring(lastSlash + 1) || 'nx_solution_cms';
+            }
+          }
+
+          this.mongoClient = client;
+          this.mongoDb = client.db(dbName);
+          console.log('[Database] MongoDB connected');
+          console.log('[Database] Loading from MongoDB');
+
+          await this.syncAndLoadFromMongo();
+          console.log('[Database] Database initialized successfully');
+        } catch (err: any) {
+          this.mongoClient = null;
+          this.mongoDb = null;
+          this.connectionPromise = null;
+          console.error('[Database] Production MongoDB connection error:', err);
+          throw err;
+        }
+        return;
+      }
+
+      // Development mode
       if (!uri) {
-        console.log('MONGODB_URI is not set. Operating in local JSON file mode.');
+        console.log('[Database] MONGODB_URI is not set. Operating in local db.json mode.');
         return;
       }
 
       try {
-        console.log('Connecting to MongoDB...');
         const client = new MongoClient(uri, {
           serverSelectionTimeoutMS: 5000,
           connectTimeoutMS: 5000,
         });
         await client.connect();
 
-        // Parse dbName out of connection URI
         let dbName = 'nx_solution_cms';
         try {
           const parsedUrl = new URL(uri);
@@ -1409,53 +1488,14 @@ class DatabaseEngine {
 
         this.mongoClient = client;
         this.mongoDb = client.db(dbName);
-        console.log(`Successfully connected to MongoDB database: ${dbName}`);
+        console.log('[Database] MongoDB connected');
+        console.log('[Database] Loading from MongoDB');
 
         await this.syncAndLoadFromMongo();
       } catch (err: any) {
         this.mongoClient = null;
         this.mongoDb = null;
-        const errStr = String(err?.message || err?.stack || err);
-        console.error('Failed to connect to MongoDB, falling back to local file-based database:', err);
-        
-        if (errStr.includes('alert number 80') || errStr.includes('ssl3_read_bytes') || errStr.includes('tlsv1 alert internal error')) {
-          console.warn(`
-========================================================================
-⚠️  MONGODB CONNECTION FAILURE (TLS/SSL Handshake Error / Alert 80)
-========================================================================
-The connection to your MongoDB instance failed during the TLS handshake.
-
-👉 PRIMARY CAUSE:
-Your MongoDB Atlas Database "Network Access" rules are likely blocking 
-this server's dynamic IP address.
-
-👉 HOW TO SOLVE THIS:
-1. Go to your MongoDB Atlas Dashboard (https://cloud.mongodb.com).
-2. Click on "Network Access" under the "Security" tab in the left panel.
-3. Click "+ Add IP Address" on the top right.
-4. Select the "Allow Access From Anywhere" button (or enter "0.0.0.0/0").
-5. Click "Confirm" and wait 1-2 minutes for Atlas to deploy the change.
-
-✅ SEAMLESS FALLBACK ACTIVE:
-The application has successfully fallen back to the local database file 
-(db.json). All content, users, leads, and pages remain fully functional!
-========================================================================
-`);
-        } else {
-          console.warn(`
-========================================================================
-⚠️  MONGODB CONNECTION WARNING
-========================================================================
-Could not connect to the remote MongoDB database. 
-
-Ensure your connection string (MONGODB_URI) is correct, and that the
-database is online and accessible.
-
-✅ SEAMLESS FALLBACK ACTIVE:
-Operating in local JSON file-based database mode (db.json).
-========================================================================
-`);
-        }
+        console.warn('[Database] Failed to connect to MongoDB in development mode, falling back to local db.json:', err?.message || err);
       }
     })();
 
@@ -1493,7 +1533,9 @@ Operating in local JSON file-based database mode (db.json).
           this.data.headerSettings.menus = this.data.headerSettings.menus.filter(
             m => m.label !== 'Institution' && m.url !== '/institution'
           );
-          this.save();
+          if (!this.isProduction) {
+            this.save();
+          }
           this.persistSingletonToMongo('headerSettings', this.data.headerSettings);
         }
       }
@@ -1627,7 +1669,34 @@ Operating in local JSON file-based database mode (db.json).
         return item as SolutionLead;
       });
 
-      // 17. Technology Ecosystem
+      // 17. Industries
+      const industriesCol = this.mongoDb.collection('industries');
+      let mongoIndustries = await industriesCol.find({}).toArray();
+      this.data.industries = mongoIndustries.map(({ _id, ...ind }: any) => {
+        const item = { ...ind };
+        if (_id) item.id = ind.id || _id.toString();
+        return item as Industry;
+      });
+
+      // 18. Institutions
+      const institutionsCol = this.mongoDb.collection('institutions');
+      let mongoInstitutions = await institutionsCol.find({}).toArray();
+      this.data.institutions = mongoInstitutions.map(({ _id, ...inst }: any) => {
+        const item = { ...inst };
+        if (_id) item.id = inst.id || _id.toString();
+        return item as Institution;
+      });
+
+      // 19. Modules
+      const modulesCol = this.mongoDb.collection('modules');
+      let mongoModules = await modulesCol.find({}).toArray();
+      this.data.modules = mongoModules.map(({ _id, ...mod }: any) => {
+        const item = { ...mod };
+        if (_id) item.id = mod.id || _id.toString();
+        return item as Module;
+      });
+
+      // 20. Technology Ecosystem
       const techCol = this.mongoDb.collection('technology_ecosystem');
       let mongoTech = await techCol.find({}).toArray();
       if (mongoTech.length === 0) {
@@ -1644,7 +1713,7 @@ Operating in local JSON file-based database mode (db.json).
         });
       }
 
-      // 18. Technology Categories
+      // 21. Technology Categories
       const techCatCol = this.mongoDb.collection('technology_categories');
       let mongoTechCats = await techCatCol.find({}).toArray();
       if (mongoTechCats.length === 0) {
@@ -1660,7 +1729,7 @@ Operating in local JSON file-based database mode (db.json).
         });
       }
 
-      // 19. Testimonials
+      // 22. Testimonials
       const testiCol = this.mongoDb.collection('testimonials');
       let mongoTestimonials = await testiCol.find({}).toArray();
       if (mongoTestimonials.length === 0) {
@@ -1677,12 +1746,16 @@ Operating in local JSON file-based database mode (db.json).
         });
       }
 
-      // Save the loaded state locally too so we are fully in sync
       this.ensurePublicIds();
-      this.save();
-      console.log('Synchronized MongoDB data with local database engine successfully.');
+      if (!this.isProduction) {
+        this.save();
+      }
+      console.log('[Database] Synchronized MongoDB data successfully.');
     } catch (err) {
-      console.error('Error syncing and loading from MongoDB:', err);
+      console.error('[Database] Error syncing and loading from MongoDB:', err);
+      if (this.isProduction) {
+        throw err;
+      }
     }
   }
 
