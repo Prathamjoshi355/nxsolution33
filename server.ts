@@ -43,19 +43,57 @@ app.use(async (req, res, next) => {
   next();
 });
 
-// Middleware to normalize URL paths for Vercel rewrites & serverless functions
+// Middleware to normalize URL paths for Vercel rewrites & serverless functions + detailed logging
 app.use((req, res, next) => {
+  const originalUrl = req.url || '/';
+  const startTime = Date.now();
+
+  let pathname = originalUrl.split('?')[0];
+  const queryStr = originalUrl.includes('?') ? originalUrl.slice(originalUrl.indexOf('?')) : '';
+
+  let normalizedRoute = pathname;
+
+  // 1. Check if Vercel rewrite passed a 'path' query parameter (e.g. /api/index?path=header or /api/index?path=products)
   if (req.query && req.query.path) {
-    const subPath = Array.isArray(req.query.path)
-      ? req.query.path.join('/')
-      : String(req.query.path);
-    if (subPath) {
-      const cleanSubPath = subPath.startsWith('/') ? subPath : `/${subPath}`;
-      const qIdx = req.url.indexOf('?');
-      const queryString = qIdx !== -1 ? req.url.slice(qIdx) : '';
-      req.url = `/api${cleanSubPath}${queryString}`;
+    const rawPath = req.query.path;
+    const subPath = Array.isArray(rawPath) ? rawPath.join('/') : String(rawPath);
+    if (subPath && subPath !== 'index' && subPath !== 'server') {
+      const cleanSub = subPath.startsWith('/') ? subPath : `/${subPath}`;
+      normalizedRoute = `/api${cleanSub}`;
     }
   }
+
+  // 2. Handle cases where the URL contains /api/index or /api/server
+  if (normalizedRoute.startsWith('/api/index') || normalizedRoute.startsWith('/api/server')) {
+    normalizedRoute = normalizedRoute.replace(/^\/api\/(index|server)(\.ts|\.js)?/, '/api');
+    if (normalizedRoute === '/api' || normalizedRoute === '/api/') {
+      if (req.query && req.query.path) {
+        const rawPath = req.query.path;
+        const subPath = Array.isArray(rawPath) ? rawPath.join('/') : String(rawPath);
+        if (subPath && subPath !== 'index' && subPath !== 'server') {
+          normalizedRoute = `/api/${subPath.replace(/^\//, '')}`;
+        }
+      }
+    }
+  }
+
+  // 3. Ensure leading /api prefix if request originated from /api or has path query
+  if (!normalizedRoute.startsWith('/api') && (originalUrl.startsWith('/api') || req.query?.path)) {
+    normalizedRoute = `/api${normalizedRoute.startsWith('/') ? normalizedRoute : '/' + normalizedRoute}`;
+  }
+
+  // 4. Update req.url for Express route matching
+  req.url = `${normalizedRoute}${queryStr}`;
+
+  // Log incoming API request for easy Vercel debugging
+  if (req.url.startsWith('/api')) {
+    console.log(`[API Incoming] Method: ${req.method} | Raw URL: ${originalUrl} -> Resolved URL: ${req.url}`);
+    res.on('finish', () => {
+      const duration = Date.now() - startTime;
+      console.log(`[API Response] Method: ${req.method} | URL: ${req.url} | Status: ${res.statusCode} | Duration: ${duration}ms`);
+    });
+  }
+
   next();
 });
 
@@ -2853,6 +2891,15 @@ app.use((req, res, next) => {
     } catch (err: any) {
       res.status(500).json({ error: err.message });
     }
+  });
+
+  // Fallback 404 handler for unmatched /api routes
+  app.use('/api/*', (req, res) => {
+    console.warn(`[API 404] Unmatched API route: ${req.method} ${req.originalUrl || req.url}`);
+    res.status(404).json({
+      success: false,
+      error: `API route not found: ${req.method} ${req.baseUrl || req.url}`
+    });
   });
 
 export { app };
