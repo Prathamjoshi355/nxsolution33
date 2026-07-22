@@ -1,7 +1,6 @@
 import express from 'express';
 import path from 'path';
 import dotenv from 'dotenv';
-import { createServer as createViteServer } from 'vite';
 import { db } from './db';
 import { CRMLead, Page, Product, CaseStudy, SectionComponent, ThemeSettings, Problem, SolutionSection, Solution, SolutionLead, Module } from './src/types';
 import { v2 as cloudinary } from 'cloudinary';
