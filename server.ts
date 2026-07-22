@@ -44,49 +44,52 @@ app.use(async (req, res, next) => {
 
 // Middleware to normalize URL paths for Vercel rewrites & serverless functions + detailed logging
 app.use((req, res, next) => {
-  const originalUrl = req.url || '/';
+  const rawUrl = req.url || '/';
   const startTime = Date.now();
 
-  let pathname = originalUrl.split('?')[0];
-  const queryStr = originalUrl.includes('?') ? originalUrl.slice(originalUrl.indexOf('?')) : '';
+  // Parse rawUrl with dummy origin
+  let parsedUrl: URL;
+  try {
+    parsedUrl = new URL(rawUrl, 'http://localhost');
+  } catch (e) {
+    parsedUrl = new URL('/', 'http://localhost');
+  }
 
-  let normalizedRoute = pathname;
+  let pathname = parsedUrl.pathname;
+  let search = parsedUrl.search;
 
-  // 1. Check if Vercel rewrite passed a 'path' query parameter (e.g. /api/index?path=header or /api/index?path=products)
-  if (req.query && req.query.path) {
-    const rawPath = req.query.path;
-    const subPath = Array.isArray(rawPath) ? rawPath.join('/') : String(rawPath);
-    if (subPath && subPath !== 'index' && subPath !== 'server') {
-      const cleanSub = subPath.startsWith('/') ? subPath : `/${subPath}`;
-      normalizedRoute = `/api${cleanSub}`;
+  // Check if search contains path query parameter (from Vercel rewrites: /api/index?path=theme or /api/index?path=pages)
+  const pathParam = parsedUrl.searchParams.get('path');
+
+  let normalizedPath = pathname;
+
+  if (pathParam && pathParam !== 'index' && pathParam !== 'server') {
+    const cleanPath = pathParam.startsWith('/') ? pathParam : `/${pathParam}`;
+    normalizedPath = `/api${cleanPath}`;
+    
+    // Remove 'path' query param from searchParams so query string remains clean for endpoint handler
+    parsedUrl.searchParams.delete('path');
+    const remainingSearch = parsedUrl.searchParams.toString();
+    search = remainingSearch ? `?${remainingSearch}` : '';
+  } else if (normalizedPath.startsWith('/api/index') || normalizedPath.startsWith('/api/server')) {
+    const rawSub = normalizedPath.replace(/^\/api\/(index|server)(\.ts|\.js)?/, '');
+    if (rawSub && rawSub !== '/') {
+      normalizedPath = `/api${rawSub.startsWith('/') ? rawSub : '/' + rawSub}`;
+    } else {
+      normalizedPath = '/api';
     }
   }
 
-  // 2. Handle cases where the URL contains /api/index or /api/server
-  if (normalizedRoute.startsWith('/api/index') || normalizedRoute.startsWith('/api/server')) {
-    normalizedRoute = normalizedRoute.replace(/^\/api\/(index|server)(\.ts|\.js)?/, '/api');
-    if (normalizedRoute === '/api' || normalizedRoute === '/api/') {
-      if (req.query && req.query.path) {
-        const rawPath = req.query.path;
-        const subPath = Array.isArray(rawPath) ? rawPath.join('/') : String(rawPath);
-        if (subPath && subPath !== 'index' && subPath !== 'server') {
-          normalizedRoute = `/api/${subPath.replace(/^\//, '')}`;
-        }
-      }
-    }
+  // Ensure leading /api prefix if request originated from /api
+  if (!normalizedPath.startsWith('/api') && (rawUrl.startsWith('/api') || rawUrl.startsWith('/api/index'))) {
+    normalizedPath = `/api${normalizedPath.startsWith('/') ? normalizedPath : '/' + normalizedPath}`;
   }
 
-  // 3. Ensure leading /api prefix if request originated from /api or has path query
-  if (!normalizedRoute.startsWith('/api') && (originalUrl.startsWith('/api') || req.query?.path)) {
-    normalizedRoute = `/api${normalizedRoute.startsWith('/') ? normalizedRoute : '/' + normalizedRoute}`;
-  }
+  // Update req.url for Express route matching
+  req.url = `${normalizedPath}${search}`;
 
-  // 4. Update req.url for Express route matching
-  req.url = `${normalizedRoute}${queryStr}`;
-
-  // Log incoming API request for easy Vercel debugging
   if (req.url.startsWith('/api')) {
-    console.log(`[API Incoming] Method: ${req.method} | Raw URL: ${originalUrl} -> Resolved URL: ${req.url}`);
+    console.log(`[API Incoming] Method: ${req.method} | Raw: ${rawUrl} -> Normalized: ${req.url}`);
     res.on('finish', () => {
       const duration = Date.now() - startTime;
       console.log(`[API Response] Method: ${req.method} | URL: ${req.url} | Status: ${res.statusCode} | Duration: ${duration}ms`);
@@ -2897,7 +2900,7 @@ app.use((req, res, next) => {
     console.warn(`[API 404] Unmatched API route: ${req.method} ${req.originalUrl || req.url}`);
     res.status(404).json({
       success: false,
-      error: `API route not found: ${req.method} ${req.baseUrl || req.url}`
+      error: `API route not found: ${req.method} ${req.url}`
     });
   });
 
@@ -2918,7 +2921,8 @@ if (!process.env.VERCEL) {
   
   // Dev mode
   if (process.env.NODE_ENV !== 'production') {
-    db.connect().then(async () => {
+    (async () => {
+      db.connect().catch(err => console.error('DB connect error:', err));
       const viteModule = await import('vite');
       const createViteServer = viteModule.createServer;
       const vite = await createViteServer({
@@ -2930,23 +2934,20 @@ if (!process.env.VERCEL) {
       app.listen(PORT, '0.0.0.0', () => {
         console.log(`Development server running on http://localhost:${PORT}`);
       });
-    }).catch(err => {
+    })().catch(err => {
       console.error('Failed to start local dev server:', err);
     });
   } else {
     // Production standalone mode
-    db.connect().then(() => {
-      const distPath = path.join(process.cwd(), 'dist');
-      app.use(express.static(distPath));
-      app.get('*', (req, res) => {
-        res.sendFile(path.join(distPath, 'index.html'));
-      });
-      
-      app.listen(PORT, '0.0.0.0', () => {
-        console.log(`Production standalone server running on port ${PORT}`);
-      });
-    }).catch(err => {
-      console.error('Failed to start standalone prod server:', err);
+    db.connect().catch(err => console.error('DB connect error:', err));
+    const distPath = path.join(process.cwd(), 'dist');
+    app.use(express.static(distPath));
+    app.get('*', (req, res) => {
+      res.sendFile(path.join(distPath, 'index.html'));
+    });
+    
+    app.listen(PORT, '0.0.0.0', () => {
+      console.log(`Production standalone server running on port ${PORT}`);
     });
   }
 }

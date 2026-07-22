@@ -1,10 +1,36 @@
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
 import { MongoClient } from 'mongodb';
 import { ThemeSettings, HeaderSettings, FooterSettings, Page, Product, CaseStudy, CRMLead, AuditLog, Role, User, Zone, Problem, ZoneProblem, Solution, ProblemSolution, SolutionLead, Industry, Institution, Module, TechnologyItem, TechnologyCategory, TestimonialItem, HomeTestimonialSectionConfig } from './src/types';
 
-// Let's store db state in memory and persist to /db.json
-const DB_FILE_PATH = path.join(process.cwd(), 'db.json');
+function getDbFilePath(): string {
+  let baseDir = process.cwd();
+  try {
+    if (typeof __dirname !== 'undefined') {
+      baseDir = __dirname;
+    } else if (import.meta && import.meta.url) {
+      baseDir = path.dirname(fileURLToPath(import.meta.url));
+    }
+  } catch (e) {}
+
+  const candidatePaths = [
+    path.join(process.cwd(), 'db.json'),
+    path.join(baseDir, 'db.json'),
+    path.join(baseDir, '..', 'db.json'),
+    path.join(process.cwd(), '..', 'db.json')
+  ];
+  for (const p of candidatePaths) {
+    try {
+      if (fs.existsSync(p)) {
+        return p;
+      }
+    } catch (e) {}
+  }
+  return path.join(process.cwd(), 'db.json');
+}
+
+const DB_FILE_PATH = getDbFilePath();
 
 interface SchemaDB {
   themeSettings: ThemeSettings;
@@ -1341,9 +1367,10 @@ class DatabaseEngine {
 
   public save() {
     try {
-      fs.writeFileSync(DB_FILE_PATH, JSON.stringify(this.data, null, 2), 'utf-8');
+      const targetPath = getDbFilePath();
+      fs.writeFileSync(targetPath, JSON.stringify(this.data, null, 2), 'utf-8');
     } catch (err) {
-      console.error('Failed to save to local database', err);
+      console.warn('Note: Local db.json write skipped or failed (expected on Vercel read-only filesystem):', err);
     }
   }
 
