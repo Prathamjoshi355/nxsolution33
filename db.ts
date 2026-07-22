@@ -1618,20 +1618,38 @@ class DatabaseEngine {
       // 11. Zones
       const zonesCol = this.mongoDb.collection('zones');
       let mongoZones = await zonesCol.find({}).toArray();
-      this.data.zones = mongoZones.map(({ _id, ...z }: any) => {
-        const item = { ...z };
-        if (_id) item.id = z.id || _id.toString();
-        return item as Zone;
-      });
+      if (mongoZones.length < (this.data.zones?.length || 0) && this.data.zones?.length > 0) {
+        console.log('Syncing local zones to MongoDB...');
+        for (const z of this.data.zones) {
+          await zonesCol.updateOne({ id: z.id }, { $set: z }, { upsert: true });
+        }
+        mongoZones = await zonesCol.find({}).toArray();
+      }
+      if (mongoZones.length > 0) {
+        this.data.zones = mongoZones.map(({ _id, ...z }: any) => {
+          const item = { ...z };
+          if (_id) item.id = z.id || _id.toString();
+          return item as Zone;
+        });
+      }
 
       // 12. Problems
       const problemsCol = this.mongoDb.collection('problems');
       let mongoProblems = await problemsCol.find({}).toArray();
-      this.data.problems = mongoProblems.map(({ _id, ...p }: any) => {
-        const item = { ...p };
-        if (_id) item.id = p.id || _id.toString();
-        return item as Problem;
-      });
+      if (mongoProblems.length < (this.data.problems?.length || 0) && this.data.problems?.length > 0) {
+        console.log('Syncing local problems to MongoDB...');
+        for (const p of this.data.problems) {
+          await problemsCol.updateOne({ id: p.id }, { $set: p }, { upsert: true });
+        }
+        mongoProblems = await problemsCol.find({}).toArray();
+      }
+      if (mongoProblems.length > 0) {
+        this.data.problems = mongoProblems.map(({ _id, ...p }: any) => {
+          const item = { ...p };
+          if (_id) item.id = p.id || _id.toString();
+          return item as Problem;
+        });
+      }
 
       // 13. ZoneProblems
       const zoneProblemsCol = this.mongoDb.collection('zoneProblems');
@@ -1645,11 +1663,20 @@ class DatabaseEngine {
       // 14. Solutions
       const solutionsCol = this.mongoDb.collection('solutions');
       let mongoSolutions = await solutionsCol.find({}).toArray();
-      this.data.solutions = mongoSolutions.map(({ _id, ...s }: any) => {
-        const item = { ...s };
-        if (_id) item.id = s.id || _id.toString();
-        return item as Solution;
-      });
+      if (mongoSolutions.length < (this.data.solutions?.length || 0) && this.data.solutions?.length > 0) {
+        console.log('Syncing local solutions to MongoDB...');
+        for (const s of this.data.solutions) {
+          await solutionsCol.updateOne({ id: s.id }, { $set: s }, { upsert: true });
+        }
+        mongoSolutions = await solutionsCol.find({}).toArray();
+      }
+      if (mongoSolutions.length > 0) {
+        this.data.solutions = mongoSolutions.map(({ _id, ...s }: any) => {
+          const item = { ...s };
+          if (_id) item.id = s.id || _id.toString();
+          return item as Solution;
+        });
+      }
 
       // 15. ProblemSolutions
       const problemSolutionsCol = this.mongoDb.collection('problemSolutions');
@@ -1672,29 +1699,61 @@ class DatabaseEngine {
       // 17. Industries
       const industriesCol = this.mongoDb.collection('industries');
       let mongoIndustries = await industriesCol.find({}).toArray();
-      this.data.industries = mongoIndustries.map(({ _id, ...ind }: any) => {
-        const item = { ...ind };
-        if (_id) item.id = ind.id || _id.toString();
-        return item as Industry;
-      });
+      if (mongoIndustries.length < (this.data.industries?.length || 0) && this.data.industries?.length > 0) {
+        console.log('Syncing local industries to MongoDB...');
+        for (const ind of this.data.industries) {
+          await industriesCol.updateOne({ id: ind.id }, { $set: ind }, { upsert: true });
+        }
+        mongoIndustries = await industriesCol.find({}).toArray();
+      }
+      if (mongoIndustries.length > 0) {
+        const uniqueInds = new Map<string, Industry>();
+        mongoIndustries.forEach(({ _id, ...ind }: any) => {
+          const item = { ...ind };
+          if (_id) item.id = ind.id || _id.toString();
+          const key = (item.slug || item.name || item.id || '').toLowerCase();
+          if (!uniqueInds.has(key) || item.publicId?.startsWith('IND_')) {
+            uniqueInds.set(key, item as Industry);
+          }
+        });
+        this.data.industries = Array.from(uniqueInds.values());
+      }
 
       // 18. Institutions
       const institutionsCol = this.mongoDb.collection('institutions');
       let mongoInstitutions = await institutionsCol.find({}).toArray();
-      this.data.institutions = mongoInstitutions.map(({ _id, ...inst }: any) => {
-        const item = { ...inst };
-        if (_id) item.id = inst.id || _id.toString();
-        return item as Institution;
-      });
+      if (mongoInstitutions.length < (this.data.institutions?.length || 0) && this.data.institutions?.length > 0) {
+        console.log('Syncing local institutions to MongoDB...');
+        for (const inst of this.data.institutions) {
+          await institutionsCol.updateOne({ id: inst.id }, { $set: inst }, { upsert: true });
+        }
+        mongoInstitutions = await institutionsCol.find({}).toArray();
+      }
+      if (mongoInstitutions.length > 0) {
+        this.data.institutions = mongoInstitutions.map(({ _id, ...inst }: any) => {
+          const item = { ...inst };
+          if (_id) item.id = inst.id || _id.toString();
+          return item as Institution;
+        });
+      }
 
       // 19. Modules
       const modulesCol = this.mongoDb.collection('modules');
       let mongoModules = await modulesCol.find({}).toArray();
-      this.data.modules = mongoModules.map(({ _id, ...mod }: any) => {
-        const item = { ...mod };
-        if (_id) item.id = mod.id || _id.toString();
-        return item as Module;
-      });
+      if (mongoModules.length < (this.data.modules?.length || 0) && this.data.modules?.length > 0) {
+        console.log('Syncing local modules to MongoDB...');
+        for (const mod of this.data.modules) {
+          await modulesCol.updateOne({ id: mod.id }, { $set: mod }, { upsert: true });
+        }
+        mongoModules = await modulesCol.find({}).toArray();
+      }
+      if (mongoModules.length > 0) {
+        this.data.modules = mongoModules.map(({ _id, ...mod }: any) => {
+          const item = { ...mod };
+          if (_id) item.id = mod.id || _id.toString();
+          return item as Module;
+        });
+      }
 
       // 20. Technology Ecosystem
       const techCol = this.mongoDb.collection('technology_ecosystem');

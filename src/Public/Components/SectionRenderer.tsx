@@ -38,18 +38,18 @@ export default function SectionRenderer({ section, theme, products = [], onFormS
       ]).then(([industries, institutions, zones, problems, modules, solutions]) => {
         const pathMap: Record<string, string> = {};
         solutions.forEach((sol: any) => {
-          const ind = industries.find((i: any) => i.id === sol.industryId);
-          const inst = institutions.find((i: any) => i.id === sol.institutionId);
-          const zone = zones.find((z: any) => z.id === sol.zoneId);
-          const prob = problems.find((p: any) => p.id === sol.problemId);
-          const mod = modules.find((m: any) => m.id === sol.moduleId);
+          const mod = modules.find((m: any) => m.id === sol.moduleId) || modules[0];
+          const prob = problems.find((p: any) => p.id === (sol.problemId || mod?.problemId)) || problems[0];
+          const zone = zones.find((z: any) => z.id === (sol.zoneId || prob?.zoneId)) || zones[0];
+          const inst = institutions.find((i: any) => i.id === (sol.institutionId || zone?.institutionId)) || institutions[0];
+          const ind = industries.find((i: any) => i.id === (sol.industryId || inst?.industryId)) || industries[0];
 
-          const indPub = ind?.publicId || 'IND_DEFAULT';
-          const instPub = inst?.publicId || 'INS_DEFAULT';
-          const zonePub = zone?.publicId || 'ARE_DEFAULT';
-          const probPub = prob?.publicId || 'PRB_DEFAULT';
-          const modPub = mod?.publicId || 'MOD_DEFAULT';
-          const solPub = sol.publicId || 'SOL_DEFAULT';
+          const indPub = ind?.publicId || ind?.slug || 'education';
+          const instPub = inst?.publicId || inst?.slug || 'school';
+          const zonePub = zone?.publicId || zone?.slug || 'main-gate';
+          const probPub = prob?.publicId || prob?.slug || 'unauthorized-entry';
+          const modPub = mod?.publicId || mod?.slug || 'sentinel-ai';
+          const solPub = sol.publicId || sol.id;
 
           pathMap[sol.id] = `/industries/${indPub}/${instPub}/${zonePub}/${probPub}/${modPub}/${solPub}`;
         });
