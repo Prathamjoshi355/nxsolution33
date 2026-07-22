@@ -559,75 +559,112 @@ export default function SectionRenderer({ section, theme, products = [], onFormS
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {content.items && content.items.map((item: any) => {
-                const hasImg = !!item.image;
-                return (
-                  <div
-                    key={item.id}
-                    onClick={() => {
-                      const matchedDbInd = dbIndustries.find(
-                        (ind: any) =>
-                          ind.name?.toLowerCase() === item.title?.toLowerCase() ||
-                          ind.slug?.toLowerCase() === item.title?.toLowerCase() ||
-                          ind.slug?.toLowerCase() === item.slug?.toLowerCase()
-                      );
-
-                      if (matchedDbInd) {
-                        navigate(`/industries/${matchedDbInd.publicId}`);
-                        return;
-                      }
-
-                      if (item.link || item.actionUrl) {
-                        const targetLink = item.link || item.actionUrl;
-                        if (targetLink === '/institution') {
-                          const edu = dbIndustries.find((ind: any) => ind.name?.toLowerCase() === 'education');
-                          if (edu) {
-                            navigate(`/industries/${edu.publicId}`);
-                            return;
-                          }
-                        }
-                        navigate(targetLink);
-                        return;
-                      }
-                      const rawSlug = item.slug || item.title.toLowerCase().replace(/\s+/g, '-');
-                      const cleanSlug = rawSlug.replace(/^\/?industries\/?/, '').replace(/^\//, '');
-                      navigate(`/industries/${cleanSlug}`);
-                    }}
-                    className="group bg-white rounded-2xl border border-slate-200/80 p-6 flex flex-col items-center text-center shadow-sm hover:shadow-md hover:border-[#0059bb] transition-all duration-300 cursor-pointer hover:-translate-y-2"
-                    style={section.id === 'industries-grid' ? { height: '199px' } : {}}
-                  >
-                    <div 
-                      className="w-12 h-12 bg-blue-50/50 flex items-center justify-center mb-3 group-hover:bg-blue-50 transition-colors overflow-hidden border border-slate-100"
-                      style={{ borderRadius: section.id === 'industries-grid' ? '100px' : '12px' }}
-                    >
-                      {hasImg ? (
-                        <img 
-                          src={item.image} 
-                          alt={item.title} 
-                          className="w-full h-full object-cover"
-                          referrerPolicy="no-referrer"
-                        />
-                      ) : (
-                        <div className="text-[#0059bb] transition-colors">
-                          {renderIcon(item.icon, "w-6 h-6")}
-                        </div>
-                      )}
-                    </div>
-                    <h3 
-                      className="text-sm md:text-base font-bold text-[#00244a] mb-1.5 transition-colors group-hover:text-[#0059bb]"
-                      style={section.id === 'industries-grid' ? { fontSize: '16px', lineHeight: '24px' } : {}}
-                    >
-                      {item.title}
-                    </h3>
-                    <p 
-                      className="text-xs text-slate-500 line-clamp-2 leading-relaxed max-w-[140px] mx-auto"
-                      style={section.id === 'industries-grid' ? { lineHeight: '14.4px' } : {}}
-                    >
-                      {item.desc}
-                    </p>
-                  </div>
+              {(() => {
+                const publishedFromDb = (dbIndustries || []).filter(
+                  (ind: any) => (ind.status || 'published').toLowerCase() === 'published'
                 );
-              })}
+
+                let itemsToMap: any[] = [];
+                if (publishedFromDb.length > 0) {
+                  const cfgMap = new Map();
+                  (content.items || []).forEach((item: any) => {
+                    const key = (item.id || item.publicId || item.slug || item.title || '').toLowerCase();
+                    if (key) cfgMap.set(key, item);
+                  });
+
+                  itemsToMap = publishedFromDb.map((ind: any) => {
+                    const cfg = cfgMap.get((ind.id || '').toLowerCase()) ||
+                               cfgMap.get((ind.publicId || '').toLowerCase()) ||
+                               cfgMap.get((ind.slug || '').toLowerCase()) ||
+                               cfgMap.get((ind.name || '').toLowerCase());
+
+                    return {
+                      id: ind.id || ind.publicId,
+                      publicId: ind.publicId || ind.slug || ind.id,
+                      slug: ind.slug || ind.publicId,
+                      title: ind.name || ind.title || cfg?.title || 'Industry Vertical',
+                      desc: ind.shortDescription || ind.description || cfg?.desc || 'Enterprise & Industrial Vertical',
+                      image: ind.cardImage || ind.coverImage || cfg?.image,
+                      icon: ind.icon || cfg?.icon || 'Building2',
+                      link: `/industries/${ind.publicId || ind.slug || ind.id}`
+                    };
+                  });
+                } else {
+                  itemsToMap = content.items || [];
+                }
+
+                return itemsToMap.map((item: any) => {
+                  const hasImg = !!item.image;
+                  return (
+                    <div
+                      key={item.id || item.publicId || item.slug}
+                      onClick={() => {
+                        const matchedDbInd = dbIndustries.find(
+                          (ind: any) =>
+                            ind.name?.toLowerCase() === item.title?.toLowerCase() ||
+                            ind.slug?.toLowerCase() === item.title?.toLowerCase() ||
+                            ind.slug?.toLowerCase() === item.slug?.toLowerCase() ||
+                            ind.publicId === item.publicId ||
+                            ind.id === item.id
+                        );
+
+                        if (matchedDbInd) {
+                          navigate(`/industries/${matchedDbInd.publicId || matchedDbInd.slug}`);
+                          return;
+                        }
+
+                        if (item.link || item.actionUrl) {
+                          const targetLink = item.link || item.actionUrl;
+                          if (targetLink === '/institution') {
+                            const edu = dbIndustries.find((ind: any) => ind.name?.toLowerCase() === 'education');
+                            if (edu) {
+                              navigate(`/industries/${edu.publicId}`);
+                              return;
+                            }
+                          }
+                          navigate(targetLink);
+                          return;
+                        }
+                        const rawSlug = item.publicId || item.slug || item.title?.toLowerCase().replace(/\s+/g, '-');
+                        const cleanSlug = rawSlug ? rawSlug.replace(/^\/?industries\/?/, '').replace(/^\//, '') : '';
+                        navigate(`/industries/${cleanSlug}`);
+                      }}
+                      className="group bg-white rounded-2xl border border-slate-200/80 p-6 flex flex-col items-center text-center shadow-sm hover:shadow-md hover:border-[#0059bb] transition-all duration-300 cursor-pointer hover:-translate-y-2"
+                      style={section.id === 'industries-grid' ? { height: '199px' } : {}}
+                    >
+                      <div 
+                        className="w-12 h-12 bg-blue-50/50 flex items-center justify-center mb-3 group-hover:bg-blue-50 transition-colors overflow-hidden border border-slate-100"
+                        style={{ borderRadius: section.id === 'industries-grid' ? '100px' : '12px' }}
+                      >
+                        {hasImg ? (
+                          <img 
+                            src={item.image} 
+                            alt={item.title} 
+                            className="w-full h-full object-cover"
+                            referrerPolicy="no-referrer"
+                          />
+                        ) : (
+                          <div className="text-[#0059bb] transition-colors">
+                            {renderIcon(item.icon, "w-6 h-6")}
+                          </div>
+                        )}
+                      </div>
+                      <h3 
+                        className="text-sm md:text-base font-bold text-[#00244a] mb-1.5 transition-colors group-hover:text-[#0059bb]"
+                        style={section.id === 'industries-grid' ? { fontSize: '16px', lineHeight: '24px' } : {}}
+                      >
+                        {item.title}
+                      </h3>
+                      <p 
+                        className="text-xs text-slate-500 line-clamp-2 leading-relaxed max-w-[140px] mx-auto"
+                        style={section.id === 'industries-grid' ? { lineHeight: '14.4px' } : {}}
+                      >
+                        {item.desc}
+                      </p>
+                    </div>
+                  );
+                });
+              })()}
             </div>
           </div>
         )}
@@ -669,24 +706,58 @@ export default function SectionRenderer({ section, theme, products = [], onFormS
                 style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
               >
                 {(() => {
-                  let displayIndustries = [...dbIndustries];
-                  if (content.items && content.items.length > 0) {
-                    const indMap = new Map(dbIndustries.map(ind => [ind.id, ind]));
-                    displayIndustries = content.items
-                      .map((cfgItem: any) => {
-                        const ind = indMap.get(cfgItem.id);
-                        if (!ind) return null;
-                        return {
-                          ...(ind as any),
-                          isHomeFeatured: cfgItem.featured !== undefined ? cfgItem.featured : (ind as any).featured,
-                          isHomeVisible: cfgItem.visible !== undefined ? cfgItem.visible : true,
-                          homePageImage: cfgItem.homePageImage
-                        };
-                      })
-                      .filter((item: any) => item !== null && item.isHomeVisible !== false);
+                  const publishedFromDb = (dbIndustries || []).filter(
+                    (ind: any) => (ind.status || 'published').toLowerCase() === 'published'
+                  );
+
+                  let displayIndustries: any[] = [];
+
+                  if (publishedFromDb.length > 0) {
+                    const cfgMap = new Map();
+                    if (content.items && Array.isArray(content.items)) {
+                      content.items.forEach((cfg: any) => {
+                        if (cfg.id) cfgMap.set(cfg.id, cfg);
+                        if (cfg.publicId) cfgMap.set(cfg.publicId, cfg);
+                        if (cfg.slug) cfgMap.set(cfg.slug, cfg);
+                      });
+                    }
+
+                    const processedDbIds = new Set<string>();
+
+                    if (content.items && Array.isArray(content.items)) {
+                      content.items.forEach((cfgItem: any) => {
+                        const dbMatch = publishedFromDb.find((ind: any) => 
+                          ind.id === cfgItem.id || 
+                          ind.publicId === cfgItem.publicId || 
+                          ind.publicId === cfgItem.id ||
+                          ind.slug === cfgItem.slug
+                        );
+                        if (dbMatch) {
+                          processedDbIds.add(dbMatch.id);
+                          const isHomeVisible = cfgItem.visible !== undefined ? cfgItem.visible : true;
+                          if (isHomeVisible !== false) {
+                            displayIndustries.push({
+                              ...dbMatch,
+                              isHomeFeatured: cfgItem.featured !== undefined ? cfgItem.featured : dbMatch.featured,
+                              homePageImage: cfgItem.homePageImage
+                            });
+                          }
+                        }
+                      });
+                    }
+
+                    publishedFromDb.forEach((ind: any) => {
+                      if (!processedDbIds.has(ind.id)) {
+                        displayIndustries.push({
+                          ...ind,
+                          isHomeFeatured: ind.featured || false
+                        });
+                      }
+                    });
                   } else {
-                    displayIndustries = displayIndustries.filter(ind => ind.status === 'published');
+                    displayIndustries = (content.items || []).filter((item: any) => item.visible !== false);
                   }
+
                   return displayIndustries;
                 })().map((item: any) => {
                   let homeImgUrl = '';
