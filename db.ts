@@ -2409,7 +2409,7 @@ Operating in local JSON file-based database mode (db.json).
     if (Array.isArray(this.data.industries)) {
       this.data.industries.forEach(item => {
         if (!item.publicId || !item.publicId.startsWith('IND_')) {
-          item.publicId = generatePublicId('IND');
+          item.publicId = generatePublicId('IND', item.id || item.slug || item.name);
           changed = true;
           this.persistToMongo('industries', 'id', item);
         }
@@ -2419,7 +2419,7 @@ Operating in local JSON file-based database mode (db.json).
     if (Array.isArray(this.data.institutions)) {
       this.data.institutions.forEach(item => {
         if (!item.publicId || !item.publicId.startsWith('INS_')) {
-          item.publicId = generatePublicId('INS');
+          item.publicId = generatePublicId('INS', item.id || item.slug || item.name);
           changed = true;
           this.persistToMongo('institutions', 'id', item);
         }
@@ -2429,7 +2429,7 @@ Operating in local JSON file-based database mode (db.json).
     if (Array.isArray(this.data.zones)) {
       this.data.zones.forEach(item => {
         if (!item.publicId || !item.publicId.startsWith('ARE_')) {
-          item.publicId = generatePublicId('ARE');
+          item.publicId = generatePublicId('ARE', item.id || item.slug || item.name);
           changed = true;
           this.persistToMongo('zones', 'id', item);
         }
@@ -2439,7 +2439,7 @@ Operating in local JSON file-based database mode (db.json).
     if (Array.isArray(this.data.problems)) {
       this.data.problems.forEach(item => {
         if (!item.publicId || !item.publicId.startsWith('PRB_')) {
-          item.publicId = generatePublicId('PRB');
+          item.publicId = generatePublicId('PRB', item.id || item.slug || item.name);
           changed = true;
           this.persistToMongo('problems', 'id', item);
         }
@@ -2449,7 +2449,7 @@ Operating in local JSON file-based database mode (db.json).
     if (Array.isArray(this.data.solutions)) {
       this.data.solutions.forEach(item => {
         if (!item.publicId || !item.publicId.startsWith('SOL_')) {
-          item.publicId = generatePublicId('SOL');
+          item.publicId = generatePublicId('SOL', item.id || item.slug || (item as any).name || item.title);
           changed = true;
           this.persistToMongo('solutions', 'id', item);
         }
@@ -2459,7 +2459,7 @@ Operating in local JSON file-based database mode (db.json).
     if (Array.isArray(this.data.modules)) {
       this.data.modules.forEach(item => {
         if (!item.publicId || !item.publicId.startsWith('MOD_')) {
-          item.publicId = generatePublicId('MOD');
+          item.publicId = generatePublicId('MOD', item.id || item.slug || item.name);
           changed = true;
           this.persistToMongo('modules', 'id', item);
         }
@@ -2606,13 +2606,27 @@ Operating in local JSON file-based database mode (db.json).
   }
 }
 
-export function generatePublicId(prefix: string): string {
-  const chars = '0123456789ABCDEFGHJKMNPQRSTVWXYZ';
-  let randomPart = '';
-  for (let i = 0; i < 20; i++) {
-    randomPart += chars.charAt(Math.floor(Math.random() * chars.length));
+export function generatePublicId(prefix: string, seed?: string): string {
+  if (!seed) {
+    const chars = '0123456789ABCDEFGHJKMNPQRSTVWXYZ';
+    let randomPart = '';
+    for (let i = 0; i < 20; i++) {
+      randomPart += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return `${prefix}_${randomPart}`;
   }
-  return `${prefix}_${randomPart}`;
+  const chars = '0123456789ABCDEFGHJKMNPQRSTVWXYZ';
+  let hash = 0;
+  for (let i = 0; i < seed.length; i++) {
+    hash = ((hash << 5) - hash) + seed.charCodeAt(i);
+    hash |= 0;
+  }
+  let part = '';
+  for (let i = 0; i < 20; i++) {
+    const index = Math.abs((hash + i * 31 + seed.charCodeAt(i % seed.length))) % chars.length;
+    part += chars.charAt(index);
+  }
+  return `${prefix}_${part}`;
 }
 
 export const db = new DatabaseEngine();

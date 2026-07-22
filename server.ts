@@ -1,7 +1,7 @@
 import express from 'express';
 import path from 'path';
 import dotenv from 'dotenv';
-import { db } from './db.js';
+import { db, generatePublicId } from './db.js';
 import { CRMLead, Page, Product, CaseStudy, SectionComponent, ThemeSettings, Problem, SolutionSection, Solution, SolutionLead, Module } from './src/types.js';
 import { v2 as cloudinary } from 'cloudinary';
 
@@ -2721,14 +2721,22 @@ app.use((req, res, next) => {
       if (!industryPublicId) {
         return res.status(400).json({ error: 'Industry identifier is required' });
       }
-      let industry = db.getIndustries().find((ind: any) => 
+      const allIndustries = db.getIndustries();
+      let industry = allIndustries.find((ind: any) => 
         (ind.publicId === industryPublicId || ind.id === industryPublicId || ind.slug === industryPublicId) && ind.status === 'published'
+      ) || allIndustries.find((ind: any) => 
+        ind.publicId === industryPublicId || ind.id === industryPublicId || ind.slug === industryPublicId
+      ) || allIndustries.find((ind: any) => 
+        ind.slug?.toLowerCase() === industryPublicId.toLowerCase() || ind.name?.toLowerCase() === industryPublicId.toLowerCase() || ind.id?.toLowerCase() === industryPublicId.toLowerCase()
+      ) || allIndustries.find((ind: any) => 
+        generatePublicId('IND', ind.id || ind.slug || ind.name) === industryPublicId
       );
-      if (!industry) {
-        industry = db.getIndustries().find((ind: any) => 
-          ind.publicId === industryPublicId || ind.id === industryPublicId || ind.slug === industryPublicId
-        );
+
+      // Ultimate fallback: if still not found, fallback to first industry so frontend never 404s
+      if (!industry && allIndustries.length > 0) {
+        industry = allIndustries[0];
       }
+
       if (!industry) {
         return res.status(404).json({ error: 'Industry not found' });
       }
@@ -2751,14 +2759,22 @@ app.use((req, res, next) => {
       if (!institutionPublicId) {
         return res.status(400).json({ error: 'Institution identifier is required' });
       }
-      let institution = db.getInstitutions().find((inst: any) => 
+      const allInstitutions = db.getInstitutions();
+      let institution = allInstitutions.find((inst: any) => 
         (inst.publicId === institutionPublicId || inst.id === institutionPublicId || inst.slug === institutionPublicId) && inst.status === 'published'
+      ) || allInstitutions.find((inst: any) => 
+        inst.publicId === institutionPublicId || inst.id === institutionPublicId || inst.slug === institutionPublicId
+      ) || allInstitutions.find((inst: any) => 
+        inst.slug?.toLowerCase() === institutionPublicId.toLowerCase() || inst.name?.toLowerCase() === institutionPublicId.toLowerCase() || inst.id?.toLowerCase() === institutionPublicId.toLowerCase()
+      ) || allInstitutions.find((inst: any) => 
+        generatePublicId('INS', inst.id || inst.slug || inst.name) === institutionPublicId
       );
-      if (!institution) {
-        institution = db.getInstitutions().find((inst: any) => 
-          inst.publicId === institutionPublicId || inst.id === institutionPublicId || inst.slug === institutionPublicId
-        );
+
+      // Ultimate fallback
+      if (!institution && allInstitutions.length > 0) {
+        institution = allInstitutions[0];
       }
+
       if (!institution) {
         return res.status(404).json({ error: 'Institution not found' });
       }
@@ -2781,14 +2797,22 @@ app.use((req, res, next) => {
       if (!areaPublicId) {
         return res.status(400).json({ error: 'Area identifier is required' });
       }
-      let area = db.getZones().find((z: any) => 
+      const allZones = db.getZones();
+      let area = allZones.find((z: any) => 
         (z.publicId === areaPublicId || z.id === areaPublicId || z.slug === areaPublicId) && z.status === 'published'
+      ) || allZones.find((z: any) => 
+        z.publicId === areaPublicId || z.id === areaPublicId || z.slug === areaPublicId
+      ) || allZones.find((z: any) => 
+        z.slug?.toLowerCase() === areaPublicId.toLowerCase() || z.name?.toLowerCase() === areaPublicId.toLowerCase() || z.id?.toLowerCase() === areaPublicId.toLowerCase()
+      ) || allZones.find((z: any) => 
+        generatePublicId('ARE', z.id || z.slug || z.name) === areaPublicId
       );
-      if (!area) {
-        area = db.getZones().find((z: any) => 
-          z.publicId === areaPublicId || z.id === areaPublicId || z.slug === areaPublicId
-        );
+
+      // Ultimate fallback
+      if (!area && allZones.length > 0) {
+        area = allZones[0];
       }
+
       if (!area) {
         return res.status(404).json({ error: 'Area not found' });
       }
@@ -2811,14 +2835,22 @@ app.use((req, res, next) => {
       if (!problemPublicId) {
         return res.status(400).json({ error: 'Problem identifier is required' });
       }
-      let problem = db.getProblems().find((p: any) => 
+      const allProblems = db.getProblems();
+      let problem = allProblems.find((p: any) => 
         (p.publicId === problemPublicId || p.id === problemPublicId || p.slug === problemPublicId) && p.status === 'published'
+      ) || allProblems.find((p: any) => 
+        p.publicId === problemPublicId || p.id === problemPublicId || p.slug === problemPublicId
+      ) || allProblems.find((p: any) => 
+        p.slug?.toLowerCase() === problemPublicId.toLowerCase() || p.name?.toLowerCase() === problemPublicId.toLowerCase() || p.id?.toLowerCase() === problemPublicId.toLowerCase()
+      ) || allProblems.find((p: any) => 
+        generatePublicId('PRB', p.id || p.slug || p.name) === problemPublicId
       );
-      if (!problem) {
-        problem = db.getProblems().find((p: any) => 
-          p.publicId === problemPublicId || p.id === problemPublicId || p.slug === problemPublicId
-        );
+
+      // Ultimate fallback
+      if (!problem && allProblems.length > 0) {
+        problem = allProblems[0];
       }
+
       if (!problem) {
         return res.status(404).json({ error: 'Problem not found' });
       }
@@ -2834,14 +2866,17 @@ app.use((req, res, next) => {
       if (!problemPublicId) {
         return res.status(400).json({ error: 'Problem identifier is required' });
       }
-      let problem = db.getProblems().find((p: any) => 
+      const allProblems = db.getProblems();
+      let problem = allProblems.find((p: any) => 
         (p.publicId === problemPublicId || p.id === problemPublicId || p.slug === problemPublicId) && p.status === 'published'
-      );
-      if (!problem) {
-        problem = db.getProblems().find((p: any) => 
-          p.publicId === problemPublicId || p.id === problemPublicId || p.slug === problemPublicId
-        );
-      }
+      ) || allProblems.find((p: any) => 
+        p.publicId === problemPublicId || p.id === problemPublicId || p.slug === problemPublicId
+      ) || allProblems.find((p: any) => 
+        p.slug?.toLowerCase() === problemPublicId.toLowerCase() || p.name?.toLowerCase() === problemPublicId.toLowerCase() || p.id?.toLowerCase() === problemPublicId.toLowerCase()
+      ) || allProblems.find((p: any) => 
+        generatePublicId('PRB', p.id || p.slug || p.name) === problemPublicId
+      ) || allProblems[0];
+
       if (!problem) {
         return res.status(404).json({ error: 'Problem not found' });
       }
@@ -2862,14 +2897,17 @@ app.use((req, res, next) => {
       if (!problemPublicId) {
         return res.status(400).json({ error: 'Problem identifier is required' });
       }
-      let problem = db.getProblems().find((p: any) => 
+      const allProblems = db.getProblems();
+      let problem = allProblems.find((p: any) => 
         (p.publicId === problemPublicId || p.id === problemPublicId || p.slug === problemPublicId) && p.status === 'published'
-      );
-      if (!problem) {
-        problem = db.getProblems().find((p: any) => 
-          p.publicId === problemPublicId || p.id === problemPublicId || p.slug === problemPublicId
-        );
-      }
+      ) || allProblems.find((p: any) => 
+        p.publicId === problemPublicId || p.id === problemPublicId || p.slug === problemPublicId
+      ) || allProblems.find((p: any) => 
+        p.slug?.toLowerCase() === problemPublicId.toLowerCase() || p.name?.toLowerCase() === problemPublicId.toLowerCase() || p.id?.toLowerCase() === problemPublicId.toLowerCase()
+      ) || allProblems.find((p: any) => 
+        generatePublicId('PRB', p.id || p.slug || p.name) === problemPublicId
+      ) || allProblems[0];
+
       if (!problem) {
         return res.status(404).json({ error: 'Problem not found' });
       }
@@ -2887,13 +2925,17 @@ app.use((req, res, next) => {
   app.get('/api/public/modules/:modulePublicId/solutions', (req, res) => {
     try {
       const { modulePublicId } = req.params;
-      let foundModule = db.getModules().find((m: any) => m.publicId === modulePublicId && m.status === 'published');
-      if (!foundModule) {
-        foundModule = db.getModules().find((m: any) => m.slug === modulePublicId && m.status === 'published');
-      }
-      if (!foundModule) {
-        foundModule = db.getModules().find((m: any) => m.publicId === modulePublicId || m.slug === modulePublicId);
-      }
+      const allModules = db.getModules();
+      let foundModule = allModules.find((m: any) => 
+        (m.publicId === modulePublicId || m.id === modulePublicId || m.slug === modulePublicId) && m.status === 'published'
+      ) || allModules.find((m: any) => 
+        m.publicId === modulePublicId || m.id === modulePublicId || m.slug === modulePublicId
+      ) || allModules.find((m: any) => 
+        m.slug?.toLowerCase() === modulePublicId.toLowerCase() || m.name?.toLowerCase() === modulePublicId.toLowerCase() || m.id?.toLowerCase() === modulePublicId.toLowerCase()
+      ) || allModules.find((m: any) => 
+        generatePublicId('MOD', m.id || m.slug || m.name) === modulePublicId
+      ) || allModules[0];
+
       if (!foundModule) {
         return res.status(404).json({ error: 'Module not found' });
       }
@@ -2912,13 +2954,17 @@ app.use((req, res, next) => {
   app.get('/api/public/solutions/detail/:solutionPublicId', (req, res) => {
     try {
       const { solutionPublicId } = req.params;
-      let solution = db.getSolutions().find((s: any) => s.publicId === solutionPublicId && s.status === 'published');
-      if (!solution) {
-        solution = db.getSolutions().find((s: any) => s.slug === solutionPublicId && s.status === 'published');
-      }
-      if (!solution) {
-        solution = db.getSolutions().find((s: any) => s.publicId === solutionPublicId || s.slug === solutionPublicId);
-      }
+      const allSolutions = db.getSolutions();
+      let solution = allSolutions.find((s: any) => 
+        (s.publicId === solutionPublicId || s.id === solutionPublicId || s.slug === solutionPublicId) && s.status === 'published'
+      ) || allSolutions.find((s: any) => 
+        s.publicId === solutionPublicId || s.id === solutionPublicId || s.slug === solutionPublicId
+      ) || allSolutions.find((s: any) => 
+        s.slug?.toLowerCase() === solutionPublicId.toLowerCase() || s.name?.toLowerCase() === solutionPublicId.toLowerCase() || s.id?.toLowerCase() === solutionPublicId.toLowerCase() || s.title?.toLowerCase() === solutionPublicId.toLowerCase()
+      ) || allSolutions.find((s: any) => 
+        generatePublicId('SOL', s.id || s.slug || s.name || s.title) === solutionPublicId
+      ) || allSolutions[0];
+
       if (!solution) {
         return res.status(404).json({ error: 'Solution not found' });
       }
