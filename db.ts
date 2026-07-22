@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { MongoClient } from 'mongodb';
-import { ThemeSettings, HeaderSettings, FooterSettings, Page, Product, CaseStudy, CRMLead, AuditLog, Role, User, Zone, Problem, ZoneProblem, Solution, ProblemSolution, SolutionLead, Industry, Institution, Module, TechnologyItem, TechnologyCategory, TestimonialItem, HomeTestimonialSectionConfig } from './src/types';
+import { ThemeSettings, HeaderSettings, FooterSettings, Page, Product, CaseStudy, CRMLead, AuditLog, Role, User, Zone, Problem, ZoneProblem, Solution, ProblemSolution, SolutionLead, Industry, Institution, Module, TechnologyItem, TechnologyCategory, TestimonialItem, HomeTestimonialSectionConfig } from './src/types.js';
 
 function getDbFilePath(): string {
   let baseDir = process.cwd();

@@ -1,8 +1,8 @@
 import express from 'express';
 import path from 'path';
 import dotenv from 'dotenv';
-import { db } from './db';
-import { CRMLead, Page, Product, CaseStudy, SectionComponent, ThemeSettings, Problem, SolutionSection, Solution, SolutionLead, Module } from './src/types';
+import { db } from './db.js';
+import { CRMLead, Page, Product, CaseStudy, SectionComponent, ThemeSettings, Problem, SolutionSection, Solution, SolutionLead, Module } from './src/types.js';
 import { v2 as cloudinary } from 'cloudinary';
 
 const app = express();

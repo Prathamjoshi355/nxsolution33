@@ -1,5 +1,5 @@
-import { app } from '../server';
-import { db } from '../db';
+import { app } from '../server.js';
+import { db } from '../db.js';
 
 export default async function handler(req: any, res: any) {
   const startTime = Date.now();
