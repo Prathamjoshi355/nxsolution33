@@ -1513,7 +1513,7 @@ Operating in local JSON file-based database mode (db.json).
       let mongoPages = await pagesCol.find({}).toArray();
       if (mongoPages.length === 0) {
         console.log('Seeding default pages to MongoDB...');
-        await pagesCol.insertMany(DEFAULT_PAGES);
+        await pagesCol.insertMany(JSON.parse(JSON.stringify(DEFAULT_PAGES)));
         mongoPages = DEFAULT_PAGES;
       }
       this.data.pages = mongoPages.map(({ _id, ...p }: any) => p as Page);
@@ -1523,7 +1523,7 @@ Operating in local JSON file-based database mode (db.json).
       let mongoProducts = await productsCol.find({}).toArray();
       if (mongoProducts.length === 0) {
         console.log('Seeding default products to MongoDB...');
-        await productsCol.insertMany(DEFAULT_PRODUCTS);
+        await productsCol.insertMany(JSON.parse(JSON.stringify(DEFAULT_PRODUCTS)));
         mongoProducts = DEFAULT_PRODUCTS;
       }
       this.data.products = mongoProducts.map(({ _id, ...p }: any) => p as Product);
@@ -1533,7 +1533,7 @@ Operating in local JSON file-based database mode (db.json).
       let mongoUsers = await usersCol.find({}).toArray();
       if (mongoUsers.length === 0) {
         console.log('Seeding default users to MongoDB...');
-        await usersCol.insertMany(DEFAULT_USERS);
+        await usersCol.insertMany(JSON.parse(JSON.stringify(DEFAULT_USERS)));
         mongoUsers = DEFAULT_USERS;
       }
       this.data.users = mongoUsers.map(({ _id, ...p }: any) => p as User);
@@ -1543,7 +1543,7 @@ Operating in local JSON file-based database mode (db.json).
       let mongoRoles = await rolesCol.find({}).toArray();
       if (mongoRoles.length === 0) {
         console.log('Seeding default roles to MongoDB...');
-        await rolesCol.insertMany(DEFAULT_ROLES);
+        await rolesCol.insertMany(JSON.parse(JSON.stringify(DEFAULT_ROLES)));
         mongoRoles = DEFAULT_ROLES;
       }
       this.data.roles = mongoRoles.map(({ _id, ...p }: any) => p as Role);
@@ -1558,7 +1558,7 @@ Operating in local JSON file-based database mode (db.json).
       let mongoCaseStudies = await caseStudiesCol.find({}).toArray();
       if (mongoCaseStudies.length === 0) {
         console.log('Seeding default case studies to MongoDB...');
-        await caseStudiesCol.insertMany(DEFAULT_CASE_STUDIES);
+        await caseStudiesCol.insertMany(JSON.parse(JSON.stringify(DEFAULT_CASE_STUDIES)));
         mongoCaseStudies = DEFAULT_CASE_STUDIES;
       }
       this.data.caseStudies = mongoCaseStudies.map(({ _id, ...cs }: any) => cs as CaseStudy);
