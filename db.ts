@@ -1125,6 +1125,7 @@ class DatabaseEngine {
   private data!: SchemaDB;
   private mongoClient: MongoClient | null = null;
   private mongoDb: any = null;
+  private connectionPromise: Promise<void> | null = null;
 
   constructor() {
     this.init();
@@ -1329,47 +1330,51 @@ class DatabaseEngine {
   }
 
   public async connect() {
-    if (this.mongoClient) {
-      return;
-    }
-    const uri = process.env.MONGODB_URI;
-    if (!uri) {
-      console.log('MONGODB_URI is not set. Operating in local JSON file mode.');
-      return;
+    if (this.connectionPromise) {
+      return this.connectionPromise;
     }
 
-    try {
-      console.log('Connecting to MongoDB...');
-      this.mongoClient = new MongoClient(uri, {
-        serverSelectionTimeoutMS: 5000,
-        connectTimeoutMS: 5000,
-      });
-      await this.mongoClient.connect();
-      
-      // Parse dbName out of connection URI
-      let dbName = 'nx_solution_cms';
-      try {
-        const parsedUrl = new URL(uri);
-        dbName = parsedUrl.pathname.replace(/^\//, '') || 'nx_solution_cms';
-      } catch (e) {
-        // Fallback simple parsing if URL constructor fails
-        const cleanUri = uri.split('?')[0];
-        const lastSlash = cleanUri.lastIndexOf('/');
-        if (lastSlash !== -1) {
-          dbName = cleanUri.substring(lastSlash + 1) || 'nx_solution_cms';
-        }
+    this.connectionPromise = (async () => {
+      const uri = process.env.MONGODB_URI;
+      if (!uri) {
+        console.log('MONGODB_URI is not set. Operating in local JSON file mode.');
+        return;
       }
 
-      this.mongoDb = this.mongoClient.db(dbName);
-      console.log(`Successfully connected to MongoDB database: ${dbName}`);
+      try {
+        console.log('Connecting to MongoDB...');
+        const client = new MongoClient(uri, {
+          serverSelectionTimeoutMS: 5000,
+          connectTimeoutMS: 5000,
+        });
+        await client.connect();
 
-      await this.syncAndLoadFromMongo();
-    } catch (err: any) {
-      const errStr = String(err?.message || err?.stack || err);
-      console.error('Failed to connect to MongoDB, falling back to local file-based database:', err);
-      
-      if (errStr.includes('alert number 80') || errStr.includes('ssl3_read_bytes') || errStr.includes('tlsv1 alert internal error')) {
-        console.warn(`
+        // Parse dbName out of connection URI
+        let dbName = 'nx_solution_cms';
+        try {
+          const parsedUrl = new URL(uri);
+          dbName = parsedUrl.pathname.replace(/^\//, '') || 'nx_solution_cms';
+        } catch (e) {
+          const cleanUri = uri.split('?')[0];
+          const lastSlash = cleanUri.lastIndexOf('/');
+          if (lastSlash !== -1) {
+            dbName = cleanUri.substring(lastSlash + 1) || 'nx_solution_cms';
+          }
+        }
+
+        this.mongoClient = client;
+        this.mongoDb = client.db(dbName);
+        console.log(`Successfully connected to MongoDB database: ${dbName}`);
+
+        await this.syncAndLoadFromMongo();
+      } catch (err: any) {
+        this.mongoClient = null;
+        this.mongoDb = null;
+        const errStr = String(err?.message || err?.stack || err);
+        console.error('Failed to connect to MongoDB, falling back to local file-based database:', err);
+        
+        if (errStr.includes('alert number 80') || errStr.includes('ssl3_read_bytes') || errStr.includes('tlsv1 alert internal error')) {
+          console.warn(`
 ========================================================================
 ⚠️  MONGODB CONNECTION FAILURE (TLS/SSL Handshake Error / Alert 80)
 ========================================================================
@@ -1391,8 +1396,8 @@ The application has successfully fallen back to the local database file
 (db.json). All content, users, leads, and pages remain fully functional!
 ========================================================================
 `);
-      } else {
-        console.warn(`
+        } else {
+          console.warn(`
 ========================================================================
 ⚠️  MONGODB CONNECTION WARNING
 ========================================================================
@@ -1405,8 +1410,11 @@ database is online and accessible.
 Operating in local JSON file-based database mode (db.json).
 ========================================================================
 `);
+        }
       }
-    }
+    })();
+
+    return this.connectionPromise;
   }
 
   private async syncAndLoadFromMongo() {
@@ -1668,12 +1676,12 @@ Operating in local JSON file-based database mode (db.json).
 
   // Auth Operations
   public authenticateUser(email: string): User | null {
-    const user = this.data.users.find(u => u.email.toLowerCase() === email.toLowerCase());
+    const user = (this.data?.users || DEFAULT_USERS).find(u => u.email.toLowerCase() === email.toLowerCase());
     return user || null;
   }
 
   public getUsers(): User[] {
-    return this.data.users;
+    return this.data?.users || DEFAULT_USERS;
   }
 
   public addUser(user: User) {
@@ -1699,7 +1707,7 @@ Operating in local JSON file-based database mode (db.json).
 
   // Theme, Header, Footer
   public getTheme(): ThemeSettings {
-    return this.data.themeSettings;
+    return this.data?.themeSettings || DEFAULT_THEME;
   }
 
   public updateTheme(theme: ThemeSettings) {
@@ -1709,7 +1717,7 @@ Operating in local JSON file-based database mode (db.json).
   }
 
   public getHeader(): HeaderSettings {
-    return this.data.headerSettings;
+    return this.data?.headerSettings || DEFAULT_HEADER;
   }
 
   public updateHeader(header: HeaderSettings) {
@@ -1719,7 +1727,7 @@ Operating in local JSON file-based database mode (db.json).
   }
 
   public getFooter(): FooterSettings {
-    return this.data.footerSettings;
+    return this.data?.footerSettings || DEFAULT_FOOTER;
   }
 
   public updateFooter(footer: FooterSettings) {
@@ -1730,13 +1738,13 @@ Operating in local JSON file-based database mode (db.json).
 
   // Pages
   public getPages(): Page[] {
-    return this.data.pages;
+    return this.data?.pages || DEFAULT_PAGES;
   }
 
   public getPageBySlug(slug: string): Page | undefined {
     // Exact or with trailing slash trimming
     const normalized = slug === '/' ? '/' : slug.replace(/\/$/, '');
-    return this.data.pages.find(p => p.slug === normalized);
+    return (this.data?.pages || DEFAULT_PAGES).find(p => p.slug === normalized);
   }
 
   public updatePage(id: string, updatedPage: Page) {
@@ -1762,11 +1770,11 @@ Operating in local JSON file-based database mode (db.json).
 
   // Products
   public getProducts(): Product[] {
-    return this.data.products;
+    return this.data?.products || DEFAULT_PRODUCTS;
   }
 
   public getProductBySlug(slug: string): Product | undefined {
-    return this.data.products.find(p => p.slug === slug);
+    return (this.data?.products || DEFAULT_PRODUCTS).find(p => p.slug === slug);
   }
 
   public saveProduct(product: Product) {
@@ -1817,7 +1825,7 @@ Operating in local JSON file-based database mode (db.json).
 
   // CRM Leads
   public getLeads(): CRMLead[] {
-    return this.data.leads;
+    return this.data?.leads || [];
   }
 
   public saveLead(lead: CRMLead) {
@@ -1844,7 +1852,7 @@ Operating in local JSON file-based database mode (db.json).
 
   // Logs
   public getLogs(): AuditLog[] {
-    return this.data.logs;
+    return this.data?.logs || [];
   }
 
   public addLog(log: Omit<AuditLog, 'id' | 'timestamp'>) {
@@ -1864,7 +1872,7 @@ Operating in local JSON file-based database mode (db.json).
 
   // Roles
   public getRoles(): Role[] {
-    return this.data.roles;
+    return this.data?.roles || DEFAULT_ROLES;
   }
 
   public saveRolePermissions(roleName: string, permissions: string[]) {
