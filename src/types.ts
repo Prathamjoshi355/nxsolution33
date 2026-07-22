@@ -216,6 +216,8 @@ export interface Zone {
   priority?: string;
   riskLevel?: string;
   shortDescription?: string;
+  createdAt?: string;
+  updatedAt?: string;
   seo?: {
     metaTitle?: string;
     metaDescription?: string;
@@ -328,6 +330,8 @@ export interface Solution {
   industryId?: string;
   institutionId?: string;
   zoneId?: string;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 export interface ProblemSolution {
@@ -406,12 +410,12 @@ export interface Institution {
     phone?: string;
     website?: string;
   };
-  seo: {
+  seo?: {
     metaTitle?: string;
     metaDescription?: string;
     keywords?: string;
   };
-  cta: {
+  cta?: {
     buttonText?: string;
     buttonLink?: string;
   };

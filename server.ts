@@ -2,7 +2,7 @@ import express from 'express';
 import path from 'path';
 import dotenv from 'dotenv';
 import { db, generatePublicId } from './db.js';
-import { CRMLead, Page, Product, CaseStudy, SectionComponent, ThemeSettings, Problem, SolutionSection, Solution, SolutionLead, Module } from './src/types.js';
+import { CRMLead, Page, Product, CaseStudy, SectionComponent, ThemeSettings, Problem, SolutionSection, Solution, SolutionLead, Module, Industry, Institution } from './src/types.js';
 import { v2 as cloudinary } from 'cloudinary';
 
 const app = express();
@@ -941,6 +941,30 @@ app.use((req, res, next) => {
 
     db.updatePage(page.id, page);
 
+    if (Array.isArray(payload.industries)) {
+      payload.industries.forEach((item: any, idx: number) => {
+        if (item) {
+          const indObj: Industry = {
+            id: item.id || `ind-${idx}-${Date.now()}`,
+            name: item.title || item.name || '',
+            slug: (item.slug || item.title || item.name || '').toLowerCase().trim().replace(/^\/?industries\/?/, '').replace(/^\//, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
+            shortDescription: item.desc || item.shortDescription || '',
+            description: item.description || item.desc || '',
+            coverImage: item.image || item.coverImage || '',
+            cardImage: item.image || item.cardImage || '',
+            bannerImage: item.bannerImage || '',
+            icon: item.icon || 'GraduationCap',
+            seo: item.seo || { metaTitle: item.title || '', metaDescription: item.desc || '' },
+            cta: item.cta || { buttonText: 'Learn More', buttonLink: '' },
+            status: item.status || 'published',
+            featured: item.featured !== false,
+            sortOrder: idx
+          };
+          db.saveIndustry(indObj);
+        }
+      });
+    }
+
     db.addLog({
       userId: 'user-admin',
       userName: 'Administrator',
@@ -1227,6 +1251,29 @@ app.use((req, res, next) => {
 
     db.updatePage(page.id, page);
 
+    if (Array.isArray(payload.institutions)) {
+      payload.institutions.forEach((item: any, idx: number) => {
+        if (item) {
+          const instObj: Institution = {
+            id: item.id || `inst-${idx}-${Date.now()}`,
+            industryId: (item.industryIds && item.industryIds.length > 0) ? item.industryIds[0] : 'ind-edu',
+            name: item.title || item.name || '',
+            slug: (item.slug || item.title || item.name || '').toLowerCase().trim().replace(/^\//, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
+            shortDescription: item.subtitle || item.desc || item.shortDescription || '',
+            description: item.description || item.desc || '',
+            cardImage: item.image || item.cardImage || '',
+            coverImage: item.image || item.coverImage || '',
+            bannerImage: item.bannerImage || '',
+            icon: item.icon || 'School',
+            status: item.status || 'published',
+            featured: item.featured !== false,
+            sortOrder: idx
+          };
+          db.saveInstitution(instObj);
+        }
+      });
+    }
+
     db.addLog({
       userId: 'user-admin',
       userName: 'Administrator',
@@ -1270,6 +1317,23 @@ app.use((req, res, next) => {
     gridSec.content.items.push(newCard);
 
     db.updatePage(page.id, page);
+
+    // Sync to Institutions repository
+    db.saveInstitution({
+      id: newCard.id,
+      industryId: (newCard.industryIds && newCard.industryIds.length > 0) ? newCard.industryIds[0] : 'ind-edu',
+      name: newCard.title,
+      slug: (newCard.slug || newCard.title).toLowerCase().trim().replace(/^\//, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
+      shortDescription: newCard.subtitle || newCard.desc || '',
+      description: newCard.description || newCard.desc || '',
+      cardImage: newCard.image || '',
+      coverImage: newCard.image || '',
+      bannerImage: '',
+      icon: newCard.icon || 'School',
+      status: (newCard.status as any) || 'published',
+      featured: true,
+      sortOrder: newCard.order
+    });
 
     db.addLog({
       userId: 'user-admin',
@@ -1318,6 +1382,23 @@ app.use((req, res, next) => {
     gridSec.content.items[idx] = updated;
     db.updatePage(page.id, page);
 
+    // Sync to Institutions repository
+    db.saveInstitution({
+      id: updated.id,
+      industryId: (updated.industryIds && updated.industryIds.length > 0) ? updated.industryIds[0] : 'ind-edu',
+      name: updated.title,
+      slug: (updated.slug || updated.title).toLowerCase().trim().replace(/^\//, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
+      shortDescription: updated.subtitle || updated.desc || '',
+      description: updated.description || updated.desc || '',
+      cardImage: updated.image || '',
+      coverImage: updated.image || '',
+      bannerImage: '',
+      icon: updated.icon || 'School',
+      status: (updated.status as any) || 'published',
+      featured: true,
+      sortOrder: updated.order
+    });
+
     db.addLog({
       userId: 'user-admin',
       userName: 'Administrator',
@@ -1345,6 +1426,9 @@ app.use((req, res, next) => {
     }
 
     db.updatePage(page.id, page);
+
+    // Sync to Institutions repository
+    db.deleteInstitution(id);
 
     db.addLog({
       userId: 'user-admin',

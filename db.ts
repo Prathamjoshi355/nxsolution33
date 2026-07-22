@@ -1947,16 +1947,21 @@ Operating in local JSON file-based database mode (db.json).
       if (idx !== -1 && this.data.zones[idx].publicId) {
         zone.publicId = this.data.zones[idx].publicId;
       } else {
-        zone.publicId = generatePublicId('ARE');
+        zone.publicId = generatePublicId('ARE', zone.id || zone.slug || zone.name);
       }
     }
+    let finalItem: Zone;
     if (idx !== -1) {
-      this.data.zones[idx] = zone;
+      this.data.zones[idx] = { ...this.data.zones[idx], ...zone, updatedAt: new Date().toISOString() };
+      finalItem = this.data.zones[idx];
     } else {
+      if (!zone.createdAt) zone.createdAt = new Date().toISOString();
+      zone.updatedAt = new Date().toISOString();
       this.data.zones.push(zone);
+      finalItem = zone;
     }
     this.save();
-    this.persistToMongo('zones', 'id', zone);
+    this.persistToMongo('zones', 'id', finalItem);
   }
 
   public deleteZone(id: string) {
@@ -1982,16 +1987,21 @@ Operating in local JSON file-based database mode (db.json).
       if (idx !== -1 && this.data.problems[idx].publicId) {
         problem.publicId = this.data.problems[idx].publicId;
       } else {
-        problem.publicId = generatePublicId('PRB');
+        problem.publicId = generatePublicId('PRB', problem.id || problem.slug || problem.name);
       }
     }
+    let finalItem: Problem;
     if (idx !== -1) {
-      this.data.problems[idx] = problem;
+      this.data.problems[idx] = { ...this.data.problems[idx], ...problem, updatedAt: new Date().toISOString() };
+      finalItem = this.data.problems[idx];
     } else {
+      if (!problem.createdAt) problem.createdAt = new Date().toISOString();
+      problem.updatedAt = new Date().toISOString();
       this.data.problems.push(problem);
+      finalItem = problem;
     }
     this.save();
-    this.persistToMongo('problems', 'id', problem);
+    this.persistToMongo('problems', 'id', finalItem);
   }
   public deleteProblem(id: string) {
     this.data.problems = (this.data.problems || []).filter(p => p.id !== id);
@@ -2022,16 +2032,21 @@ Operating in local JSON file-based database mode (db.json).
       if (idx !== -1 && this.data.modules[idx].publicId) {
         module.publicId = this.data.modules[idx].publicId;
       } else {
-        module.publicId = generatePublicId('MOD');
+        module.publicId = generatePublicId('MOD', module.id || module.slug || module.name);
       }
     }
+    let finalItem: Module;
     if (idx !== -1) {
-      this.data.modules[idx] = module;
+      this.data.modules[idx] = { ...this.data.modules[idx], ...module, updatedAt: new Date().toISOString() };
+      finalItem = this.data.modules[idx];
     } else {
+      if (!module.createdAt) module.createdAt = new Date().toISOString();
+      module.updatedAt = new Date().toISOString();
       this.data.modules.push(module);
+      finalItem = module;
     }
     this.save();
-    this.persistToMongo('modules', 'id', module);
+    this.persistToMongo('modules', 'id', finalItem);
   }
   public deleteModule(id: string) {
     this.data.modules = (this.data.modules || []).filter(m => m.id !== id);
@@ -2134,16 +2149,21 @@ Operating in local JSON file-based database mode (db.json).
       if (idx !== -1 && this.data.solutions[idx].publicId) {
         solution.publicId = this.data.solutions[idx].publicId;
       } else {
-        solution.publicId = generatePublicId('SOL');
+        solution.publicId = generatePublicId('SOL', solution.id || solution.slug || (solution as any).name || solution.title);
       }
     }
+    let finalItem: Solution;
     if (idx !== -1) {
-      this.data.solutions[idx] = solution;
+      this.data.solutions[idx] = { ...this.data.solutions[idx], ...solution, updatedAt: new Date().toISOString() };
+      finalItem = this.data.solutions[idx];
     } else {
+      if (!solution.createdAt) solution.createdAt = new Date().toISOString();
+      solution.updatedAt = new Date().toISOString();
       this.data.solutions.push(solution);
+      finalItem = solution;
     }
     this.save();
-    this.persistToMongo('solutions', 'id', solution);
+    this.persistToMongo('solutions', 'id', finalItem);
   }
   public deleteSolution(id: string) {
     this.data.solutions = (this.data.solutions || []).filter(s => s.id !== id);
@@ -2229,18 +2249,21 @@ Operating in local JSON file-based database mode (db.json).
       if (index !== -1 && this.data.industries[index].publicId) {
         industry.publicId = this.data.industries[index].publicId;
       } else {
-        industry.publicId = generatePublicId('IND');
+        industry.publicId = generatePublicId('IND', industry.id || industry.slug || industry.name);
       }
     }
+    let finalItem: Industry;
     if (index !== -1) {
       this.data.industries[index] = { ...this.data.industries[index], ...industry, updatedAt: new Date().toISOString() };
+      finalItem = this.data.industries[index];
     } else {
-      industry.createdAt = new Date().toISOString();
+      if (!industry.createdAt) industry.createdAt = new Date().toISOString();
       industry.updatedAt = new Date().toISOString();
       this.data.industries.push(industry);
+      finalItem = industry;
     }
     this.save();
-    this.persistToMongo('industries', 'id', industry);
+    this.persistToMongo('industries', 'id', finalItem);
   }
 
   public deleteIndustry(id: string) {
@@ -2261,18 +2284,21 @@ Operating in local JSON file-based database mode (db.json).
       if (index !== -1 && this.data.institutions[index].publicId) {
         institution.publicId = this.data.institutions[index].publicId;
       } else {
-        institution.publicId = generatePublicId('INS');
+        institution.publicId = generatePublicId('INS', institution.id || institution.slug || institution.name);
       }
     }
+    let finalItem: Institution;
     if (index !== -1) {
       this.data.institutions[index] = { ...this.data.institutions[index], ...institution, updatedAt: new Date().toISOString() };
+      finalItem = this.data.institutions[index];
     } else {
-      institution.createdAt = new Date().toISOString();
+      if (!institution.createdAt) institution.createdAt = new Date().toISOString();
       institution.updatedAt = new Date().toISOString();
       this.data.institutions.push(institution);
+      finalItem = institution;
     }
     this.save();
-    this.persistToMongo('institutions', 'id', institution);
+    this.persistToMongo('institutions', 'id', finalItem);
   }
 
   public deleteInstitution(id: string) {
