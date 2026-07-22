@@ -198,154 +198,284 @@ app.use((req, res, next) => {
 
   // Global Theme Settings
   app.get('/api/theme', (req, res) => {
-    res.json(db.getTheme());
+    try {
+      const theme = db.getTheme();
+      res.json(theme);
+    } catch (err: any) {
+      console.error('[API Error] GET /api/theme:', err);
+      res.status(500).json({
+        success: false,
+        route: '/api/theme',
+        error: err?.message || 'Failed to fetch theme',
+        stack: process.env.NODE_ENV !== 'production' ? err?.stack : undefined
+      });
+    }
   });
 
   app.post('/api/theme', (req, res) => {
-    const newTheme: ThemeSettings = req.body;
-    db.updateTheme(newTheme);
-    db.addLog({
-      userId: 'user-admin',
-      userName: 'Administrator',
-      action: 'Update Theme',
-      details: `Updated theme styles (Primary: ${newTheme.primaryColor}, Font: ${newTheme.typography})`
-    });
-    res.json({ success: true, theme: newTheme });
+    try {
+      const newTheme: ThemeSettings = req.body;
+      db.updateTheme(newTheme);
+      db.addLog({
+        userId: 'user-admin',
+        userName: 'Administrator',
+        action: 'Update Theme',
+        details: `Updated theme styles (Primary: ${newTheme.primaryColor}, Font: ${newTheme.typography})`
+      });
+      res.json({ success: true, theme: newTheme });
+    } catch (err: any) {
+      console.error('[API Error] POST /api/theme:', err);
+      res.status(500).json({
+        success: false,
+        route: '/api/theme',
+        error: err?.message || 'Failed to update theme'
+      });
+    }
   });
 
   // Header settings
   app.get('/api/header', (req, res) => {
-    res.json(db.getHeader());
+    try {
+      res.json(db.getHeader());
+    } catch (err: any) {
+      console.error('[API Error] GET /api/header:', err);
+      res.status(500).json({
+        success: false,
+        route: '/api/header',
+        error: err?.message || 'Failed to fetch header'
+      });
+    }
   });
 
   app.post('/api/header', (req, res) => {
-    db.updateHeader(req.body);
-    db.addLog({
-      userId: 'user-admin',
-      userName: 'Administrator',
-      action: 'Update Header',
-      details: 'Updated global header menus and logo text.'
-    });
-    res.json({ success: true });
+    try {
+      db.updateHeader(req.body);
+      db.addLog({
+        userId: 'user-admin',
+        userName: 'Administrator',
+        action: 'Update Header',
+        details: 'Updated global header menus and logo text.'
+      });
+      res.json({ success: true });
+    } catch (err: any) {
+      console.error('[API Error] POST /api/header:', err);
+      res.status(500).json({
+        success: false,
+        route: '/api/header',
+        error: err?.message || 'Failed to update header'
+      });
+    }
   });
 
   // Footer settings
   app.get('/api/footer', (req, res) => {
-    res.json(db.getFooter());
+    try {
+      res.json(db.getFooter());
+    } catch (err: any) {
+      console.error('[API Error] GET /api/footer:', err);
+      res.status(500).json({
+        success: false,
+        route: '/api/footer',
+        error: err?.message || 'Failed to fetch footer'
+      });
+    }
   });
 
   app.post('/api/footer', (req, res) => {
-    db.updateFooter(req.body);
-    db.addLog({
-      userId: 'user-admin',
-      userName: 'Administrator',
-      action: 'Update Footer',
-      details: 'Updated global footer properties and social links.'
-    });
-    res.json({ success: true });
+    try {
+      db.updateFooter(req.body);
+      db.addLog({
+        userId: 'user-admin',
+        userName: 'Administrator',
+        action: 'Update Footer',
+        details: 'Updated global footer properties and social links.'
+      });
+      res.json({ success: true });
+    } catch (err: any) {
+      console.error('[API Error] POST /api/footer:', err);
+      res.status(500).json({
+        success: false,
+        route: '/api/footer',
+        error: err?.message || 'Failed to update footer'
+      });
+    }
   });
 
-  // CMS Pages
+  // CMS Pages & Home Endpoint
+  app.get('/api/home', (req, res) => {
+    try {
+      const page = db.getPageBySlug('/') || db.getPages()[0] || null;
+      res.json({
+        success: true,
+        page,
+        theme: db.getTheme(),
+        header: db.getHeader(),
+        footer: db.getFooter()
+      });
+    } catch (err: any) {
+      console.error('[API Error] GET /api/home:', err);
+      res.status(500).json({
+        success: false,
+        route: '/api/home',
+        error: err?.message || 'Failed to fetch home page configuration'
+      });
+    }
+  });
+
   app.get('/api/pages', (req, res) => {
-    res.json(db.getPages());
+    try {
+      res.json(db.getPages());
+    } catch (err: any) {
+      console.error('[API Error] GET /api/pages:', err);
+      res.status(500).json({
+        success: false,
+        route: '/api/pages',
+        error: err?.message || 'Failed to fetch pages'
+      });
+    }
   });
 
   app.get('/api/pages/by-slug', (req, res) => {
-    const slug = (req.query.slug as string) || '/';
-    const page = db.getPageBySlug(slug);
-    if (!page) {
-      return res.status(404).json({ error: 'Page not found' });
+    try {
+      const slug = (req.query.slug as string) || '/';
+      const page = db.getPageBySlug(slug);
+      if (!page) {
+        return res.status(404).json({ error: 'Page not found' });
+      }
+      res.json(page);
+    } catch (err: any) {
+      console.error('[API Error] GET /api/pages/by-slug:', err);
+      res.status(500).json({
+        success: false,
+        route: '/api/pages/by-slug',
+        error: err?.message || 'Failed to fetch page by slug'
+      });
     }
-    res.json(page);
   });
 
   app.post('/api/pages/:slug/sections', (req, res) => {
-    const { slug } = req.params;
-    const page = db.getPageBySlug(slug === 'root' ? '/' : `/${slug}`);
-    if (!page) {
-      return res.status(404).json({ error: 'Page not found' });
-    }
-    const { sections, seo, name, visible, draftSections, draftSeo } = req.body;
-    page.sections = sections || page.sections;
-    page.seo = seo || page.seo;
-    page.name = name || page.name;
-    page.visible = visible !== undefined ? visible : page.visible;
-    if (draftSections !== undefined) page.draftSections = draftSections;
-    if (draftSeo !== undefined) page.draftSeo = draftSeo;
+    try {
+      const { slug } = req.params;
+      const page = db.getPageBySlug(slug === 'root' ? '/' : `/${slug}`);
+      if (!page) {
+        return res.status(404).json({ error: 'Page not found' });
+      }
+      const { sections, seo, name, visible, draftSections, draftSeo } = req.body;
+      page.sections = sections || page.sections;
+      page.seo = seo || page.seo;
+      page.name = name || page.name;
+      page.visible = visible !== undefined ? visible : page.visible;
+      if (draftSections !== undefined) page.draftSections = draftSections;
+      if (draftSeo !== undefined) page.draftSeo = draftSeo;
 
-    db.updatePage(page.id, page);
-    db.addLog({
-      userId: 'user-admin',
-      userName: 'Administrator',
-      action: 'Update Visual Sections',
-      details: `Modified and re-ordered sections for page: ${page.name} (${page.slug})`
-    });
-    res.json({ success: true, page });
+      db.updatePage(page.id, page);
+      db.addLog({
+        userId: 'user-admin',
+        userName: 'Administrator',
+        action: 'Update Visual Sections',
+        details: `Modified and re-ordered sections for page: ${page.name} (${page.slug})`
+      });
+      res.json({ success: true, page });
+    } catch (err: any) {
+      console.error('[API Error] POST /api/pages/:slug/sections:', err);
+      res.status(500).json({
+        success: false,
+        route: `/api/pages/${req.params.slug}/sections`,
+        error: err?.message || 'Failed to update page sections'
+      });
+    }
   });
 
   app.post('/api/pages', (req, res) => {
-    const { name, slug, seo } = req.body;
-    if (!name || !slug) {
-      return res.status(400).json({ error: 'Name and slug are required' });
-    }
-    const newPage: Page = {
-      id: `page-${Date.now()}`,
-      name,
-      slug: slug.startsWith('/') ? slug : `/${slug}`,
-      seo: seo || { title: name, description: '', keywords: '' },
-      sections: [
-        {
-          id: `section-${Date.now()}`,
-          name: 'Banner Section',
-          type: 'Hero',
-          visible: true,
-          content: {
-            title: `Welcome to ${name}`,
-            subtitle: 'This is a brand new visual canvas section.',
-            ctaText: 'Get Started',
-            ctaUrl: '/',
-            badges: []
-          },
-          styles: {
-            paddingTop: '60px',
-            paddingBottom: '60px',
-            marginTop: '0px',
-            marginBottom: '0px',
-            backgroundColor: '#FFFFFF',
-            textColor: '#1E293B',
-            alignment: 'center',
-            animation: 'fade',
-            visibility: 'all'
+    try {
+      const { name, slug, seo } = req.body;
+      if (!name || !slug) {
+        return res.status(400).json({ error: 'Name and slug are required' });
+      }
+      const newPage: Page = {
+        id: `page-${Date.now()}`,
+        name,
+        slug: slug.startsWith('/') ? slug : `/${slug}`,
+        seo: seo || { title: name, description: '', keywords: '' },
+        sections: [
+          {
+            id: `section-${Date.now()}`,
+            name: 'Banner Section',
+            type: 'Hero',
+            visible: true,
+            content: {
+              title: `Welcome to ${name}`,
+              subtitle: 'This is a brand new visual canvas section.',
+              ctaText: 'Get Started',
+              ctaUrl: '/',
+              badges: []
+            },
+            styles: {
+              paddingTop: '60px',
+              paddingBottom: '60px',
+              marginTop: '0px',
+              marginBottom: '0px',
+              backgroundColor: '#FFFFFF',
+              textColor: '#1E293B',
+              alignment: 'center',
+              animation: 'fade',
+              visibility: 'all'
+            }
           }
-        }
-      ],
-      visible: true
-    };
-    db.createPage(newPage);
-    db.addLog({
-      userId: 'user-admin',
-      userName: 'Administrator',
-      action: 'Create Page',
-      details: `Created new CMS page: ${name} with route ${newPage.slug}`
-    });
-    res.json({ success: true, page: newPage });
+        ],
+        visible: true
+      };
+      db.createPage(newPage);
+      db.addLog({
+        userId: 'user-admin',
+        userName: 'Administrator',
+        action: 'Create Page',
+        details: `Created new CMS page: ${name} with route ${newPage.slug}`
+      });
+      res.json({ success: true, page: newPage });
+    } catch (err: any) {
+      console.error('[API Error] POST /api/pages:', err);
+      res.status(500).json({
+        success: false,
+        route: '/api/pages',
+        error: err?.message || 'Failed to create page'
+      });
+    }
   });
 
   app.delete('/api/pages/:id', (req, res) => {
-    const { id } = req.params;
-    db.deletePage(id);
-    db.addLog({
-      userId: 'user-admin',
-      userName: 'Administrator',
-      action: 'Delete Page',
-      details: `Removed page ID: ${id}`
-    });
-    res.json({ success: true });
+    try {
+      const { id } = req.params;
+      db.deletePage(id);
+      db.addLog({
+        userId: 'user-admin',
+        userName: 'Administrator',
+        action: 'Delete Page',
+        details: `Removed page ID: ${id}`
+      });
+      res.json({ success: true });
+    } catch (err: any) {
+      console.error('[API Error] DELETE /api/pages/:id:', err);
+      res.status(500).json({
+        success: false,
+        route: `/api/pages/${req.params.id}`,
+        error: err?.message || 'Failed to delete page'
+      });
+    }
   });
 
   // Product Catalogue
   app.get('/api/products', (req, res) => {
-    res.json(db.getProducts());
+    try {
+      res.json(db.getProducts());
+    } catch (err: any) {
+      console.error('[API Error] GET /api/products:', err);
+      res.status(500).json({
+        success: false,
+        route: '/api/products',
+        error: err?.message || 'Failed to fetch products'
+      });
+    }
   });
 
   app.post('/api/products', (req, res) => {

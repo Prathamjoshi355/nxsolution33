@@ -7,11 +7,19 @@ export default async function handler(req: any, res: any) {
     await db.connect();
 
     return await new Promise((resolve) => {
-      res.on('finish', resolve);
-      res.on('close', resolve);
+      let isResolved = false;
+      const safeResolve = () => {
+        if (!isResolved) {
+          isResolved = true;
+          resolve(null);
+        }
+      };
+
+      res.on('finish', safeResolve);
+      res.on('close', safeResolve);
       res.on('error', (err: any) => {
         console.error('[Serverless Response Error]:', err);
-        resolve(null);
+        safeResolve();
       });
 
       // Delegate request processing to Express application
@@ -29,4 +37,5 @@ export default async function handler(req: any, res: any) {
     }
   }
 }
+
 
