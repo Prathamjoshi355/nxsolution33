@@ -1,0 +1,8 @@
+{
+  "name": "NX Solution CMS",
+  "description": "Enterprise AI & IoT CMS platform for multi-tier solution management, industry verticals, and admin governance.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,4980 @@
+{
+  "themeSettings": {
+    "primaryColor": "#2563EB",
+    "secondaryColor": "#1E293B",
+    "accentColor": "#10B981",
+    "bgColor": "#F8FAFC",
+    "textColor": "#0F172A",
+    "typography": "Inter",
+    "borderRadius": "lg",
+    "shadow": "md",
+    "spacing": "normal",
+    "darkMode": false,
+    "_id": "global"
+  },
+  "headerSettings": {
+    "logo": "NX SOLUTION",
+    "logoText": "Building Smarter, Safer & Better Tomorrow",
+    "menus": [
+      {
+        "label": "Home",
+        "url": "/"
+      },
+      {
+        "label": "Industries",
+        "url": "/industries"
+      },
+      {
+        "label": "Products",
+        "url": "/products"
+      },
+      {
+        "label": "Case Studies",
+        "url": "/case-studies"
+      },
+      {
+        "label": "About Us",
+        "url": "/about"
+      },
+      {
+        "label": "Resources",
+        "url": "/resources"
+      },
+      {
+        "label": "Contact",
+        "url": "/contact"
+      }
+    ],
+    "buttonText": "Book Demo",
+    "buttonUrl": "/contact?type=demo",
+    "sticky": true,
+    "transparent": false,
+    "bgColor": "#FFFFFF",
+    "textColor": "#1E293B",
+    "height": "72px",
+    "_id": "global"
+  },
+  "footerSettings": {
+    "logo": "NX SOLUTION",
+    "logoText": "Advanced Security, AI, and Automation for Enterprises.",
+    "columns": [
+      {
+        "title": "Solutions",
+        "links": [
+          {
+            "label": "Education Security",
+            "url": "/industries"
+          },
+          {
+            "label": "Healthcare Safety",
+            "url": "/industries"
+          },
+          {
+            "label": "Manufacturing Safety",
+            "url": "/industries"
+          },
+          {
+            "label": "Smart Society AI",
+            "url": "/industries"
+          }
+        ]
+      },
+      {
+        "title": "Products",
+        "links": [
+          {
+            "label": "AI Cameras",
+            "url": "/products"
+          },
+          {
+            "label": "Access Control",
+            "url": "/products"
+          },
+          {
+            "label": "NX Sentinel Software",
+            "url": "/products"
+          },
+          {
+            "label": "IoT Sensors",
+            "url": "/products"
+          }
+        ]
+      },
+      {
+        "title": "Company",
+        "links": [
+          {
+            "label": "About Us",
+            "url": "/about"
+          },
+          {
+            "label": "Case Studies",
+            "url": "/case-studies"
+          },
+          {
+            "label": "Resources & News",
+            "url": "/resources"
+          },
+          {
+            "label": "Contact Support",
+            "url": "/contact"
+          }
+        ]
+      }
+    ],
+    "socialLinks": [
+      {
+        "platform": "Twitter",
+        "url": "https://twitter.com"
+      },
+      {
+        "platform": "LinkedIn",
+        "url": "https://linkedin.com"
+      },
+      {
+        "platform": "GitHub",
+        "url": "https://github.com"
+      }
+    ],
+    "newsletterTitle": "Subscribe to Our Newsletter",
+    "newsletterPlaceholder": "Enter your work email",
+    "contactInfo": {
+      "email": "info@nxsolution.in",
+      "phone": "+91 8009 123 456",
+      "address": "NX Solution, 123, Tech Park, Noida, Uttar Pradesh, India",
+      "hours": "Mon - Sat: 9:00 AM - 7:00 PM"
+    },
+    "copyright": "© 2026 NX Solution. All Rights Reserved.",
+    "bgColor": "#0F172A",
+    "textColor": "#F8FAFC",
+    "_id": "global"
+  },
+  "pages": [
+    {
+      "id": "page-home",
+      "name": "Home",
+      "slug": "/",
+      "seo": {
+        "title": "NX Solution - Enterprise AI-Powered Security Solutions",
+        "description": "We help organizations solve real-world security, tracking, and management problems through AI, Smart Automation, IoT, and high-performance software.",
+        "keywords": "Enterprise security, AI vision, Access control, Visitor management, IoT sensors, Smart Society"
+      },
+      "visible": true,
+      "sections": [
+        {
+          "id": "home-hero",
+          "name": "Hero Section",
+          "type": "Hero",
+          "visible": true,
+          "content": {
+            "title": "Engineering <br/> Intelligent <span class=\"text-[#5bdf8c]\">Solutions</span> <br/> for Mordern Opretions",
+            "subtitle": "AI & IoT powered ecosystems that solve real-world <br/>\noperational challenges and make operations <br/>\nsmarter, faster, safer, and more efficient. <br/>",
+            "ctaText": "Explore Solutions",
+            "ctaUrl": "/industries",
+            "secondaryCtaText": "Book a Demo",
+            "secondaryCtaUrl": "/contact",
+            "badges": [
+              {
+                "icon": "Brain",
+                "text": "AI Powered"
+              },
+              {
+                "icon": "Cpu",
+                "text": "Smart Automation"
+              },
+              {
+                "icon": "Eye",
+                "text": "Real-time Monitoring"
+              },
+              {
+                "icon": "BarChart3",
+                "text": "Data Driven Insights"
+              },
+              {
+                "icon": "Zap",
+                "text": "Scalable Solutions"
+              },
+              {
+                "icon": "ShieldCheck",
+                "text": "End-to-End Support"
+              }
+            ],
+            "trustedText": "Trusted by 500+ Organizations",
+            "logos": [
+              "AMITY UNIVERSITY",
+              "MAX HEALTHCARE",
+              "FORTIS HOSPITALS",
+              "DLF PROPERTIES",
+              "VEDANTA GROUP"
+            ],
+            "smallBadge": "hello",
+            "gradientText": "hii ",
+            "badgeNum": "hi",
+            "collageImages": [
+              "https://res.cloudinary.com/dhy9pmo8s/image/upload/v1783025342/Untitled_design_2_mvokcb.png",
+              "https://res.cloudinary.com/dhy9pmo8s/image/upload/v1783025342/Untitled_design_2_mvokcb.png",
+              "https://res.cloudinary.com/dhy9pmo8s/image/upload/v1783025342/Untitled_design_2_mvokcb.png",
+              "https://res.cloudinary.com/dhy9pmo8s/image/upload/v1783025342/Untitled_design_2_mvokcb.png",
+              "https://res.cloudinary.com/dhy9pmo8s/image/upload/v1783025342/Untitled_design_2_mvokcb.png",
+              "https://res.cloudinary.com/dhy9pmo8s/image/upload/v1783025342/Untitled_design_2_mvokcb.png",
+              "https://res.cloudinary.com/dhy9pmo8s/image/upload/v1783025342/Untitled_design_2_mvokcb.png",
+              "https://res.cloudinary.com/dhy9pmo8s/image/upload/v1783025342/Untitled_design_2_mvokcb.png"
+            ],
+            "backgroundImage": "https://res.cloudinary.com/m9ebzvfd/image/upload/v1784613884/Engineering_Intelligent_Solutions_for_Mordern_Operations_iwawye.png"
+          },
+          "styles": {
+            "paddingTop": "80px",
+            "paddingBottom": "80px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "backgroundColor": "#0F172A",
+            "backgroundImage": "https://res.cloudinary.com/m9ebzvfd/image/upload/v1784179036/Futuristic_cityscape_with_glowing_blue_grid_anejnv.png",
+            "textColor": "#F8FAFC",
+            "headingColor": "#FFFFFF",
+            "accentColor": "#3B82F6",
+            "alignment": "center",
+            "animation": "fade",
+            "visibility": "all"
+          }
+        },
+        {
+          "id": "home-about-nx",
+          "name": "About NX Solution",
+          "type": "AboutNX",
+          "visible": true,
+          "content": {
+            "badge": "02",
+            "title": "ABOUT NX SOLUTION",
+            "paragraph1": "NX Solution is an AI & IoT Solution Engineering company that designs and deploys intelligent ecosystems to solve complex operational challenges across industries.",
+            "paragraph2": "We don't sell products. We engineer complete solutions around real operational challenges.",
+            "paragraph3": "Every organization is unique. Every challenge is different. That's why every solution we build is designed specifically for your operational environment.",
+            "image": "https://images.unsplash.com/photo-1606857521015-7f9fcf423740?q=80&w=800&auto=format&fit=crop",
+            "missionIcon": "Target",
+            "missionTitle": "MISSION",
+            "missionDesc": "Simplifying complex operations through intelligent technology ecosystems.",
+            "visionIcon": "Eye",
+            "visionTitle": "VISION",
+            "visionDesc": "Building smarter, safer and future-ready organizations.",
+            "philosophyIcon": "Lightbulb",
+            "philosophyTitle": "CORE PHILOSOPHY",
+            "philosophyDesc": "We don't sell products. We engineer complete solutions around real operational challenges."
+          },
+          "styles": {
+            "paddingTop": "60px",
+            "paddingBottom": "60px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "backgroundColor": "#FFFFFF",
+            "textColor": "#1E293B",
+            "headingColor": "#0F172A",
+            "accentColor": "#16A34A",
+            "alignment": "left",
+            "animation": "fade",
+            "visibility": "all"
+          }
+        },
+        {
+          "id": "home-features",
+          "name": "Key Feature Cards",
+          "type": "Industries",
+          "visible": true,
+          "content": {
+            "title": "OUR ADVANTAGES",
+            "subtitle": "Tailored solutions designed for rapid enterprise deployment and seamless integration.",
+            "items": [
+              {
+                "id": "feat-1",
+                "title": "Edge Integration",
+                "desc": "Run sub-second inference local to camera rigs and security points.",
+                "icon": "Cpu",
+                "link": "/solution"
+              },
+              {
+                "id": "feat-2",
+                "title": "Cloud Dashboard",
+                "desc": "Aggregate high-throughput analytics and generate monthly reports.",
+                "icon": "Layers",
+                "link": "/industries"
+              },
+              {
+                "id": "feat-3",
+                "title": "Enterprise Security",
+                "desc": "AES-256 state encryption and multi-factor role authentication.",
+                "icon": "ShieldCheck",
+                "link": "/contact"
+              }
+            ]
+          },
+          "styles": {
+            "paddingTop": "64px",
+            "paddingBottom": "64px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "backgroundColor": "#FFFFFF",
+            "alignment": "center",
+            "animation": "slide-up",
+            "visibility": "all"
+          }
+        },
+        {
+          "id": "home-cta",
+          "name": "Bottom Call to Action",
+          "type": "CTA",
+          "visible": true,
+          "content": {
+            "title": "Ready to Secure Your Premises?",
+            "subtitle": "Connect with an systems integration architect today to customize your setup.",
+            "ctaText": "Get in Touch",
+            "ctaUrl": "/contact"
+          },
+          "styles": {
+            "paddingTop": "64px",
+            "paddingBottom": "64px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "backgroundColor": "#0066FF",
+            "headingColor": "#FFFFFF",
+            "alignment": "center",
+            "animation": "scale-up",
+            "visibility": "all"
+          }
+        }
+      ],
+      "draftSections": [
+        {
+          "id": "home-hero",
+          "name": "Hero Section",
+          "type": "Hero",
+          "visible": true,
+          "content": {
+            "title": "Engineering <br/> Intelligent <span class=\"text-[#5bdf8c]\">Solutions</span> <br/> for Mordern Opretions",
+            "subtitle": "AI & IoT powered ecosystems that solve real-world <br/>\noperational challenges and make operations <br/>\nsmarter, faster, safer, and more efficient. <br/>",
+            "ctaText": "Explore Solutions",
+            "ctaUrl": "/industries",
+            "secondaryCtaText": "Book a Demo",
+            "secondaryCtaUrl": "/contact",
+            "badges": [
+              {
+                "icon": "Brain",
+                "text": "AI Powered"
+              },
+              {
+                "icon": "Cpu",
+                "text": "Smart Automation"
+              },
+              {
+                "icon": "Eye",
+                "text": "Real-time Monitoring"
+              },
+              {
+                "icon": "BarChart3",
+                "text": "Data Driven Insights"
+              },
+              {
+                "icon": "Zap",
+                "text": "Scalable Solutions"
+              },
+              {
+                "icon": "ShieldCheck",
+                "text": "End-to-End Support"
+              }
+            ],
+            "trustedText": "Trusted by 500+ Organizations",
+            "logos": [
+              "AMITY UNIVERSITY",
+              "MAX HEALTHCARE",
+              "FORTIS HOSPITALS",
+              "DLF PROPERTIES",
+              "VEDANTA GROUP"
+            ],
+            "smallBadge": "hello",
+            "gradientText": "hii ",
+            "badgeNum": "hi",
+            "collageImages": [
+              "https://res.cloudinary.com/dhy9pmo8s/image/upload/v1783025342/Untitled_design_2_mvokcb.png",
+              "https://res.cloudinary.com/dhy9pmo8s/image/upload/v1783025342/Untitled_design_2_mvokcb.png",
+              "https://res.cloudinary.com/dhy9pmo8s/image/upload/v1783025342/Untitled_design_2_mvokcb.png",
+              "https://res.cloudinary.com/dhy9pmo8s/image/upload/v1783025342/Untitled_design_2_mvokcb.png",
+              "https://res.cloudinary.com/dhy9pmo8s/image/upload/v1783025342/Untitled_design_2_mvokcb.png",
+              "https://res.cloudinary.com/dhy9pmo8s/image/upload/v1783025342/Untitled_design_2_mvokcb.png",
+              "https://res.cloudinary.com/dhy9pmo8s/image/upload/v1783025342/Untitled_design_2_mvokcb.png",
+              "https://res.cloudinary.com/dhy9pmo8s/image/upload/v1783025342/Untitled_design_2_mvokcb.png"
+            ],
+            "backgroundImage": "https://res.cloudinary.com/m9ebzvfd/image/upload/v1784613884/Engineering_Intelligent_Solutions_for_Mordern_Operations_iwawye.png"
+          },
+          "styles": {
+            "paddingTop": "80px",
+            "paddingBottom": "80px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "backgroundColor": "#0F172A",
+            "backgroundImage": "https://res.cloudinary.com/m9ebzvfd/image/upload/v1784179036/Futuristic_cityscape_with_glowing_blue_grid_anejnv.png",
+            "textColor": "#F8FAFC",
+            "headingColor": "#FFFFFF",
+            "accentColor": "#3B82F6",
+            "alignment": "center",
+            "animation": "fade",
+            "visibility": "all"
+          }
+        },
+        {
+          "id": "home-about-nx",
+          "name": "About NX Solution",
+          "type": "AboutNX",
+          "visible": true,
+          "content": {
+            "badge": "02",
+            "title": "ABOUT NX SOLUTION",
+            "paragraph1": "NX Solution is an AI & IoT Solution Engineering company that designs and deploys intelligent ecosystems to solve complex operational challenges across industries.",
+            "paragraph2": "We don't sell products. We engineer complete solutions around real operational challenges.",
+            "paragraph3": "Every organization is unique. Every challenge is different. That's why every solution we build is designed specifically for your operational environment.",
+            "image": "https://images.unsplash.com/photo-1606857521015-7f9fcf423740?q=80&w=800&auto=format&fit=crop",
+            "missionIcon": "Target",
+            "missionTitle": "MISSION",
+            "missionDesc": "Simplifying complex operations through intelligent technology ecosystems.",
+            "visionIcon": "Eye",
+            "visionTitle": "VISION",
+            "visionDesc": "Building smarter, safer and future-ready organizations.",
+            "philosophyIcon": "Lightbulb",
+            "philosophyTitle": "CORE PHILOSOPHY",
+            "philosophyDesc": "We don't sell products. We engineer complete solutions around real operational challenges."
+          },
+          "styles": {
+            "paddingTop": "60px",
+            "paddingBottom": "60px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "backgroundColor": "#FFFFFF",
+            "textColor": "#1E293B",
+            "headingColor": "#0F172A",
+            "accentColor": "#16A34A",
+            "alignment": "left",
+            "animation": "fade",
+            "visibility": "all"
+          }
+        },
+        {
+          "id": "home-features",
+          "name": "Key Feature Cards",
+          "type": "Industries",
+          "visible": true,
+          "content": {
+            "title": "OUR ADVANTAGES",
+            "subtitle": "Tailored solutions designed for rapid enterprise deployment and seamless integration.",
+            "items": [
+              {
+                "id": "feat-1",
+                "title": "Edge Integration",
+                "desc": "Run sub-second inference local to camera rigs and security points.",
+                "icon": "Cpu",
+                "link": "/solution"
+              },
+              {
+                "id": "feat-2",
+                "title": "Cloud Dashboard",
+                "desc": "Aggregate high-throughput analytics and generate monthly reports.",
+                "icon": "Layers",
+                "link": "/industries"
+              },
+              {
+                "id": "feat-3",
+                "title": "Enterprise Security",
+                "desc": "AES-256 state encryption and multi-factor role authentication.",
+                "icon": "ShieldCheck",
+                "link": "/contact"
+              }
+            ]
+          },
+          "styles": {
+            "paddingTop": "64px",
+            "paddingBottom": "64px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "backgroundColor": "#FFFFFF",
+            "alignment": "center",
+            "animation": "slide-up",
+            "visibility": "all"
+          }
+        },
+        {
+          "id": "home-cta",
+          "name": "Bottom Call to Action",
+          "type": "CTA",
+          "visible": true,
+          "content": {
+            "title": "Ready to Secure Your Premises?",
+            "subtitle": "Connect with an systems integration architect today to customize your setup.",
+            "ctaText": "Get in Touch",
+            "ctaUrl": "/contact"
+          },
+          "styles": {
+            "paddingTop": "64px",
+            "paddingBottom": "64px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "backgroundColor": "#0066FF",
+            "headingColor": "#FFFFFF",
+            "alignment": "center",
+            "animation": "scale-up",
+            "visibility": "all"
+          }
+        }
+      ],
+      "draftSeo": {
+        "title": "NX Solution - Enterprise AI-Powered Security Solutions",
+        "description": "We help organizations solve real-world security, tracking, and management problems through AI, Smart Automation, IoT, and high-performance software.",
+        "keywords": "Enterprise security, AI vision, Access control, Visitor management, IoT sensors, Smart Society"
+      }
+    },
+    {
+      "id": "page-industries",
+      "name": "Industries",
+      "slug": "/industries",
+      "seo": {
+        "title": "Industries We Serve - Smart Security Solutions",
+        "description": "Find custom-tailored enterprise automation, security, and tracking solutions for your specific industry vertical.",
+        "keywords": "Healthcare AI, Manufacturing monitoring, Smart city systems, Corporate safety"
+      },
+      "visible": true,
+      "sections": [
+        {
+          "id": "industries-breadcrumb",
+          "name": "Breadcrumb Node",
+          "type": "Breadcrumb",
+          "visible": true,
+          "content": {
+            "homeText": "Home",
+            "currentText": "Industries",
+            "separator": "/",
+            "color": "#64748B",
+            "fontSize": "text-xs",
+            "visible": true
+          },
+          "styles": {
+            "paddingTop": "16px",
+            "paddingBottom": "16px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "backgroundColor": "#FFFFFF",
+            "alignment": "left",
+            "animation": "none",
+            "visibility": "all"
+          }
+        },
+        {
+          "id": "industries-hero",
+          "name": "Hero Banner Node",
+          "type": "Hero",
+          "visible": false,
+          "content": {
+            "title": "fdvvfv",
+            "subtitle": "Transforming Operations with Advanced Vision & IoT",
+            "description": "We engineer robust AI video pipelines, high-precision biometric access terminals, and integrated IoT frameworks tailored to secure and scale modern enterprises.",
+            "badge": "INDUSTRY SUITE",
+            "primaryButton": {
+              "text": "Contact Architect",
+              "link": "/contact"
+            },
+            "secondaryButton": {
+              "text": "View Showcase",
+              "link": "#grid"
+            },
+            "ctaText": "Contact Architect",
+            "ctaUrl": "/contact",
+            "secondaryCtaText": "View Showcase",
+            "secondaryCtaUrl": "#grid"
+          },
+          "styles": {
+            "paddingTop": "80px",
+            "paddingBottom": "80px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "backgroundColor": "#0F172A",
+            "backgroundImage": "",
+            "overlay": true,
+            "opacity": 80,
+            "alignment": "center",
+            "animation": "fade",
+            "visibility": "all"
+          }
+        },
+        {
+          "id": "industries-grid",
+          "name": "Smart Solutions by Industry",
+          "type": "Industries",
+          "visible": true,
+          "content": {
+            "title": "Industries",
+            "subtitle": "fdvvfv",
+            "items": [
+              {
+                "id": "ind-edu",
+                "icon": "GraduationCap",
+                "title": "Education",
+                "desc": "Smart Campus, Security, Attendance & more",
+                "link": "/institution",
+                "image": "https://res.cloudinary.com/m9ebzvfd/image/upload/v1784145203/nx_solutions_cms/vlhjvydpskbj6n9r4nb2.png",
+                "slug": "Education",
+                "style": {
+                  "borderRadius": "none"
+                }
+              },
+              {
+                "id": "ind-health",
+                "icon": "HeartPulse",
+                "title": "Healthcare",
+                "desc": "Hospital Security, Patient Tracking & more",
+                "link": "/industries?industry=healthcare",
+                "image": "",
+                "slug": "Healthcare",
+                "style": {
+                  "borderRadius": "none"
+                }
+              },
+              {
+                "id": "ind-mfg",
+                "icon": "Factory",
+                "title": "Manufacturing",
+                "desc": "Factory Security, PPE, Asset Tracking & more",
+                "link": "/industries?industry=manufacturing",
+                "image": "",
+                "slug": "Manufacturing",
+                "style": {
+                  "borderRadius": "none"
+                }
+              },
+              {
+                "id": "ind-corp",
+                "icon": "Building2",
+                "title": "Corporate",
+                "desc": "Office Security, Attendance, Visitor Management",
+                "link": "/industries?industry=corporate",
+                "image": "",
+                "slug": "Corporate",
+                "style": {
+                  "borderRadius": "none"
+                }
+              },
+              {
+                "id": "ind-soc",
+                "icon": "Users",
+                "title": "Smart Society",
+                "desc": "Security, Visitor, Parking, Water Mgmt",
+                "link": "/industries?industry=society",
+                "image": "",
+                "slug": "Smart Society",
+                "style": {
+                  "borderRadius": "none"
+                }
+              },
+              {
+                "id": "ind-log",
+                "icon": "Truck",
+                "title": "Logistics & Fleet",
+                "desc": "Fleet Tracking, Driver Monitoring & more",
+                "link": "/industries?industry=logistics",
+                "image": "",
+                "slug": "Logistics & Fleet",
+                "style": {
+                  "borderRadius": "none"
+                }
+              },
+              {
+                "id": "ind-city",
+                "icon": "Milestone",
+                "title": "Smart City",
+                "desc": "Surveillance, Traffic, Environment & more",
+                "link": "/industries?industry=city",
+                "image": "",
+                "slug": "Smart City",
+                "style": {
+                  "borderRadius": "none"
+                }
+              },
+              {
+                "id": "ind-gov",
+                "icon": "Building",
+                "title": "Government",
+                "desc": "Public Security, Smart Governance & more",
+                "link": "/industries?industry=government",
+                "image": "",
+                "slug": "Government",
+                "style": {
+                  "borderRadius": "none"
+                }
+              },
+              {
+                "id": "ind-1784007317299",
+                "icon": "Truck",
+                "image": "",
+                "title": "Abhishak",
+                "desc": "Advanced security solutions & automation customized for this sector.",
+                "slug": "/Abhishak1",
+                "buttonText": "",
+                "buttonLink": "",
+                "visible": false,
+                "order": 9,
+                "style": {
+                  "width": "full",
+                  "height": "auto",
+                  "borderRadius": "none",
+                  "padding": "6",
+                  "margin": "0",
+                  "gap": "4",
+                  "boxShadow": "md",
+                  "hoverShadow": "lg",
+                  "hoverScale": "100",
+                  "background": "#FFFFFF",
+                  "border": "#E2E8F0",
+                  "textAlign": "center"
+                },
+                "animation": "fade-in"
+              }
+            ]
+          },
+          "styles": {
+            "paddingTop": "64px",
+            "paddingBottom": "64px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "backgroundColor": "#F8FAFC",
+            "textColor": "#1E293B",
+            "alignment": "center",
+            "animation": "none",
+            "visibility": "all"
+          }
+        },
+        {
+          "id": "industries-cta",
+          "name": "CTA Banner Node",
+          "type": "CTA",
+          "visible": true,
+          "content": {
+            "title": "Ready to Secure Your Facilities?",
+            "subtitle": "Get in touch with our security architects to design a bespoke automation plan.",
+            "buttonText": "Get a Free Quote",
+            "buttonLink": "/contact",
+            "ctaText": "Get a Free Quote",
+            "ctaUrl": "/contact"
+          },
+          "styles": {
+            "paddingTop": "60px",
+            "paddingBottom": "60px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "backgroundColor": "#2563EB",
+            "backgroundImage": "",
+            "textColor": "#FFFFFF",
+            "headingColor": "#FFFFFF",
+            "alignment": "center",
+            "animation": "none",
+            "visibility": "all"
+          }
+        }
+      ],
+      "themeOverride": {
+        "primaryColor": "#2563EB",
+        "secondaryColor": "#1E293B",
+        "accentColor": "#10B981",
+        "background": "#F8FAFC",
+        "cardColor": "#FFFFFF",
+        "borderColor": "#E2E8F0",
+        "typography": "Inter",
+        "borderRadius": "xl",
+        "shadow": "lg"
+      }
+    },
+    {
+      "id": "page-institution",
+      "name": "Institution Type",
+      "slug": "/institution",
+      "seo": {
+        "title": "Education Institutions - Smart Campus Solutions",
+        "description": "Select your educational organization type to view tailored campus safety modules.",
+        "keywords": "School security, College surveillance, University safety"
+      },
+      "visible": true,
+      "sections": [
+        {
+          "id": "institution-breadcrumb",
+          "name": "Breadcrumb Node",
+          "type": "Breadcrumb",
+          "visible": true,
+          "content": {
+            "homeText": "Home",
+            "middleText": "Education",
+            "currentText": "Institution",
+            "separator": "/",
+            "color": "#64748B",
+            "fontSize": "text-xs",
+            "visible": true
+          },
+          "styles": {
+            "paddingTop": "16px",
+            "paddingBottom": "16px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "backgroundColor": "#FFFFFF",
+            "alignment": "left",
+            "animation": "none",
+            "visibility": "all"
+          }
+        },
+        {
+          "id": "institution-hero",
+          "name": "Hero Banner Node",
+          "type": "Hero",
+          "visible": false,
+          "content": {
+            "title": "Education",
+            "subtitle": "Select the type of Institution",
+            "description": "NX Solution offers customized video AI monitoring, high-precision access gates, and integrated tracking modules for institutional efficiency.",
+            "badge": "INSTITUTION SUITE",
+            "primaryButton": {
+              "text": "Contact Expert",
+              "link": "/contact"
+            },
+            "secondaryButton": {
+              "text": "View Areas",
+              "link": "#grid"
+            },
+            "ctaText": "Contact Expert",
+            "ctaUrl": "/contact",
+            "secondaryCtaText": "View Areas",
+            "secondaryCtaUrl": "#grid"
+          },
+          "styles": {
+            "paddingTop": "64px",
+            "paddingBottom": "64px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "backgroundColor": "#00244a",
+            "backgroundImage": "",
+            "overlay": true,
+            "opacity": 80,
+            "alignment": "center",
+            "animation": "fade",
+            "visibility": "all"
+          }
+        },
+        {
+          "id": "institution-grid",
+          "name": "Select Institution",
+          "type": "Institution",
+          "visible": true,
+          "content": {
+            "title": "Education",
+            "subtitle": "Select the type of Institution",
+            "items": [
+              {
+                "id": "inst-0-1784001788478",
+                "title": "School",
+                "subtitle": "",
+                "desc": "Primary, Secondary & Higher Secondary",
+                "description": "Primary, Secondary & Higher Secondary",
+                "slug": "/school",
+                "link": "/school",
+                "icon": "School",
+                "image": "https://res.cloudinary.com/m9ebzvfd/image/upload/v1784145157/nx_solutions_cms/jyosm982dramhbpvumy5.png",
+                "button": "Learn More",
+                "buttonLink": "/school",
+                "style": {},
+                "animation": "fade",
+                "visible": true,
+                "status": "published",
+                "category": "Education",
+                "industryIds": [
+                  "ind-health"
+                ],
+                "order": 0
+              },
+              {
+                "id": "inst-1-1784001788478",
+                "title": "College",
+                "subtitle": "",
+                "desc": "Degree, Engineering & Professional Colleges",
+                "description": "Degree, Engineering & Professional Colleges",
+                "slug": "/college",
+                "link": "/college",
+                "icon": "Building2",
+                "image": "",
+                "button": "Learn More",
+                "buttonLink": "/college",
+                "style": {},
+                "animation": "fade",
+                "visible": true,
+                "status": "published",
+                "category": "Education",
+                "industryIds": [
+                  "ind-edu"
+                ],
+                "order": 1
+              },
+              {
+                "id": "inst-2-1784001788478",
+                "title": "University",
+                "subtitle": "",
+                "desc": "Universities & Deemed Universities",
+                "description": "Universities & Deemed Universities",
+                "slug": "/university",
+                "link": "/university",
+                "icon": "Building",
+                "image": "",
+                "button": "Learn More",
+                "buttonLink": "/university",
+                "style": {},
+                "animation": "fade",
+                "visible": true,
+                "status": "published",
+                "category": "Education",
+                "industryIds": [
+                  "ind-health"
+                ],
+                "order": 2
+              },
+              {
+                "id": "inst-3-1784001788478",
+                "title": "Coaching Institute",
+                "subtitle": "",
+                "desc": "Coaching, Training & Skill Institutes",
+                "description": "Coaching, Training & Skill Institutes",
+                "slug": "/coaching-institute",
+                "link": "/coaching-institute",
+                "icon": "Award",
+                "image": "",
+                "button": "Learn More",
+                "buttonLink": "/coaching-institute",
+                "style": {},
+                "animation": "fade",
+                "visible": true,
+                "status": "published",
+                "category": "Education",
+                "industryIds": [
+                  "ind-health"
+                ],
+                "order": 3
+              },
+              {
+                "id": "inst-4-1784001788478",
+                "title": "Hostel",
+                "subtitle": "",
+                "desc": "Boys, Girls & PG Hostels",
+                "description": "Boys, Girls & PG Hostels",
+                "slug": "/hostel",
+                "link": "/hostel",
+                "icon": "Hotel",
+                "image": "",
+                "button": "Learn More",
+                "buttonLink": "/hostel",
+                "style": {},
+                "animation": "fade",
+                "visible": true,
+                "status": "published",
+                "category": "Education",
+                "industryIds": [
+                  "ind-health"
+                ],
+                "order": 4
+              },
+              {
+                "id": "inst-5-1784001788478",
+                "title": "Library",
+                "subtitle": "",
+                "desc": "Library Management Solutions",
+                "description": "Library Management Solutions",
+                "slug": "/library",
+                "link": "/library",
+                "icon": "BookOpen",
+                "image": "",
+                "button": "Learn More",
+                "buttonLink": "/library",
+                "style": {},
+                "animation": "fade",
+                "visible": true,
+                "status": "published",
+                "category": "Education",
+                "industryIds": [],
+                "order": 5
+              },
+              {
+                "id": "inst-6-1784001788478",
+                "title": "Playground",
+                "subtitle": "",
+                "desc": "Sports & Activity Management",
+                "description": "Sports & Activity Management",
+                "slug": "/playground",
+                "link": "/playground",
+                "icon": "Gamepad2",
+                "image": "",
+                "button": "Learn More",
+                "buttonLink": "/playground",
+                "style": {},
+                "animation": "fade",
+                "visible": true,
+                "status": "published",
+                "category": "Education",
+                "industryIds": [],
+                "order": 6
+              },
+              {
+                "id": "inst-7-1784001788478",
+                "title": "Exam Center",
+                "subtitle": "",
+                "desc": "Exam & Assessment Management",
+                "description": "Exam & Assessment Management",
+                "slug": "/exam-center",
+                "link": "/exam-center",
+                "icon": "ClipboardList",
+                "image": "",
+                "button": "Learn More",
+                "buttonLink": "/exam-center",
+                "style": {},
+                "animation": "fade",
+                "visible": true,
+                "status": "published",
+                "category": "Education",
+                "industryIds": [],
+                "order": 7
+              },
+              {
+                "id": "inst-card-1784202160510",
+                "title": "Abhishake school ",
+                "subtitle": "Primary, Secondary Education",
+                "desc": "NX high-precision access systems keep classroom safety unified and simple.",
+                "description": "NX high-precision access systems keep classroom safety unified and simple.",
+                "slug": "/area",
+                "link": "/area",
+                "icon": "School",
+                "image": "",
+                "button": "Learn More",
+                "buttonLink": "/area",
+                "style": {
+                  "width": "full",
+                  "height": "auto",
+                  "borderRadius": "xl",
+                  "background": "#ffffff",
+                  "border": "solid 1px #e2e8f0",
+                  "padding": "6",
+                  "shadow": "sm",
+                  "hoverShadow": "md",
+                  "hoverScale": "102",
+                  "transitionDuration": "300"
+                },
+                "animation": "fade",
+                "visible": true,
+                "status": "published",
+                "category": "Education",
+                "industryIds": [
+                  "ind-1784007317299"
+                ],
+                "order": 8
+              }
+            ]
+          },
+          "styles": {
+            "paddingTop": "64px",
+            "paddingBottom": "64px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "backgroundColor": "#fbf9f8",
+            "textColor": "#1E293B",
+            "alignment": "center",
+            "animation": "fade",
+            "visibility": "all"
+          }
+        },
+        {
+          "id": "institution-cta",
+          "name": "CTA Banner Node",
+          "type": "CTA",
+          "visible": true,
+          "content": {
+            "title": "Ready to Upgrade Your Institution's Safety?",
+            "subtitle": "Get in touch with our institutional safety architects to build a custom solution.",
+            "buttonText": "Get Quote",
+            "buttonLink": "/contact",
+            "ctaText": "Get Quote",
+            "ctaUrl": "/contact"
+          },
+          "styles": {
+            "paddingTop": "60px",
+            "paddingBottom": "60px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "backgroundColor": "#0070ea",
+            "backgroundImage": "",
+            "textColor": "#FFFFFF",
+            "headingColor": "#FFFFFF",
+            "alignment": "center",
+            "animation": "none",
+            "visibility": "all"
+          }
+        }
+      ],
+      "themeOverride": {
+        "primaryColor": "#00244a",
+        "secondaryColor": "#0059bb",
+        "accentColor": "#0070ea",
+        "background": "#fbf9f8",
+        "cardColor": "#ffffff",
+        "borderColor": "#c3c6d1",
+        "typography": "Hanken Grotesk",
+        "borderRadius": "xl",
+        "shadow": "lg"
+      }
+    },
+    {
+      "id": "page-area",
+      "name": "Area Selector",
+      "slug": "/area",
+      "seo": {
+        "title": "Campus Areas - Security Audits",
+        "description": "Select a specific zone or sector within the institution premises to map risk scenarios.",
+        "keywords": "Main gate security, classroom monitoring"
+      },
+      "visible": true,
+      "sections": [
+        {
+          "id": "area-grid",
+          "name": "Campus Zones",
+          "type": "Area",
+          "visible": true,
+          "content": {
+            "title": "School",
+            "subtitle": "Select the Area",
+            "items": [
+              {
+                "icon": "LogIn",
+                "title": "Main Gate",
+                "desc": "Entry / Exit Point",
+                "link": "/problem"
+              },
+              {
+                "icon": "Presentation",
+                "title": "Classrooms",
+                "desc": "Classroom Monitoring",
+                "link": "/problem"
+              },
+              {
+                "icon": "Columns",
+                "title": "Corridors",
+                "desc": "Hallway & Corridor",
+                "link": "/problem"
+              },
+              {
+                "icon": "BookOpen",
+                "title": "Library",
+                "desc": "Library Area",
+                "link": "/problem"
+              },
+              {
+                "icon": "TreePine",
+                "title": "Playground",
+                "desc": "Playground & Sports",
+                "link": "/problem"
+              },
+              {
+                "icon": "Coffee",
+                "title": "Cafeteria",
+                "desc": "Canteen & Dining",
+                "link": "/problem"
+              },
+              {
+                "icon": "Car",
+                "title": "Parking",
+                "desc": "Parking Area",
+                "link": "/problem"
+              },
+              {
+                "icon": "Grid",
+                "title": "Other Areas",
+                "desc": "Other Important Areas",
+                "link": "/problem"
+              }
+            ]
+          },
+          "styles": {
+            "paddingTop": "64px",
+            "paddingBottom": "64px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "backgroundColor": "#FFFFFF",
+            "textColor": "#1E293B",
+            "headingColor": "#0F172A",
+            "accentColor": "#2563EB",
+            "alignment": "center",
+            "animation": "slide-up",
+            "visibility": "all"
+          }
+        }
+      ]
+    },
+    {
+      "id": "page-problem",
+      "name": "Problem Selector",
+      "slug": "/problem",
+      "seo": {
+        "title": "Main Gate Security Issues",
+        "description": "Identify current vulnerabilities occurring at campus entrances.",
+        "keywords": "unauthorized entry, tailgating"
+      },
+      "visible": true,
+      "sections": [
+        {
+          "id": "problem-selector",
+          "name": " VMS Problems",
+          "type": "Problem",
+          "visible": true,
+          "content": {
+            "title": "Security - Main Gate",
+            "subtitle": "Select the Problem",
+            "items": [
+              {
+                "icon": "UserX",
+                "title": "Unauthorized Entry",
+                "desc": "People entering without permission",
+                "link": "/solution"
+              },
+              {
+                "icon": "UserMinus",
+                "title": "Tailgating",
+                "desc": "Following authorized person",
+                "link": "/solution"
+              },
+              {
+                "icon": "UserCheck",
+                "title": "Fake Visitors",
+                "desc": "Fake / Unregistered visitors",
+                "link": "/solution"
+              },
+              {
+                "icon": "Clock",
+                "title": "No Visitor Record",
+                "desc": "Manual register, no digital record",
+                "link": "/solution"
+              },
+              {
+                "icon": "AlertTriangle",
+                "title": "Wrong Access",
+                "desc": "Access to wrong people",
+                "link": "/solution"
+              },
+              {
+                "icon": "Hourglass",
+                "title": "Time Consumption",
+                "desc": "Manual process takes time",
+                "link": "/solution"
+              },
+              {
+                "icon": "MonitorOff",
+                "title": "No Real-Time Monitoring",
+                "desc": "No live monitoring system",
+                "link": "/solution"
+              },
+              {
+                "icon": "HelpCircle",
+                "title": "Other Problems",
+                "desc": "Other security issues",
+                "link": "/solution"
+              }
+            ]
+          },
+          "styles": {
+            "paddingTop": "64px",
+            "paddingBottom": "64px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "backgroundColor": "#F8FAFC",
+            "textColor": "#1E293B",
+            "headingColor": "#0F172A",
+            "accentColor": "#EF4444",
+            "alignment": "center",
+            "animation": "scale-up",
+            "visibility": "all"
+          }
+        }
+      ]
+    },
+    {
+      "id": "page-solution",
+      "name": "AI Solution Detail",
+      "slug": "/solution",
+      "seo": {
+        "title": "AI-Powered Security Solution for Main Gates",
+        "description": "Combat unauthorized entry using AI Face Recognition and digital Visitor logs.",
+        "keywords": "face scanning lock system"
+      },
+      "visible": true,
+      "sections": [
+        {
+          "id": "solution-details",
+          "name": "VMS Solution Details",
+          "type": "Solution",
+          "visible": true,
+          "content": {
+            "title": "Unauthorized Entry at Main Gate",
+            "subtitle": "AI-Powered Security & Access Control Solution",
+            "problemHeading": "Problem",
+            "problemDesc": "Unauthorized people enter the school premises, which seriously compromises the safety and security of students, teachers, and administrative staff.",
+            "challengesHeading": "Current Challenges",
+            "challenges": [
+              "Manual verification takes excessive time and leads to human errors",
+              "No real-time tracking or alerts when unwanted personnel try to bypass barriers",
+              "Fake visitor IDs and physical tailgating go undetected",
+              "Unreliable paper-based guest registries without photo-proofing"
+            ],
+            "image": "https://images.unsplash.com/photo-1541829019-2592e213f985?w=800&auto=format&fit=crop&q=80",
+            "ctaText": "Book a Demo",
+            "badges": [
+              {
+                "icon": "ScanFace",
+                "text": "AI Face Recognition"
+              },
+              {
+                "icon": "KeyRound",
+                "text": "Access Control"
+              },
+              {
+                "icon": "Users",
+                "text": "Visitor Management"
+              },
+              {
+                "icon": "Eye",
+                "text": "Real-time Monitoring"
+              },
+              {
+                "icon": "Bell",
+                "text": "Alerts & Notifications"
+              },
+              {
+                "icon": "BarChart3",
+                "text": "Reports & Analytics"
+              }
+            ]
+          },
+          "styles": {
+            "paddingTop": "64px",
+            "paddingBottom": "64px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "backgroundColor": "#FFFFFF",
+            "textColor": "#1E293B",
+            "headingColor": "#0F172A",
+            "accentColor": "#10B981",
+            "alignment": "left",
+            "animation": "fade",
+            "visibility": "all"
+          }
+        }
+      ]
+    },
+    {
+      "id": "page-products",
+      "name": "Products Grid",
+      "slug": "/products",
+      "seo": {
+        "title": "Integrated Smart Software & Hardware Products - NX Solution",
+        "description": "Explore our catalog of custom-designed AI security hardware and software control applications.",
+        "keywords": "AI CCTV, face biometric device, visitor logs system"
+      },
+      "visible": false,
+      "sections": [
+        {
+          "id": "products-catalog",
+          "name": "Product Catalog Sections",
+          "type": "Products",
+          "visible": true,
+          "content": {
+            "title": "Products",
+            "subtitle": "Integrated Hardware, Software & AI Solutions"
+          },
+          "styles": {
+            "paddingTop": "64px",
+            "paddingBottom": "64px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "backgroundColor": "#F8FAFC",
+            "textColor": "#1E293B",
+            "headingColor": "#0F172A",
+            "accentColor": "#2563EB",
+            "alignment": "center",
+            "animation": "fade",
+            "visibility": "all"
+          }
+        }
+      ]
+    },
+    {
+      "id": "page-case-studies",
+      "name": "Case Studies",
+      "slug": "/case-studies",
+      "seo": {
+        "title": "Case Studies - Success Stories and Proof of Performance",
+        "description": "See how NX Solution integrated AI networks at institutions, factories, and smart properties to establish reliable protection.",
+        "keywords": "security client case study"
+      },
+      "visible": false,
+      "sections": [
+        {
+          "id": "case-studies-section",
+          "name": "Case Studies Panel",
+          "type": "CaseStudies",
+          "visible": true,
+          "content": {
+            "title": "Case Studies",
+            "subtitle": "Real Solutions. Real Results.",
+            "items": [
+              {
+                "id": "cs-1",
+                "title": "Smart School Security Integration",
+                "category": "Education",
+                "desc": "Deployed real-time Face Recognition access gates across 4 state-university campus main gates, reducing unauthorized tailgating incidents by 98.4% and automating attendance logs.",
+                "image": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&auto=format&fit=crop&q=80"
+              },
+              {
+                "id": "cs-2",
+                "title": "Hospital Patient Safety and Tracking",
+                "category": "Healthcare",
+                "desc": "Integrated smart CCTV cameras with NX Sentinel software to alert staff instantly when Alzheimer patients enter unauthorized high-risk wards or wander near perimeter boundaries.",
+                "image": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&auto=format&fit=crop&q=80"
+              },
+              {
+                "id": "cs-3",
+                "title": "Factory Safety Automation",
+                "category": "Manufacturing",
+                "desc": "Utilized deep-learning image processing to automatically stop dangerous factory conveyors if a floor worker enters the hazard-zone without complete PPE gear (Helmet/Vest).",
+                "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&auto=format&fit=crop&q=80"
+              },
+              {
+                "id": "cs-4",
+                "title": "Smart Society Integrated Security",
+                "category": "Smart City",
+                "desc": "Launched an automated smart barrier solution coupled with license plate validation algorithms for a residential luxury township housing 1,200+ active families.",
+                "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&auto=format&fit=crop&q=80"
+              }
+            ]
+          },
+          "styles": {
+            "paddingTop": "64px",
+            "paddingBottom": "64px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "backgroundColor": "#FFFFFF",
+            "textColor": "#1E293B",
+            "headingColor": "#0F172A",
+            "accentColor": "#2563EB",
+            "alignment": "center",
+            "animation": "slide-up",
+            "visibility": "all"
+          }
+        }
+      ]
+    },
+    {
+      "id": "page-about",
+      "name": "About Us",
+      "slug": "/about",
+      "seo": {
+        "title": "About Us - Building Smarter and Safer Tomorrows",
+        "description": "NX Solution is an enterprise technology provider building cutting-edge security systems, network architectures, and hardware modules.",
+        "keywords": "about security company"
+      },
+      "visible": true,
+      "sections": [
+        {
+          "id": "about-details",
+          "name": "Corporate Overview",
+          "type": "About",
+          "visible": true,
+          "content": {
+            "title": "About NX Solution",
+            "subtitle": "Building Smarter, Safer & Better Tomorrow",
+            "desc": "NX Solution is an AI-powered technology company providing smart, integrated and scalable solutions for every industry. We combine AI, IoT, Software and Hardware to solve real-world operational challenges.",
+            "stats": [
+              {
+                "label": "Years of Experience",
+                "value": "10+"
+              },
+              {
+                "label": "Active Clients",
+                "value": "500+"
+              },
+              {
+                "label": "Projects Completed",
+                "value": "1000+"
+              },
+              {
+                "label": "Expert Team Members",
+                "value": "50+"
+              }
+            ],
+            "whyTitle": "Why Choose NX Solution?",
+            "whyBadges": [
+              {
+                "icon": "Brain",
+                "text": "AI-Powered Analytics"
+              },
+              {
+                "icon": "Cpu",
+                "text": "Real-time Tracking"
+              },
+              {
+                "icon": "Sliders",
+                "text": "Custom Development"
+              },
+              {
+                "icon": "Clock",
+                "text": "24/7 Remote Support"
+              },
+              {
+                "icon": "Shield",
+                "text": "Trusted by Enterprises"
+              },
+              {
+                "icon": "Gauge",
+                "text": "Future Ready Technology"
+              }
+            ]
+          },
+          "styles": {
+            "paddingTop": "64px",
+            "paddingBottom": "64px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "backgroundColor": "#F8FAFC",
+            "textColor": "#1E293B",
+            "headingColor": "#0F172A",
+            "accentColor": "#2563EB",
+            "alignment": "center",
+            "animation": "fade",
+            "visibility": "all"
+          }
+        }
+      ]
+    },
+    {
+      "id": "page-resources",
+      "name": "Resources",
+      "slug": "/resources",
+      "seo": {
+        "title": "Insights, Whitepapers, and Blog Logs - NX Solution",
+        "description": "Browse technical security articles, news reports, and detailed Whitepapers compiled by our expert network engineers.",
+        "keywords": "security whitepapers cctv news"
+      },
+      "visible": false,
+      "sections": [
+        {
+          "id": "resources-section",
+          "name": "Technical Blogs Grid",
+          "type": "Resources",
+          "visible": true,
+          "content": {
+            "title": "Resources",
+            "subtitle": "Insights, Blogs, News and More",
+            "blogs": [
+              {
+                "id": "blog-1",
+                "title": "How AI is Transforming School Security Systems",
+                "category": "Blogs",
+                "date": "20 May 2026",
+                "desc": "An in-depth review on deep learning facial models and their impact on safety perimeters and digital student rosters.",
+                "image": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&auto=format&fit=crop&q=80"
+              },
+              {
+                "id": "blog-2",
+                "title": "Benefits of AI Video Analytics in Commercial Properties",
+                "category": "Whitepapers",
+                "date": "15 May 2026",
+                "desc": "Whitepaper investigating the deployment of low-latency thermal and visual analysis engines at main access checkpoints.",
+                "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&auto=format&fit=crop&q=80"
+              },
+              {
+                "id": "blog-3",
+                "title": "Smart Hospital Security Architecture Guide",
+                "category": "Case Studies",
+                "date": "10 May 2026",
+                "desc": "Architectural blueprint explaining secure network deployment of tracking tags and boundary radars inside critical care buildings.",
+                "image": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&auto=format&fit=crop&q=80"
+              }
+            ]
+          },
+          "styles": {
+            "paddingTop": "64px",
+            "paddingBottom": "64px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "backgroundColor": "#FFFFFF",
+            "textColor": "#1E293B",
+            "headingColor": "#0F172A",
+            "accentColor": "#2563EB",
+            "alignment": "center",
+            "animation": "slide-up",
+            "visibility": "all"
+          }
+        }
+      ]
+    },
+    {
+      "id": "page-contact",
+      "name": "Contact",
+      "slug": "/contact",
+      "seo": {
+        "title": "Contact Us - Get an Instant Enterprise Demo",
+        "description": "Request a customized physical walkthrough of NX Solution hardware or ask about direct quotation prices.",
+        "keywords": "contact sales quote request demo"
+      },
+      "visible": false,
+      "sections": [
+        {
+          "id": "contact-section",
+          "name": "Contact Form Frame",
+          "type": "Contact",
+          "visible": true,
+          "content": {
+            "title": "Contact Us",
+            "subtitle": "We are here to help you!"
+          },
+          "styles": {
+            "paddingTop": "64px",
+            "paddingBottom": "64px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "backgroundColor": "#FFFFFF",
+            "textColor": "#1E293B",
+            "headingColor": "#0F172A",
+            "accentColor": "#2563EB",
+            "alignment": "center",
+            "animation": "fade",
+            "visibility": "all"
+          }
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "prod-1",
+      "name": "NX AI Dome Camera",
+      "slug": "nx-ai-dome-camera",
+      "images": [
+        "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=600&auto=format&fit=crop&q=80"
+      ],
+      "gallery": [
+        "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=600&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?w=600&auto=format&fit=crop&q=80"
+      ],
+      "category": "Hardware Solutions",
+      "description": "Our flagship 4MP High Resolution smart dome camera equipped with cutting-edge edge AI processors for instant face identification and intrusion detection.",
+      "specifications": [
+        {
+          "key": "Resolution",
+          "value": "4MP (2560 x 1440) at 30fps"
+        },
+        {
+          "key": "AI Engine",
+          "value": "Edge-AI 4 TOPS Neural Network Processing Unit"
+        },
+        {
+          "key": "Weather Protection",
+          "value": "IP67 Waterproof & IK10 Vandal-Proof"
+        },
+        {
+          "key": "Audio",
+          "value": "Built-in high sensitivity microphone & speaker"
+        },
+        {
+          "key": "Night Vision",
+          "value": "Smart IR up to 30 meters with Starvis sensor"
+        }
+      ],
+      "features": [
+        "AI Human & Vehicle Detection with 99.8% precision",
+        "Smart Motion Detection avoiding false alarms (leaves, shadows, rain)",
+        "Real-time streaming over secure encrypted channel",
+        "One-click easy installation with active PoE support"
+      ],
+      "downloads": [
+        {
+          "label": "Product Datasheet (PDF)",
+          "url": "#"
+        },
+        {
+          "label": "Installation Manual",
+          "url": "#"
+        }
+      ],
+      "seo": {
+        "title": "NX AI Dome Camera - Professional Security",
+        "description": "Advanced 4MP smart AI dome camera featuring real-time face detection and active deterrent."
+      },
+      "status": "published",
+      "relatedProducts": [
+        "prod-2",
+        "prod-3"
+      ]
+    },
+    {
+      "id": "prod-2",
+      "name": "NX Sentinel System",
+      "slug": "nx-sentinel",
+      "images": [
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format&fit=crop&q=80"
+      ],
+      "gallery": [
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format&fit=crop&q=80"
+      ],
+      "category": "Software Solutions",
+      "description": "Centralized command center software utilizing deep-learning algorithms to monitor, analyze, and alert operations in real-time across multiple locations.",
+      "specifications": [
+        {
+          "key": "Platform Compatibility",
+          "value": "Windows Server, Ubuntu, Cloud"
+        },
+        {
+          "key": "Max Cameras Supported",
+          "value": "Up to 10,000 streams per cluster"
+        },
+        {
+          "key": "Protocol Support",
+          "value": "ONVIF, RTSP, WebRTC"
+        }
+      ],
+      "features": [
+        "Real-time automated facial verification and visitor log integration",
+        "Instant push notifications and SMS/Email security alerts",
+        "Comprehensive data analytics panel with exportable PDF/Excel reports"
+      ],
+      "downloads": [
+        {
+          "label": "Software Spec Sheet",
+          "url": "#"
+        }
+      ],
+      "seo": {
+        "title": "NX Sentinel VMS - AI Video Analytics",
+        "description": "Next generation Enterprise Video Management Software (VMS) with advanced AI analytics integrations."
+      },
+      "status": "published",
+      "relatedProducts": [
+        "prod-1"
+      ]
+    },
+    {
+      "id": "prod-3",
+      "name": "NX Face Terminal Pro",
+      "slug": "nx-face-terminal-pro",
+      "images": [
+        "https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?w=600&auto=format&fit=crop&q=80"
+      ],
+      "gallery": [
+        "https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?w=600&auto=format&fit=crop&q=80"
+      ],
+      "category": "Hardware Solutions",
+      "description": "A wall-mounted access terminal with instant face scanning, thermal temperature scanning, and automatic barrier control triggers.",
+      "specifications": [
+        {
+          "key": "Verification Speed",
+          "value": "< 0.2 seconds per user"
+        },
+        {
+          "key": "Face Capacity",
+          "value": "50,000 active profiles"
+        },
+        {
+          "key": "Display",
+          "value": "7-inch HD IPS Touch Screen"
+        }
+      ],
+      "features": [
+        "Mask compliance tracking and elevated body temperature alerts",
+        "Seamless integration with magnetic locks and physical turnstiles/boom barriers",
+        "Dual lens live detection preventing verification using photos or video"
+      ],
+      "downloads": [
+        {
+          "label": "Datasheet Terminal",
+          "url": "#"
+        }
+      ],
+      "seo": {
+        "title": "NX Face Terminal Pro - Biometric Access",
+        "description": "Enterprise-grade facial recognition access terminal with thermal scanning."
+      },
+      "status": "published",
+      "relatedProducts": [
+        "prod-1"
+      ]
+    }
+  ],
+  "leads": [],
+  "logs": [
+    {
+      "userId": "user-admin",
+      "userName": "Administrator",
+      "action": "Update Visual Sections",
+      "details": "Modified and re-ordered sections for page: Home (/)",
+      "id": "log-1784615826459",
+      "timestamp": "2026-07-21T06:37:06.459Z"
+    },
+    {
+      "id": "log-1784614667048",
+      "action": "Update Visual Sections",
+      "details": "Modified and re-ordered sections for page: Home (/)",
+      "timestamp": "2026-07-21T06:17:47.048Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784614640370",
+      "action": "Update Visual Sections",
+      "details": "Modified and re-ordered sections for page: Home (/)",
+      "timestamp": "2026-07-21T06:17:20.370Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784614614082",
+      "action": "Update Visual Sections",
+      "details": "Modified and re-ordered sections for page: Home (/)",
+      "timestamp": "2026-07-21T06:16:54.082Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784545881403",
+      "action": "Update Visual Sections",
+      "details": "Modified and re-ordered sections for page: Home (/)",
+      "timestamp": "2026-07-20T11:11:21.403Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784451463477",
+      "action": "Create Solution",
+      "details": "Created solution \"AI Solution: unauthoried entry\" mapped to module \"mod-1784451456009-116\" and problem \"prob-1784353663886-515\".",
+      "timestamp": "2026-07-19T08:57:43.477Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784451456014",
+      "action": "Create Module",
+      "details": "Created module \"unauthoried entry\" under problem \"prob-1784353663886-515\".",
+      "timestamp": "2026-07-19T08:57:36.014Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784449090120",
+      "action": "Update Visual Sections",
+      "details": "Modified and re-ordered sections for page: Resources (/resources)",
+      "timestamp": "2026-07-19T08:18:10.120Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784449084961",
+      "action": "Update Visual Sections",
+      "details": "Modified and re-ordered sections for page: Case Studies (/case-studies)",
+      "timestamp": "2026-07-19T08:18:04.961Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784449080141",
+      "action": "Update Visual Sections",
+      "details": "Modified and re-ordered sections for page: Products Grid (/products)",
+      "timestamp": "2026-07-19T08:18:00.141Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784449075425",
+      "action": "Update Visual Sections",
+      "details": "Modified and re-ordered sections for page: Contact (/contact)",
+      "timestamp": "2026-07-19T08:17:55.425Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784445638248",
+      "action": "Update Solution",
+      "details": "Updated solution \"AI Solution: bde7tcv\" mapped to module \"mod-1784445443907-451\" and problem \"prob-1784291691635-899\".",
+      "timestamp": "2026-07-19T07:20:38.248Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784445637783",
+      "action": "Update Solution",
+      "details": "Updated solution \"AI Solution: bde7tcv\" mapped to module \"mod-1784445443907-451\" and problem \"prob-1784291691635-899\".",
+      "timestamp": "2026-07-19T07:20:37.783Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784445448135",
+      "action": "Create Solution",
+      "details": "Created solution \"AI Solution: bde7tcv\" mapped to module \"mod-1784445443907-451\" and problem \"prob-1784291691635-899\".",
+      "timestamp": "2026-07-19T07:17:28.135Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784445443911",
+      "action": "Create Module",
+      "details": "Created module \"bde7tcv\" under problem \"prob-1784291691635-899\".",
+      "timestamp": "2026-07-19T07:17:23.911Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784353670315",
+      "action": "Create Solution",
+      "details": "Created solution \"AI Solution: Security \" mapped to problem ID \"prob-1784353663886-515\".",
+      "timestamp": "2026-07-18T05:47:50.315Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784353663889",
+      "action": "Create Problem",
+      "details": "Created problem \"Security \" with slug \"security\".",
+      "timestamp": "2026-07-18T05:47:43.889Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784353646980",
+      "action": "Create Zone",
+      "details": "Created new zone \"Main gate \" (slug: main-gate-3) for institution inst-1-1784001788478.",
+      "timestamp": "2026-07-18T05:47:26.980Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784311475802",
+      "action": "Save Industry",
+      "details": "Saved Industry \"Education\" (ID: ind-edu)",
+      "timestamp": "2026-07-17T18:04:35.802Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784307626816",
+      "action": "Update Visual Sections",
+      "details": "Modified and re-ordered sections for page: Products Grid (/products)",
+      "timestamp": "2026-07-17T17:00:26.816Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784307602914",
+      "action": "Update Visual Sections",
+      "details": "Modified and re-ordered sections for page: Products Grid (/products)",
+      "timestamp": "2026-07-17T17:00:02.914Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784307601705",
+      "action": "Update Visual Sections",
+      "details": "Modified and re-ordered sections for page: Products Grid (/products)",
+      "timestamp": "2026-07-17T17:00:01.705Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784307601037",
+      "action": "Update Visual Sections",
+      "details": "Modified and re-ordered sections for page: Products Grid (/products)",
+      "timestamp": "2026-07-17T17:00:01.037Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784296711975",
+      "action": "Update Solution",
+      "details": "Updated solution \"AI Solution: unauthorized entry\" mapped to problem ID \"prob-1784291691635-899\".",
+      "timestamp": "2026-07-17T13:58:31.975Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784296711693",
+      "action": "Update Solution",
+      "details": "Updated solution \"AI Solution: unauthorized entry\" mapped to problem ID \"prob-1784291691635-899\".",
+      "timestamp": "2026-07-17T13:58:31.693Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784296710225",
+      "action": "Update Solution",
+      "details": "Updated solution \"AI Solution: unauthorized entry\" mapped to problem ID \"prob-1784291691635-899\".",
+      "timestamp": "2026-07-17T13:58:30.225Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784296707322",
+      "action": "Update Solution",
+      "details": "Updated solution \"AI Solution: unauthorized entry\" mapped to problem ID \"prob-1784291691635-899\".",
+      "timestamp": "2026-07-17T13:58:27.322Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784296085425",
+      "action": "Update Solution",
+      "details": "Updated solution \"AI Solution: unauthorized entry\" mapped to problem ID \"prob-1784291691635-899\".",
+      "timestamp": "2026-07-17T13:48:05.425Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784296053680",
+      "action": "Update Zone",
+      "details": "Updated zone \"main gate\" (slug: main-gate).",
+      "timestamp": "2026-07-17T13:47:33.680Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784296027573",
+      "action": "Save Industry",
+      "details": "Saved Industry \"Healthcare (Copy)\" (ID: ind-1784296027570-qwg4yr9nw)",
+      "timestamp": "2026-07-17T13:47:07.573Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784294486540",
+      "action": "Update Solution",
+      "details": "Updated solution \"AI Solution: unauthorized entry\" mapped to problem ID \"prob-1784291691635-899\".",
+      "timestamp": "2026-07-17T13:21:26.540Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784294432236",
+      "action": "Update Solution",
+      "details": "Updated solution \"AI Solution: unauthorized entry\" mapped to problem ID \"prob-1784291691635-899\".",
+      "timestamp": "2026-07-17T13:20:32.236Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784294415633",
+      "action": "Update Solution",
+      "details": "Updated solution \"AI Solution: unauthorized entry\" mapped to problem ID \"prob-1784291691635-899\".",
+      "timestamp": "2026-07-17T13:20:15.633Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784294415007",
+      "action": "Update Solution",
+      "details": "Updated solution \"AI Solution: unauthorized entry\" mapped to problem ID \"prob-1784291691635-899\".",
+      "timestamp": "2026-07-17T13:20:15.007Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784294412847",
+      "action": "Update Solution",
+      "details": "Updated solution \"AI Solution: unauthorized entry\" mapped to problem ID \"prob-1784291691635-899\".",
+      "timestamp": "2026-07-17T13:20:12.847Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784294412448",
+      "action": "Update Solution",
+      "details": "Updated solution \"AI Solution: unauthorized entry\" mapped to problem ID \"prob-1784291691635-899\".",
+      "timestamp": "2026-07-17T13:20:12.448Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784294400971",
+      "action": "Update Solution",
+      "details": "Updated solution \"AI Solution: unauthorized entry\" mapped to problem ID \"prob-1784291691635-899\".",
+      "timestamp": "2026-07-17T13:20:00.971Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784294398146",
+      "action": "Update Solution",
+      "details": "Updated solution \"AI Solution: unauthorized entry\" mapped to problem ID \"prob-1784291691635-899\".",
+      "timestamp": "2026-07-17T13:19:58.146Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784294395687",
+      "action": "Update Solution",
+      "details": "Updated solution \"AI Solution: unauthorized entry\" mapped to problem ID \"prob-1784291691635-899\".",
+      "timestamp": "2026-07-17T13:19:55.687Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784294284578",
+      "action": "Update Solution",
+      "details": "Updated solution \"AI Solution: unauthorized entry\" mapped to problem ID \"prob-1784291691635-899\".",
+      "timestamp": "2026-07-17T13:18:04.578Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784293709021",
+      "action": "Save Institution",
+      "details": "Saved Institution \"sdfghj\" (ID: inst-1784293709017-r9w0yxp81)",
+      "timestamp": "2026-07-17T13:08:29.021Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784291728261",
+      "action": "Update Solution",
+      "details": "Updated solution \"AI Solution: unauthorized entry\" mapped to problem ID \"prob-1784291691635-899\".",
+      "timestamp": "2026-07-17T12:35:28.261Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784291711345",
+      "action": "Create Solution",
+      "details": "Created solution \"AI Solution: unauthorized entry\" mapped to problem ID \"prob-1784291691635-899\".",
+      "timestamp": "2026-07-17T12:35:11.345Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784291711202",
+      "action": "Create Solution",
+      "details": "Created solution \"AI Solution: unauthorized entry\" mapped to problem ID \"prob-1784291691635-899\".",
+      "timestamp": "2026-07-17T12:35:11.203Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784291691638",
+      "action": "Create Problem",
+      "details": "Created problem \"unauthorized entry\" with slug \"unauthorized-entry\".",
+      "timestamp": "2026-07-17T12:34:51.638Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784285929578",
+      "action": "Update Visual Sections",
+      "details": "Modified and re-ordered sections for page: Home (/)",
+      "timestamp": "2026-07-17T10:58:49.578Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784279235439",
+      "action": "Login Success",
+      "details": "User logged in: pratham89jo@gmail.com",
+      "timestamp": "2026-07-17T09:07:15.439Z",
+      "userId": "user-1783960690870",
+      "userName": "PRATHAM89JO"
+    },
+    {
+      "id": "log-1784279018110",
+      "action": "Add Staff Member",
+      "details": "Added new user rohan (prathamjo@gmail.com) with role CRM Executive",
+      "timestamp": "2026-07-17T09:03:38.110Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784214204025",
+      "action": "Login Success",
+      "details": "User logged in: pratham89jo@gmail.com",
+      "timestamp": "2026-07-16T15:03:24.025Z",
+      "userId": "user-1783960690870",
+      "userName": "PRATHAM89JO"
+    },
+    {
+      "id": "log-1784202444422",
+      "action": "Create Problem",
+      "details": "Created problem \"Fake Entry \" with slug \"fake-entry\".",
+      "timestamp": "2026-07-16T11:47:24.422Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784202379502",
+      "action": "Map Problems to Zone",
+      "details": "Mapped 0 problems to Zone ID \"zone-1784202379348-614\".",
+      "timestamp": "2026-07-16T11:46:19.502Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784202379350",
+      "action": "Create Zone",
+      "details": "Created new zone \"MAin gate \" (slug: main-gate-2) for institution inst-card-1784202160510.",
+      "timestamp": "2026-07-16T11:46:19.350Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784202262486",
+      "action": "Publish Institution Webflow CMS",
+      "details": "Saved comprehensive visual layout & 9 institution vertical cards.",
+      "timestamp": "2026-07-16T11:44:22.486Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784202134693",
+      "action": "Publish Industry Webflow CMS",
+      "details": "Saved comprehensive visual layout & 9 industry vertical cards.",
+      "timestamp": "2026-07-16T11:42:14.693Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784192425868",
+      "action": "Update Visual Sections",
+      "details": "Modified and re-ordered sections for page: Home (/)",
+      "timestamp": "2026-07-16T09:00:25.868Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784192375946",
+      "action": "Publish Industry Webflow CMS",
+      "details": "Saved comprehensive visual layout & 9 industry vertical cards.",
+      "timestamp": "2026-07-16T08:59:35.946Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784192068945",
+      "action": "Update Visual Sections",
+      "details": "Modified and re-ordered sections for page: Home (/)",
+      "timestamp": "2026-07-16T08:54:28.945Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784191743931",
+      "action": "Login Success",
+      "details": "User logged in: prathamgamer355@gmail.com",
+      "timestamp": "2026-07-16T08:49:03.931Z",
+      "userId": "user-admin",
+      "userName": "Pratham Admin"
+    },
+    {
+      "id": "log-1784191718512",
+      "action": "Update Visual Sections",
+      "details": "Modified and re-ordered sections for page: Home (/)",
+      "timestamp": "2026-07-16T08:48:38.512Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784191656811",
+      "action": "User Registered",
+      "details": "Auto-registered staff member prathamjoshi355@gmail.com as Super Admin upon successful keycode verification.",
+      "timestamp": "2026-07-16T08:47:36.811Z",
+      "userId": "user-1784191656803",
+      "userName": "PRATHAMJOSHI355"
+    },
+    {
+      "id": "log-1784186619618",
+      "action": "Update Visual Sections",
+      "details": "Modified and re-ordered sections for page: Home (/)",
+      "timestamp": "2026-07-16T07:23:39.618Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784145211949",
+      "action": "Publish Industry Webflow CMS",
+      "details": "Saved comprehensive visual layout & 9 industry vertical cards.",
+      "timestamp": "2026-07-15T19:53:31.949Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784145208512",
+      "action": "Publish Industry Webflow CMS",
+      "details": "Saved comprehensive visual layout & 9 industry vertical cards.",
+      "timestamp": "2026-07-15T19:53:28.512Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784145165000",
+      "action": "Publish Institution Webflow CMS",
+      "details": "Saved comprehensive visual layout & 8 institution vertical cards.",
+      "timestamp": "2026-07-15T19:52:45.000Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784145058566",
+      "action": "Delete Solution",
+      "details": "Deleted solution \"Nal \" (sol-1784049230822-685).",
+      "timestamp": "2026-07-15T19:50:58.566Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784145052196",
+      "action": "Delete Problem",
+      "details": "Deleted problem \"new \" (prob-1784049172510-307).",
+      "timestamp": "2026-07-15T19:50:52.196Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784145050483",
+      "action": "Delete Problem",
+      "details": "Deleted problem \"dfg\" (prob-1784049718041-467).",
+      "timestamp": "2026-07-15T19:50:50.483Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784095476223",
+      "action": "Login Success",
+      "details": "User logged in: pratham89jo@gmail.com",
+      "timestamp": "2026-07-15T06:04:36.223Z",
+      "userId": "user-1783960690870",
+      "userName": "PRATHAM89JO"
+    },
+    {
+      "id": "log-1784049718045",
+      "action": "Create Problem",
+      "details": "Created problem \"dfg\" with slug \"dfg\".",
+      "timestamp": "2026-07-14T17:21:58.045Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784049555769",
+      "action": "Update Solution",
+      "details": "Updated solution \"Nal \" mapped to problem ID \"prob-1784049172510-307\".",
+      "timestamp": "2026-07-14T17:19:15.769Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784049230826",
+      "action": "Create Solution",
+      "details": "Created solution \"Nal \" mapped to problem ID \"prob-1784049172510-307\".",
+      "timestamp": "2026-07-14T17:13:50.826Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784049172512",
+      "action": "Create Problem",
+      "details": "Created problem \"new \" with slug \"new\".",
+      "timestamp": "2026-07-14T17:12:52.513Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784029839520",
+      "action": "Update Zone",
+      "details": "Updated zone \"main gate\" (slug: main-gate).",
+      "timestamp": "2026-07-14T11:50:39.520Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784029724183",
+      "action": "Create Zone",
+      "details": "Created new zone \"main gate\" (slug: main-gate) for institution inst-2-1784001788478.",
+      "timestamp": "2026-07-14T11:48:44.183Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784014058103",
+      "action": "Publish Institution Webflow CMS",
+      "details": "Saved comprehensive visual layout & 8 institution vertical cards.",
+      "timestamp": "2026-07-14T07:27:38.103Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784010933576",
+      "action": "Publish Industry Webflow CMS",
+      "details": "Saved comprehensive visual layout & 9 industry vertical cards.",
+      "timestamp": "2026-07-14T06:35:33.576Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784010922961",
+      "action": "Publish Industry Webflow CMS",
+      "details": "Saved comprehensive visual layout & 9 industry vertical cards.",
+      "timestamp": "2026-07-14T06:35:22.961Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784009127090",
+      "action": "Publish Industry Webflow CMS",
+      "details": "Saved comprehensive visual layout & 9 industry vertical cards.",
+      "timestamp": "2026-07-14T06:05:27.090Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784009052158",
+      "action": "Publish Industry Webflow CMS",
+      "details": "Saved comprehensive visual layout & 9 industry vertical cards.",
+      "timestamp": "2026-07-14T06:04:12.158Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784007408602",
+      "action": "Publish Industry Webflow CMS",
+      "details": "Saved comprehensive visual layout & 9 industry vertical cards.",
+      "timestamp": "2026-07-14T05:36:48.602Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784004985958",
+      "action": "Publish Institution Webflow CMS",
+      "details": "Saved comprehensive visual layout & 8 institution vertical cards.",
+      "timestamp": "2026-07-14T04:56:25.958Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1784001798482",
+      "action": "Publish Institution Webflow CMS",
+      "details": "Saved comprehensive visual layout & 8 institution vertical cards.",
+      "timestamp": "2026-07-14T04:03:18.482Z",
+      "userId": "user-admin",
+      "userName": "Administrator"
+    },
+    {
+      "id": "log-1783970897890",
+      "action": "Create",
+      "details": "Created item in industries: rdctygvhbjnkml,;",
+      "timestamp": "2026-07-13T19:28:17.890Z",
+      "userId": "pratham89jo@gmail.com",
+      "userName": "PRATHAM89JO"
+    },
+    {
+      "id": "log-1783970804025",
+      "action": "Login Success",
+      "details": "User logged in: pratham89jo@gmail.com",
+      "timestamp": "2026-07-13T19:26:44.025Z",
+      "userId": "user-1783960690870",
+      "userName": "PRATHAM89JO"
+    },
+    {
+      "id": "log-1783960690871",
+      "action": "User Registered",
+      "details": "Auto-registered user pratham89jo@gmail.com as Super Admin for sandbox preview access.",
+      "timestamp": "2026-07-13T16:38:10.871Z",
+      "userId": "user-1783960690870",
+      "userName": "PRATHAM89JO"
+    },
+    {
+      "id": "log-1",
+      "userId": "user-admin",
+      "userName": "System",
+      "action": "Initialize",
+      "details": "Database initialized with MongoDB.",
+      "timestamp": "2026-07-13T11:33:22.487Z"
+    }
+  ],
+  "users": [
+    {
+      "id": "user-admin",
+      "name": "Pratham Admin",
+      "email": "prathamgamer355@gmail.com",
+      "role": "Super Admin",
+      "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": "user-1783960690870",
+      "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80",
+      "email": "pratham89jo@gmail.com",
+      "name": "PRATHAM89JO",
+      "role": "Super Admin"
+    },
+    {
+      "id": "user-1784191656803",
+      "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80",
+      "email": "prathamjoshi355@gmail.com",
+      "name": "PRATHAMJOSHI355",
+      "role": "Super Admin"
+    },
+    {
+      "id": "user-1784279018108",
+      "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80",
+      "email": "prathamjo@gmail.com",
+      "name": "rohan",
+      "role": "CRM Executive"
+    }
+  ],
+  "roles": [
+    {
+      "name": "Super Admin",
+      "permissions": [
+        "all",
+        "cms_edit",
+        "crm_manage",
+        "media_edit",
+        "users_manage"
+      ]
+    },
+    {
+      "name": "Designer",
+      "permissions": [
+        "cms_edit",
+        "media_edit"
+      ]
+    },
+    {
+      "name": "Content Manager",
+      "permissions": [
+        "cms_edit",
+        "media_edit"
+      ]
+    },
+    {
+      "name": "CRM Executive",
+      "permissions": [
+        "crm_manage"
+      ]
+    },
+    {
+      "name": "Viewer",
+      "permissions": []
+    }
+  ],
+  "caseStudies": [
+    {
+      "id": "cs-1",
+      "title": "Smart School Security Integration",
+      "slug": "smart-school-security-integration",
+      "category": "Education",
+      "industry": "Educational Institution",
+      "clientName": "Amity University Campus",
+      "image": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&auto=format&fit=crop&q=80",
+      "gallery": [
+        "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=600&auto=format&fit=crop&q=80"
+      ],
+      "challenge": "Amity University campus main gate was suffering from excessive tailgating, unauthorized visitors, and manual attendance registration which took up to 30 minutes per class.",
+      "solution": "We deployed real-time Face Recognition access gates across 4 state-university campus main gates, reducing unauthorized tailgating incidents and automating attendance logs.",
+      "results": "Reduced unauthorized tailgating incidents by 98.4% and automated attendance logs, reducing register overhead from 30 minutes to less than 2 seconds.",
+      "metrics": [
+        {
+          "label": "Tailgating Incidents",
+          "value": "98.4% Reduction"
+        },
+        {
+          "label": "Entry Delay Time",
+          "value": "< 2 Seconds"
+        },
+        {
+          "label": "Attendance Security Accuracy",
+          "value": "99.9% Match Rate"
+        }
+      ],
+      "downloads": [
+        {
+          "label": "Technical Implementation Report (PDF)",
+          "url": "#"
+        },
+        {
+          "label": "Amity University Success Story Spec Sheet",
+          "url": "#"
+        }
+      ],
+      "testimonial": {
+        "quote": "The NX Solution smart biometric system has completely changed our campus safety. Attendance takes seconds, and we have real-time alerts for any unregistered personnel.",
+        "author": "Dr. K. S. Sharma",
+        "role": "Dean of Student Affairs",
+        "company": "Amity University",
+        "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&auto=format&fit=crop&q=80"
+      },
+      "seo": {
+        "title": "Smart School Security Integration Case Study - NX Solution",
+        "description": "See how NX Solution integrated high-speed facial recognition barriers and automated logs at Amity University.",
+        "keywords": "school security system, biometric gate access, campus safety AI"
+      },
+      "status": "published",
+      "date": "May 2026",
+      "author": "Chief Engineer Amit Roy",
+      "relatedCaseStudies": [
+        "cs-2",
+        "cs-3"
+      ]
+    },
+    {
+      "id": "cs-2",
+      "title": "Hospital Patient Safety and Tracking",
+      "slug": "hospital-patient-safety-tracking",
+      "category": "Healthcare",
+      "industry": "Healthcare System",
+      "clientName": "Max Healthcare Hospitals",
+      "image": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&auto=format&fit=crop&q=80",
+      "gallery": [
+        "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1516549655169-df83a0774514?w=600&auto=format&fit=crop&q=80"
+      ],
+      "challenge": "Alzheimer patients and high-risk visitors frequently wandered near hazardous or restricted pharmaceutical zones without authorized guides.",
+      "solution": "Integrated smart CCTV cameras with NX Sentinel software to alert staff instantly when Alzheimer patients enter unauthorized high-risk wards or wander near perimeter boundaries.",
+      "results": "Wandering incidents into restricted zones reduced to absolute zero, and emergency dispatch alerts dropped from 5 minutes to under 15 seconds.",
+      "metrics": [
+        {
+          "label": "Restricted Zone Wandering",
+          "value": "0 Incidents Reported"
+        },
+        {
+          "label": "Emergency Response Time",
+          "value": "< 15 Seconds"
+        },
+        {
+          "label": "Patient Tracking Precision",
+          "value": "99.5% Coverage"
+        }
+      ],
+      "downloads": [
+        {
+          "label": "Healthcare Security Architecture (PDF)",
+          "url": "#"
+        }
+      ],
+      "testimonial": {
+        "quote": "NX Sentinel's patient tracking module acts like an invisible guardian. It lets our nurses focus on clinical care while keeping vulnerable patients safe.",
+        "author": "Sister Clara D'Souza",
+        "role": "Nursing Director",
+        "company": "Max Healthcare",
+        "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&auto=format&fit=crop&q=80"
+      },
+      "seo": {
+        "title": "Hospital Patient Safety AI Case Study - NX Solution",
+        "description": "NX Sentinel implementation study on smart patient tracking and automated nursing alerts in high-risk zones.",
+        "keywords": "hospital patient tracking, ward security, nursing alerts AI"
+      },
+      "status": "published",
+      "date": "April 2026",
+      "author": "Analytics Specialist Priya Sharma",
+      "relatedCaseStudies": [
+        "cs-1"
+      ]
+    },
+    {
+      "id": "cs-3",
+      "title": "Factory Safety Automation",
+      "slug": "factory-safety-automation",
+      "category": "Manufacturing",
+      "industry": "Factory Operations",
+      "clientName": "Vedanta Metal Refineries",
+      "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&auto=format&fit=crop&q=80",
+      "gallery": [
+        "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&auto=format&fit=crop&q=80"
+      ],
+      "challenge": "Factory floor workers frequently entered heavy conveyor hazard-zones without complete PPE gear, risking severe safety violations and accidents.",
+      "solution": "Utilized deep-learning image processing to automatically stop dangerous factory conveyors if a floor worker enters the hazard-zone without complete PPE gear (Helmet/Vest).",
+      "results": "Zero industrial safety accidents since deployment, and complete compliance tracking for OSHA regulatory audits.",
+      "metrics": [
+        {
+          "label": "Conveyor Safety Incidents",
+          "value": "100% Drop"
+        },
+        {
+          "label": "OSHA Audit Rating",
+          "value": "Grade A Gold"
+        },
+        {
+          "label": "Conveyor Emergency Shutoff",
+          "value": "< 100 Milliseconds"
+        }
+      ],
+      "downloads": [
+        {
+          "label": "PPE Compliance Whitepaper (PDF)",
+          "url": "#"
+        }
+      ],
+      "testimonial": {
+        "quote": "Our factory had several safety close-shaves. This automated NPU conveyor shutoff system literally saves lives and keeps us fully compliant with regulations.",
+        "author": "Vikram Malhotra",
+        "role": "EHS Safety Officer",
+        "company": "Vedanta Group",
+        "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80"
+      },
+      "seo": {
+        "title": "Factory Safety Automation and PPE Tracking Case Study",
+        "description": "A study on deep-learning edge image processing and automatic machine shut-offs at Vedanta Metals.",
+        "keywords": "PPE detection AI, conveyor automatic stop, manufacturing safety"
+      },
+      "status": "published",
+      "date": "March 2026",
+      "author": "AI Specialist Rahul Verma",
+      "relatedCaseStudies": [
+        "cs-4"
+      ]
+    },
+    {
+      "id": "cs-4",
+      "title": "Smart Society Integrated Security",
+      "slug": "smart-society-integrated-security",
+      "category": "Smart City",
+      "industry": "Residential Township",
+      "clientName": "DLF Primus Townships",
+      "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&auto=format&fit=crop&q=80",
+      "gallery": [
+        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&auto=format&fit=crop&q=80"
+      ],
+      "challenge": "Manual gate verification for 1,200+ residential families created long queues at rush hours, and allowed unauthorized delivery vehicles to enter unlogged.",
+      "solution": "Launched an automated smart barrier solution coupled with license plate validation algorithms for a residential luxury township housing 1,200+ active families.",
+      "results": "Peak hours traffic congestion cleared, and visitor registration automated by 94% with secure app logs.",
+      "metrics": [
+        {
+          "label": "Visitor Register Automation",
+          "value": "94% Automated"
+        },
+        {
+          "label": "Rush Hour Congestion",
+          "value": "Zero Waiting"
+        },
+        {
+          "label": "Resident App Satisfaction",
+          "value": "4.8/5.0 Rating"
+        }
+      ],
+      "downloads": [
+        {
+          "label": "Smart Society System Blueprints (PDF)",
+          "url": "#"
+        }
+      ],
+      "testimonial": {
+        "quote": "The automated license plate reader has removed the gate block completely. Now delivery agents get one-time PINs and residents feel 100% safe.",
+        "author": "Sanjay Singhal",
+        "role": "Secretary, Residents Welfare Association",
+        "company": "DLF Primus",
+        "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80"
+      },
+      "seo": {
+        "title": "Smart Society CCTV and Gate Automation Case Study",
+        "description": "See how DLF Primus automated vehicle logging and guest registration using fast ANPR camera networks.",
+        "keywords": "ANPR camera township, township gate barriers, visitor verification"
+      },
+      "status": "published",
+      "date": "February 2026",
+      "author": "Operations Architect Kabir Sen",
+      "relatedCaseStudies": [
+        "cs-1",
+        "cs-3"
+      ]
+    }
+  ],
+  "zones": [
+    {
+      "id": "zone-1784029724180-439",
+      "description": "fdghjthgrfd",
+      "displayOrder": 0,
+      "heading": "main gate",
+      "image": "https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=600&auto=format&fit=crop",
+      "industryId": "ind-health",
+      "institutionId": "inst-2-1784001788478",
+      "isFeatured": true,
+      "name": "main gate",
+      "slug": "main-gate",
+      "sortOrder": 0,
+      "status": "published",
+      "subHeading": "Outer gate ",
+      "publicId": "ARE_HKPV6EGT2A9VZ94FDREX",
+      "bannerImage": "",
+      "cardImage": "https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=600&auto=format&fit=crop",
+      "coverImage": "",
+      "cta": {
+        "buttonText": "Explore Area Solutions",
+        "buttonLink": ""
+      },
+      "featured": true,
+      "icon": "Shield",
+      "priority": "Medium",
+      "riskLevel": "Medium",
+      "seo": {
+        "metaTitle": "main gate",
+        "metaDescription": "Outer gate ",
+        "keywords": ""
+      },
+      "shortDescription": null
+    },
+    {
+      "id": "zone-1784202379348-614",
+      "description": "",
+      "displayOrder": 0,
+      "heading": "MAin gate ",
+      "image": "https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=600&auto=format&fit=crop",
+      "industryId": "ind-1784007317299",
+      "institutionId": "inst-card-1784202160510",
+      "isFeatured": false,
+      "name": "MAin gate ",
+      "slug": "main-gate-2",
+      "sortOrder": 0,
+      "status": "published",
+      "subHeading": "Choose the Security Area",
+      "publicId": "ARE_1AFNAA96WWRES0K198N8"
+    },
+    {
+      "id": "zone-1784353646976-255",
+      "bannerImage": "",
+      "cardImage": "https://images.unsplash.com/photo-1590402421685-65c2b485aa68?q=80&w=600&auto=format&fit=crop",
+      "coverImage": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop",
+      "cta": {
+        "buttonText": "Explore Area Solutions",
+        "buttonLink": ""
+      },
+      "description": "",
+      "displayOrder": 1,
+      "featured": false,
+      "heading": "Main gate ",
+      "icon": "Shield",
+      "image": "https://images.unsplash.com/photo-1590402421685-65c2b485aa68?q=80&w=600&auto=format&fit=crop",
+      "industryId": "ind-edu",
+      "institutionId": "inst-1-1784001788478",
+      "isFeatured": false,
+      "name": "Main gate ",
+      "priority": "High",
+      "publicId": "ARE_J4CCPMFK0ZQDGNNEBHHQ",
+      "riskLevel": "High",
+      "seo": {
+        "metaTitle": "Main gate ",
+        "metaDescription": "Main entry & exit gate ",
+        "keywords": ""
+      },
+      "shortDescription": "",
+      "slug": "main-gate-3",
+      "sortOrder": 1,
+      "status": "published",
+      "subHeading": "Main entry & exit gate "
+    }
+  ],
+  "problems": [
+    {
+      "id": "prob-1784202444421-637",
+      "description": "",
+      "image": "https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=600&auto=format&fit=crop",
+      "industryId": "ind-1784007317299",
+      "institutionId": "inst-card-1784202160510",
+      "name": "Fake Entry ",
+      "slug": "fake-entry",
+      "sortOrder": 0,
+      "status": "published",
+      "zoneId": "zone-1784202379348-614",
+      "publicId": "PRB_H7GPQJ6NCWRSK37CFJXS"
+    },
+    {
+      "id": "prob-1784291691635-899",
+      "areaId": "zone-1784029724180-439",
+      "bannerImage": "",
+      "cardImage": "https://images.unsplash.com/photo-1557200134-90327ee9fafa?q=80&w=600&auto=format&fit=crop",
+      "category": "Security",
+      "createdAt": "2026-07-17T12:34:51.636Z",
+      "cta": {
+        "buttonText": "Open Solution Details",
+        "buttonLink": ""
+      },
+      "description": "",
+      "featured": false,
+      "icon": "AlertTriangle",
+      "image": "https://images.unsplash.com/photo-1557200134-90327ee9fafa?q=80&w=600&auto=format&fit=crop",
+      "industryId": "ind-health",
+      "institutionId": "inst-2-1784001788478",
+      "isFeatured": false,
+      "name": "unauthorized entry",
+      "priority": "Medium",
+      "seo": {
+        "metaTitle": "unauthorized entry",
+        "metaDescription": "",
+        "keywords": ""
+      },
+      "severity": "Low",
+      "shortDescription": "",
+      "slug": "unauthorized-entry",
+      "sortOrder": 1,
+      "status": "published",
+      "updatedAt": "2026-07-17T12:34:51.636Z",
+      "zoneId": "zone-1784029724180-439",
+      "publicId": "PRB_JB9MAZSW4644DFP90ASK"
+    },
+    {
+      "id": "prob-1784353663886-515",
+      "areaId": "zone-1784353646976-255",
+      "bannerImage": "",
+      "cardImage": "https://images.unsplash.com/photo-1557200134-90327ee9fafa?q=80&w=600&auto=format&fit=crop",
+      "category": "Security",
+      "createdAt": "2026-07-18T05:47:43.886Z",
+      "cta": {
+        "buttonText": "Open Solution Details",
+        "buttonLink": ""
+      },
+      "description": "",
+      "featured": false,
+      "icon": "AlertTriangle",
+      "image": "https://images.unsplash.com/photo-1557200134-90327ee9fafa?q=80&w=600&auto=format&fit=crop",
+      "industryId": "ind-edu",
+      "institutionId": "inst-1-1784001788478",
+      "isFeatured": false,
+      "name": "Security ",
+      "priority": "Medium",
+      "publicId": "PRB_ZVJNXF4NC88BQ2C7XMN5",
+      "seo": {
+        "metaTitle": "Security ",
+        "metaDescription": "",
+        "keywords": ""
+      },
+      "severity": "Medium",
+      "shortDescription": "",
+      "slug": "security",
+      "sortOrder": 1,
+      "status": "published",
+      "updatedAt": "2026-07-18T05:47:43.886Z",
+      "zoneId": "zone-1784353646976-255"
+    }
+  ],
+  "zoneProblems": [],
+  "solutions": [
+    {
+      "id": "sol-1784291711197-573",
+      "heroSubtitle": "Level 5 Integrated Tactical Countermeasure",
+      "heroTitle": "Enterprise AI Automation for unauthorized entry",
+      "industryId": "ind-health",
+      "institutionId": "inst-2-1784001788478",
+      "problemId": "prob-1784291691635-899",
+      "sections": [
+        {
+          "id": "hero",
+          "name": "Hero Section",
+          "heading": "d",
+          "subHeading": "ccc",
+          "description": "Protect critical operational areas from unauthorized disruptions with highly automated, AI-driven detectioINTEGRATED ENTERPRISE SOLUTIONn engines.",
+          "items": [],
+          "bgColor": "#FFFFFF",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 0,
+          "image": "https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=600&auto=format&fit=crop"
+        },
+        {
+          "id": "problem-overview",
+          "name": "Problem Overview",
+          "heading": "Understanding the Problem & Risk",
+          "subHeading": "THE CORE THREAT",
+          "description": "INTEGRATED ENTERPRISE SOLUTION",
+          "items": [],
+          "bgColor": "#F8FAFC",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 1,
+          "image": "https://res.cloudinary.com/m9ebzvfd/image/upload/v1784296700/nx_solutions_cms/t05zdldfocdklk0w5mrv.png"
+        },
+        {
+          "id": "challenges",
+          "name": "Current Challenges",
+          "heading": "INTEGRATED ENTERPRISE SOLUTION",
+          "subHeading": "WHAT NEEDS RESOLUTION",
+          "description": "INTEGRATED ENTERPRISE SOLUTION",
+          "items": [
+            {
+              "id": "1",
+              "text": "Slow manual identification times (minutes instead of milliseconds)"
+            },
+            {
+              "id": "2",
+              "text": "High rate of false positives on standard CCTV motion sensors"
+            },
+            {
+              "id": "3",
+              "text": "Lack of instant notification to field guards and officers"
+            }
+          ],
+          "bgColor": "#FFFFFF",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 2
+        },
+        {
+          "id": "features",
+          "name": "Features",
+          "heading": "INTEGRATED ENTERPRISE SOLUTION",
+          "subHeading": "ADVANCED TECH STACK",
+          "description": "Powered by proprietary computer vision and neural detection hardware.",
+          "items": [
+            {
+              "id": "1",
+              "title": "Edge Facial Recognition",
+              "desc": "Verify identities directly at the gate with ultra-low latency."
+            },
+            {
+              "id": "2",
+              "title": "Intrusion Alerting",
+              "desc": "Instantly notify security desks with live clip feeds upon violation."
+            },
+            {
+              "id": "3",
+              "title": "Plate Verification (ANPR)",
+              "desc": "Scan and whitelist registered delivery & employee vehicles automatically."
+            }
+          ],
+          "bgColor": "#F8FAFC",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 3
+        },
+        {
+          "id": "workflow",
+          "name": "Solution Workflow",
+          "heading": "Step-by-Step Solution Workflow",
+          "subHeading": "INTEGRATED ENTERPRISE SOLUTION",
+          "description": "A fully automated pipeline from initial camera feed intake to target mitigation.",
+          "items": [
+            {
+              "step": "01",
+              "title": "Capture & Detect",
+              "desc": "AI camera senses human or vehicle entry and extracts structural tags."
+            },
+            {
+              "step": "02",
+              "title": "Identity Analysis",
+              "desc": "Local AI engine matches tags against active white/blacklist rosters."
+            },
+            {
+              "step": "03",
+              "title": "Instant Escalation",
+              "desc": "On mismatch, alarms trigger and NX Sentinel app sends push notifications to guards."
+            }
+          ],
+          "bgColor": "#FFFFFF",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 4
+        },
+        {
+          "id": "benefits",
+          "name": "Benefits",
+          "heading": "Quantifiable Enterprise Benefits",
+          "subHeading": "RETURN ON INVESTMENT",
+          "description": "Upgrade your facilities with solid metrics that scale operations.",
+          "items": [
+            {
+              "metric": "99.8%",
+              "label": "Intrusion Detection Accuracy"
+            },
+            {
+              "metric": "< 1sec",
+              "label": "Security Notification Latency"
+            },
+            {
+              "metric": "70%",
+              "label": "Reduction in Manual Guard Costs"
+            }
+          ],
+          "bgColor": "#F8FAFC",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 5
+        },
+        {
+          "id": "ai-modules",
+          "name": "AI Modules",
+          "heading": "Deep Learning Core AI Modules",
+          "subHeading": "COMPUTER VISION STACK",
+          "description": "State-of-the-art neural networks fine-tuned on custom high-risk enterprise feeds.",
+          "items": [
+            {
+              "name": "NX-FaceDetect-v3",
+              "type": "Face Verification model",
+              "accuracy": "99.9%"
+            },
+            {
+              "name": "NX-PlateScanner-v2",
+              "type": "Vehicle & ANPR model",
+              "accuracy": "98.5%"
+            },
+            {
+              "name": "NX-AnomalousTrack-v1",
+              "type": "Loitering & crowd model",
+              "accuracy": "96.2%"
+            }
+          ],
+          "bgColor": "#FFFFFF",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 6
+        },
+        {
+          "id": "hardware",
+          "name": "Hardware Requirements",
+          "heading": "Recommended Hardware Infrastructure",
+          "subHeading": "EDGE APPLIANCES",
+          "description": "Best paired with enterprise high-speed processing hubs.",
+          "items": [
+            {
+              "name": "NX AI Dome Camera (PoE)",
+              "specs": "4MP, 4 TOPS local Edge NPU"
+            },
+            {
+              "name": "NX Sentinel Processing Station",
+              "specs": "16-channel Local Server Core"
+            }
+          ],
+          "bgColor": "#F8FAFC",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 7
+        },
+        {
+          "id": "software",
+          "name": "Software Requirements",
+          "heading": "Software & Integration Requirements",
+          "subHeading": "SENTINEL SOFTWARE CONSOLE",
+          "description": "Centralized administration dashboard and client applications.",
+          "items": [
+            {
+              "name": "NX Sentinel Enterprise Console v5.4",
+              "platform": "CentOS / Windows Server"
+            },
+            {
+              "name": "NX Guard Mobile Utility (iOS / Android)",
+              "platform": "Flutter Client Hub"
+            }
+          ],
+          "bgColor": "#FFFFFF",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 8
+        },
+        {
+          "id": "case-study",
+          "name": "Case Study",
+          "heading": "Real-World Case Study",
+          "subHeading": "SUCCESS STORY",
+          "description": "See how NX Solution successfully automated access control for a major global institution.",
+          "items": [
+            {
+              "label": "Client",
+              "value": "Delhi International Academy (DIA)"
+            },
+            {
+              "label": "Incident reduction",
+              "value": "98% decline in gate tailgating within 14 days"
+            },
+            {
+              "label": "Testimonial",
+              "value": "\"The transition to automated gate alerts was flawless and eliminated our primary vulnerability overnight.\" — Dr. R. Sharma, Principal"
+            }
+          ],
+          "bgColor": "#F8FAFC",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 9
+        },
+        {
+          "id": "faqs",
+          "name": "FAQs",
+          "heading": "Frequently Asked Questions",
+          "subHeading": "FAQS",
+          "description": "Got questions about the setup, cost, and installation? Find quick answers below.",
+          "items": [
+            {
+              "q": "Is facial data stored securely on the cloud?",
+              "a": "No, all face templates are converted into non-reversible mathematical vectors stored locally. We never store raw face images."
+            },
+            {
+              "q": "How long does the installation take?",
+              "a": "Standard gates can be fully provisioned, wired, and calibrated within 48 to 72 hours."
+            },
+            {
+              "q": "What happens if the local internet goes down?",
+              "a": "The local NX Sentinel Processing Station operates completely offline, processing all rules and alerts autonomously."
+            }
+          ],
+          "bgColor": "#FFFFFF",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 10
+        },
+        {
+          "id": "cta",
+          "name": "CTA",
+          "heading": "Ready to Secure Your Premises?",
+          "subHeading": "GET STARTED TODAY",
+          "description": "Get in touch with an NX Solution engineer for an on-site vulnerability assessment.",
+          "items": [],
+          "bgColor": "#F8FAFC",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 11
+        },
+        {
+          "id": "lead-form",
+          "name": "Lead Form",
+          "heading": "Request an Enterprise Consultation",
+          "subHeading": "BOOK A LIVE DEMO",
+          "description": "Submit your requirements below and our deployment team will reach out within 1 business hour.",
+          "items": [],
+          "bgColor": "#FFFFFF",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 12
+        }
+      ],
+      "slug": "ai-solution-unauthorized-entry",
+      "status": "draft",
+      "title": "AI Solution: unauthorized entry",
+      "zoneId": "zone-1784029724180-439",
+      "publicId": "SOL_8A6YH014G63BPH806FBN"
+    },
+    {
+      "id": "sol-1784291711340-478",
+      "heroSubtitle": "Level 5 Integrated Tactical Countermeasure",
+      "heroTitle": "Enterprise AI Automation for unauthorized entry",
+      "industryId": "ind-health",
+      "institutionId": "inst-2-1784001788478",
+      "problemId": "prob-1784291691635-899",
+      "sections": [
+        {
+          "id": "hero",
+          "name": "Hero Section",
+          "heading": "Deploy AI Solution: unauthorized entry Security Systems",
+          "subHeading": "INTEGRATED ENTERPRISE SOLUTION",
+          "description": "Protect critical operational areas from unauthorized disruptions with highly automated, AI-driven detection engines.",
+          "items": [],
+          "bgColor": "#FFFFFF",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 0
+        },
+        {
+          "id": "problem-overview",
+          "name": "Problem Overview",
+          "heading": "Understanding the Problem & Risk",
+          "subHeading": "THE CORE THREAT",
+          "description": "Manual security checks create massive delays, false positive fatigue, and leave blind spots which lead directly to compromised safety.",
+          "items": [],
+          "bgColor": "#F8FAFC",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 1
+        },
+        {
+          "id": "challenges",
+          "name": "Current Challenges",
+          "heading": "Key Vulnerability Challenges",
+          "subHeading": "WHAT NEEDS RESOLUTION",
+          "description": "Traditional surveillance leaves multiple open doors for intrusions and lack of automated alerts.",
+          "items": [
+            {
+              "id": "1",
+              "text": "Slow manual identification times (minutes instead of milliseconds)"
+            },
+            {
+              "id": "2",
+              "text": "High rate of false positives on standard CCTV motion sensors"
+            },
+            {
+              "id": "3",
+              "text": "Lack of instant notification to field guards and officers"
+            }
+          ],
+          "bgColor": "#FFFFFF",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 2
+        },
+        {
+          "id": "features",
+          "name": "Features",
+          "heading": "Enterprise Feature Capabilities",
+          "subHeading": "ADVANCED TECH STACK",
+          "description": "Powered by proprietary computer vision and neural detection hardware.",
+          "items": [
+            {
+              "id": "1",
+              "title": "Edge Facial Recognition",
+              "desc": "Verify identities directly at the gate with ultra-low latency."
+            },
+            {
+              "id": "2",
+              "title": "Intrusion Alerting",
+              "desc": "Instantly notify security desks with live clip feeds upon violation."
+            },
+            {
+              "id": "3",
+              "title": "Plate Verification (ANPR)",
+              "desc": "Scan and whitelist registered delivery & employee vehicles automatically."
+            }
+          ],
+          "bgColor": "#F8FAFC",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 3
+        },
+        {
+          "id": "workflow",
+          "name": "Solution Workflow",
+          "heading": "Step-by-Step Solution Workflow",
+          "subHeading": "HOW IT WORKS",
+          "description": "A fully automated pipeline from initial camera feed intake to target mitigation.",
+          "items": [
+            {
+              "step": "01",
+              "title": "Capture & Detect",
+              "desc": "AI camera senses human or vehicle entry and extracts structural tags."
+            },
+            {
+              "step": "02",
+              "title": "Identity Analysis",
+              "desc": "Local AI engine matches tags against active white/blacklist rosters."
+            },
+            {
+              "step": "03",
+              "title": "Instant Escalation",
+              "desc": "On mismatch, alarms trigger and NX Sentinel app sends push notifications to guards."
+            }
+          ],
+          "bgColor": "#FFFFFF",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 4
+        },
+        {
+          "id": "benefits",
+          "name": "Benefits",
+          "heading": "Quantifiable Enterprise Benefits",
+          "subHeading": "RETURN ON INVESTMENT",
+          "description": "Upgrade your facilities with solid metrics that scale operations.",
+          "items": [
+            {
+              "metric": "99.8%",
+              "label": "Intrusion Detection Accuracy"
+            },
+            {
+              "metric": "< 1sec",
+              "label": "Security Notification Latency"
+            },
+            {
+              "metric": "70%",
+              "label": "Reduction in Manual Guard Costs"
+            }
+          ],
+          "bgColor": "#F8FAFC",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 5
+        },
+        {
+          "id": "ai-modules",
+          "name": "AI Modules",
+          "heading": "Deep Learning Core AI Modules",
+          "subHeading": "COMPUTER VISION STACK",
+          "description": "State-of-the-art neural networks fine-tuned on custom high-risk enterprise feeds.",
+          "items": [
+            {
+              "name": "NX-FaceDetect-v3",
+              "type": "Face Verification model",
+              "accuracy": "99.9%"
+            },
+            {
+              "name": "NX-PlateScanner-v2",
+              "type": "Vehicle & ANPR model",
+              "accuracy": "98.5%"
+            },
+            {
+              "name": "NX-AnomalousTrack-v1",
+              "type": "Loitering & crowd model",
+              "accuracy": "96.2%"
+            }
+          ],
+          "bgColor": "#FFFFFF",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 6
+        },
+        {
+          "id": "hardware",
+          "name": "Hardware Requirements",
+          "heading": "Recommended Hardware Infrastructure",
+          "subHeading": "EDGE APPLIANCES",
+          "description": "Best paired with enterprise high-speed processing hubs.",
+          "items": [
+            {
+              "name": "NX AI Dome Camera (PoE)",
+              "specs": "4MP, 4 TOPS local Edge NPU"
+            },
+            {
+              "name": "NX Sentinel Processing Station",
+              "specs": "16-channel Local Server Core"
+            }
+          ],
+          "bgColor": "#F8FAFC",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 7
+        },
+        {
+          "id": "software",
+          "name": "Software Requirements",
+          "heading": "Software & Integration Requirements",
+          "subHeading": "SENTINEL SOFTWARE CONSOLE",
+          "description": "Centralized administration dashboard and client applications.",
+          "items": [
+            {
+              "name": "NX Sentinel Enterprise Console v5.4",
+              "platform": "CentOS / Windows Server"
+            },
+            {
+              "name": "NX Guard Mobile Utility (iOS / Android)",
+              "platform": "Flutter Client Hub"
+            }
+          ],
+          "bgColor": "#FFFFFF",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 8
+        },
+        {
+          "id": "case-study",
+          "name": "Case Study",
+          "heading": "Real-World Case Study",
+          "subHeading": "SUCCESS STORY",
+          "description": "See how NX Solution successfully automated access control for a major global institution.",
+          "items": [
+            {
+              "label": "Client",
+              "value": "Delhi International Academy (DIA)"
+            },
+            {
+              "label": "Incident reduction",
+              "value": "98% decline in gate tailgating within 14 days"
+            },
+            {
+              "label": "Testimonial",
+              "value": "\"The transition to automated gate alerts was flawless and eliminated our primary vulnerability overnight.\" — Dr. R. Sharma, Principal"
+            }
+          ],
+          "bgColor": "#F8FAFC",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 9
+        },
+        {
+          "id": "faqs",
+          "name": "FAQs",
+          "heading": "Frequently Asked Questions",
+          "subHeading": "FAQS",
+          "description": "Got questions about the setup, cost, and installation? Find quick answers below.",
+          "items": [
+            {
+              "q": "Is facial data stored securely on the cloud?",
+              "a": "No, all face templates are converted into non-reversible mathematical vectors stored locally. We never store raw face images."
+            },
+            {
+              "q": "How long does the installation take?",
+              "a": "Standard gates can be fully provisioned, wired, and calibrated within 48 to 72 hours."
+            },
+            {
+              "q": "What happens if the local internet goes down?",
+              "a": "The local NX Sentinel Processing Station operates completely offline, processing all rules and alerts autonomously."
+            }
+          ],
+          "bgColor": "#FFFFFF",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 10
+        },
+        {
+          "id": "cta",
+          "name": "CTA",
+          "heading": "Ready to Secure Your Premises?",
+          "subHeading": "GET STARTED TODAY",
+          "description": "Get in touch with an NX Solution engineer for an on-site vulnerability assessment.",
+          "items": [],
+          "bgColor": "#F8FAFC",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 11
+        },
+        {
+          "id": "lead-form",
+          "name": "Lead Form",
+          "heading": "Request an Enterprise Consultation",
+          "subHeading": "BOOK A LIVE DEMO",
+          "description": "Submit your requirements below and our deployment team will reach out within 1 business hour.",
+          "items": [],
+          "bgColor": "#FFFFFF",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 12
+        }
+      ],
+      "slug": "ai-solution-unauthorized-entry",
+      "status": "draft",
+      "title": "AI Solution: unauthorized entry",
+      "zoneId": "zone-1784029724180-439",
+      "publicId": "SOL_TN8R8HG6J1D1BMJG2211"
+    },
+    {
+      "id": "sol-1784353670310-833",
+      "heroSubtitle": "Level 5 Integrated Tactical Countermeasure",
+      "heroTitle": "Enterprise AI Automation for Security ",
+      "industryId": "ind-edu",
+      "institutionId": "inst-1-1784001788478",
+      "problemId": "prob-1784353663886-515",
+      "publicId": "SOL_XWPJJ25BD6JF8X8ER8QW",
+      "sections": [
+        {
+          "id": "hero",
+          "name": "Hero Section",
+          "heading": "Deploy AI Solution: Security  Security Systems",
+          "subHeading": "INTEGRATED ENTERPRISE SOLUTION",
+          "description": "Protect critical operational areas from unauthorized disruptions with highly automated, AI-driven detection engines.",
+          "items": [],
+          "bgColor": "#FFFFFF",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 0
+        },
+        {
+          "id": "problem-overview",
+          "name": "Problem Overview",
+          "heading": "Understanding the Problem & Risk",
+          "subHeading": "THE CORE THREAT",
+          "description": "Manual security checks create massive delays, false positive fatigue, and leave blind spots which lead directly to compromised safety.",
+          "items": [],
+          "bgColor": "#F8FAFC",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 1
+        },
+        {
+          "id": "challenges",
+          "name": "Current Challenges",
+          "heading": "Key Vulnerability Challenges",
+          "subHeading": "WHAT NEEDS RESOLUTION",
+          "description": "Traditional surveillance leaves multiple open doors for intrusions and lack of automated alerts.",
+          "items": [
+            {
+              "id": "1",
+              "text": "Slow manual identification times (minutes instead of milliseconds)"
+            },
+            {
+              "id": "2",
+              "text": "High rate of false positives on standard CCTV motion sensors"
+            },
+            {
+              "id": "3",
+              "text": "Lack of instant notification to field guards and officers"
+            }
+          ],
+          "bgColor": "#FFFFFF",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 2
+        },
+        {
+          "id": "features",
+          "name": "Features",
+          "heading": "Enterprise Feature Capabilities",
+          "subHeading": "ADVANCED TECH STACK",
+          "description": "Powered by proprietary computer vision and neural detection hardware.",
+          "items": [
+            {
+              "id": "1",
+              "title": "Edge Facial Recognition",
+              "desc": "Verify identities directly at the gate with ultra-low latency."
+            },
+            {
+              "id": "2",
+              "title": "Intrusion Alerting",
+              "desc": "Instantly notify security desks with live clip feeds upon violation."
+            },
+            {
+              "id": "3",
+              "title": "Plate Verification (ANPR)",
+              "desc": "Scan and whitelist registered delivery & employee vehicles automatically."
+            }
+          ],
+          "bgColor": "#F8FAFC",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 3
+        },
+        {
+          "id": "workflow",
+          "name": "Solution Workflow",
+          "heading": "Step-by-Step Solution Workflow",
+          "subHeading": "HOW IT WORKS",
+          "description": "A fully automated pipeline from initial camera feed intake to target mitigation.",
+          "items": [
+            {
+              "step": "01",
+              "title": "Capture & Detect",
+              "desc": "AI camera senses human or vehicle entry and extracts structural tags."
+            },
+            {
+              "step": "02",
+              "title": "Identity Analysis",
+              "desc": "Local AI engine matches tags against active white/blacklist rosters."
+            },
+            {
+              "step": "03",
+              "title": "Instant Escalation",
+              "desc": "On mismatch, alarms trigger and NX Sentinel app sends push notifications to guards."
+            }
+          ],
+          "bgColor": "#FFFFFF",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 4
+        },
+        {
+          "id": "benefits",
+          "name": "Benefits",
+          "heading": "Quantifiable Enterprise Benefits",
+          "subHeading": "RETURN ON INVESTMENT",
+          "description": "Upgrade your facilities with solid metrics that scale operations.",
+          "items": [
+            {
+              "metric": "99.8%",
+              "label": "Intrusion Detection Accuracy"
+            },
+            {
+              "metric": "< 1sec",
+              "label": "Security Notification Latency"
+            },
+            {
+              "metric": "70%",
+              "label": "Reduction in Manual Guard Costs"
+            }
+          ],
+          "bgColor": "#F8FAFC",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 5
+        },
+        {
+          "id": "ai-modules",
+          "name": "AI Modules",
+          "heading": "Deep Learning Core AI Modules",
+          "subHeading": "COMPUTER VISION STACK",
+          "description": "State-of-the-art neural networks fine-tuned on custom high-risk enterprise feeds.",
+          "items": [
+            {
+              "name": "NX-FaceDetect-v3",
+              "type": "Face Verification model",
+              "accuracy": "99.9%"
+            },
+            {
+              "name": "NX-PlateScanner-v2",
+              "type": "Vehicle & ANPR model",
+              "accuracy": "98.5%"
+            },
+            {
+              "name": "NX-AnomalousTrack-v1",
+              "type": "Loitering & crowd model",
+              "accuracy": "96.2%"
+            }
+          ],
+          "bgColor": "#FFFFFF",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 6
+        },
+        {
+          "id": "hardware",
+          "name": "Hardware Requirements",
+          "heading": "Recommended Hardware Infrastructure",
+          "subHeading": "EDGE APPLIANCES",
+          "description": "Best paired with enterprise high-speed processing hubs.",
+          "items": [
+            {
+              "name": "NX AI Dome Camera (PoE)",
+              "specs": "4MP, 4 TOPS local Edge NPU"
+            },
+            {
+              "name": "NX Sentinel Processing Station",
+              "specs": "16-channel Local Server Core"
+            }
+          ],
+          "bgColor": "#F8FAFC",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 7
+        },
+        {
+          "id": "software",
+          "name": "Software Requirements",
+          "heading": "Software & Integration Requirements",
+          "subHeading": "SENTINEL SOFTWARE CONSOLE",
+          "description": "Centralized administration dashboard and client applications.",
+          "items": [
+            {
+              "name": "NX Sentinel Enterprise Console v5.4",
+              "platform": "CentOS / Windows Server"
+            },
+            {
+              "name": "NX Guard Mobile Utility (iOS / Android)",
+              "platform": "Flutter Client Hub"
+            }
+          ],
+          "bgColor": "#FFFFFF",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 8
+        },
+        {
+          "id": "case-study",
+          "name": "Case Study",
+          "heading": "Real-World Case Study",
+          "subHeading": "SUCCESS STORY",
+          "description": "See how NX Solution successfully automated access control for a major global institution.",
+          "items": [
+            {
+              "label": "Client",
+              "value": "Delhi International Academy (DIA)"
+            },
+            {
+              "label": "Incident reduction",
+              "value": "98% decline in gate tailgating within 14 days"
+            },
+            {
+              "label": "Testimonial",
+              "value": "\"The transition to automated gate alerts was flawless and eliminated our primary vulnerability overnight.\" — Dr. R. Sharma, Principal"
+            }
+          ],
+          "bgColor": "#F8FAFC",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 9
+        },
+        {
+          "id": "faqs",
+          "name": "FAQs",
+          "heading": "Frequently Asked Questions",
+          "subHeading": "FAQS",
+          "description": "Got questions about the setup, cost, and installation? Find quick answers below.",
+          "items": [
+            {
+              "q": "Is facial data stored securely on the cloud?",
+              "a": "No, all face templates are converted into non-reversible mathematical vectors stored locally. We never store raw face images."
+            },
+            {
+              "q": "How long does the installation take?",
+              "a": "Standard gates can be fully provisioned, wired, and calibrated within 48 to 72 hours."
+            },
+            {
+              "q": "What happens if the local internet goes down?",
+              "a": "The local NX Sentinel Processing Station operates completely offline, processing all rules and alerts autonomously."
+            }
+          ],
+          "bgColor": "#FFFFFF",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 10
+        },
+        {
+          "id": "cta",
+          "name": "CTA",
+          "heading": "Ready to Secure Your Premises?",
+          "subHeading": "GET STARTED TODAY",
+          "description": "Get in touch with an NX Solution engineer for an on-site vulnerability assessment.",
+          "items": [],
+          "bgColor": "#F8FAFC",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 11
+        },
+        {
+          "id": "lead-form",
+          "name": "Lead Form",
+          "heading": "Request an Enterprise Consultation",
+          "subHeading": "BOOK A LIVE DEMO",
+          "description": "Submit your requirements below and our deployment team will reach out within 1 business hour.",
+          "items": [],
+          "bgColor": "#FFFFFF",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 12
+        }
+      ],
+      "slug": "security-solution",
+      "status": "draft",
+      "title": "AI Solution: Security ",
+      "zoneId": "zone-1784353646976-255"
+    },
+    {
+      "id": "sol-1784445448129-141",
+      "heroSubtitle": "Level 5 Integrated Tactical Countermeasure",
+      "heroTitle": "Enterprise AI Automation for bde7tcv",
+      "industryId": "ind-health",
+      "institutionId": "inst-2-1784001788478",
+      "moduleId": "mod-1784445443907-451",
+      "problemId": "prob-1784291691635-899",
+      "publicId": "SOL_J83W3ZHJWM9JWRS0Q6JA",
+      "sections": [
+        {
+          "id": "hero",
+          "name": "Hero Section",
+          "heading": "Deploy AI Solution: bde7tcv Security Systems",
+          "subHeading": "INTEGRATED ENTERPRISE SOLUTION",
+          "description": "Protect critical operational areas from unauthorized disruptions with highly automated, AI-driven detection engines.",
+          "items": [],
+          "bgColor": "#FFFFFF",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 0,
+          "image": "https://res.cloudinary.com/m9ebzvfd/image/upload/v1784445474/nx_solutions_cms/rsylxavwv9ciezuu9qny.jpg"
+        },
+        {
+          "id": "problem-overview",
+          "name": "Problem Overview",
+          "heading": "Understanding the Problem & Risk",
+          "subHeading": "THE CORE THREAT",
+          "description": "Manual security checks create massive delays, false positive fatigue, and leave blind spots which lead directly to compromised safety.",
+          "items": [],
+          "bgColor": "#F8FAFC",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 1,
+          "image": "https://res.cloudinary.com/m9ebzvfd/image/upload/v1784445481/nx_solutions_cms/mv0mdxkz0we6gvabl3ad.jpg"
+        },
+        {
+          "id": "challenges",
+          "name": "Current Challenges",
+          "heading": "Key Vulnerability Challenges",
+          "subHeading": "WHAT NEEDS RESOLUTION",
+          "description": "Traditional surveillance leaves multiple open doors for intrusions and lack of automated alerts.",
+          "items": [
+            {
+              "id": "1",
+              "text": "Slow manual identification times (minutes instead of milliseconds)"
+            },
+            {
+              "id": "2",
+              "text": "High rate of false positives on standard CCTV motion sensors"
+            },
+            {
+              "id": "3",
+              "text": "Lack of instant notification to field guards and officers"
+            }
+          ],
+          "bgColor": "#FFFFFF",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 2,
+          "image": "https://res.cloudinary.com/m9ebzvfd/image/upload/v1784445493/nx_solutions_cms/zhupwkrs2cthd9mne4f3.jpg"
+        },
+        {
+          "id": "features",
+          "name": "Features",
+          "heading": "Enterprise Feature Capabilities",
+          "subHeading": "ADVANCED TECH STACK",
+          "description": "Powered by proprietary computer vision and neural detection hardware.",
+          "items": [
+            {
+              "id": "1",
+              "title": "Edge Facial Recognition",
+              "desc": "Verify identities directly at the gate with ultra-low latency."
+            },
+            {
+              "id": "2",
+              "title": "Intrusion Alerting",
+              "desc": "Instantly notify security desks with live clip feeds upon violation."
+            },
+            {
+              "id": "3",
+              "title": "Plate Verification (ANPR)",
+              "desc": "Scan and whitelist registered delivery & employee vehicles automatically."
+            }
+          ],
+          "bgColor": "#F8FAFC",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 3,
+          "image": "https://res.cloudinary.com/m9ebzvfd/image/upload/v1784445540/nx_solutions_cms/tvjvcsaexdrvdao3uwjb.jpg"
+        },
+        {
+          "id": "workflow",
+          "name": "Solution Workflow",
+          "heading": "Step-by-Step Solution Workflow",
+          "subHeading": "HOW IT WORKS",
+          "description": "A fully automated pipeline from initial camera feed intake to target mitigation.",
+          "items": [
+            {
+              "step": "01",
+              "title": "Capture & Detect",
+              "desc": "AI camera senses human or vehicle entry and extracts structural tags."
+            },
+            {
+              "step": "02",
+              "title": "Identity Analysis",
+              "desc": "Local AI engine matches tags against active white/blacklist rosters."
+            },
+            {
+              "step": "03",
+              "title": "Instant Escalation",
+              "desc": "On mismatch, alarms trigger and NX Sentinel app sends push notifications to guards."
+            }
+          ],
+          "bgColor": "#FFFFFF",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 4,
+          "image": "https://res.cloudinary.com/m9ebzvfd/image/upload/v1784445549/nx_solutions_cms/zcnstrbwghvoqkoppvv2.jpg"
+        },
+        {
+          "id": "benefits",
+          "name": "Benefits",
+          "heading": "Quantifiable Enterprise Benefits",
+          "subHeading": "RETURN ON INVESTMENT",
+          "description": "Upgrade your facilities with solid metrics that scale operations.",
+          "items": [
+            {
+              "metric": "99.8%",
+              "label": "Intrusion Detection Accuracy"
+            },
+            {
+              "metric": "< 1sec",
+              "label": "Security Notification Latency"
+            },
+            {
+              "metric": "70%",
+              "label": "Reduction in Manual Guard Costs"
+            }
+          ],
+          "bgColor": "#F8FAFC",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 5,
+          "image": "https://res.cloudinary.com/m9ebzvfd/image/upload/v1784445555/nx_solutions_cms/xa4tllvitaomypqcqjwp.jpg"
+        },
+        {
+          "id": "ai-modules",
+          "name": "AI Modules",
+          "heading": "Deep Learning Core AI Modules",
+          "subHeading": "COMPUTER VISION STACK",
+          "description": "State-of-the-art neural networks fine-tuned on custom high-risk enterprise feeds.",
+          "items": [
+            {
+              "name": "NX-FaceDetect-v3",
+              "type": "Face Verification model",
+              "accuracy": "99.9%"
+            },
+            {
+              "name": "NX-PlateScanner-v2",
+              "type": "Vehicle & ANPR model",
+              "accuracy": "98.5%"
+            },
+            {
+              "name": "NX-AnomalousTrack-v1",
+              "type": "Loitering & crowd model",
+              "accuracy": "96.2%"
+            }
+          ],
+          "bgColor": "#FFFFFF",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 6,
+          "image": "https://res.cloudinary.com/m9ebzvfd/image/upload/v1784445562/nx_solutions_cms/garq6fuykqwdadmfkvue.jpg"
+        },
+        {
+          "id": "hardware",
+          "name": "Hardware Requirements",
+          "heading": "Recommended Hardware Infrastructure",
+          "subHeading": "EDGE APPLIANCES",
+          "description": "Best paired with enterprise high-speed processing hubs.",
+          "items": [
+            {
+              "name": "NX AI Dome Camera (PoE)",
+              "specs": "4MP, 4 TOPS local Edge NPU"
+            },
+            {
+              "name": "NX Sentinel Processing Station",
+              "specs": "16-channel Local Server Core"
+            }
+          ],
+          "bgColor": "#F8FAFC",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 7,
+          "image": "https://res.cloudinary.com/m9ebzvfd/image/upload/v1784445621/nx_solutions_cms/pizfasewhscgzy5ej1dg.jpg"
+        },
+        {
+          "id": "software",
+          "name": "Software Requirements",
+          "heading": "Software & Integration Requirements",
+          "subHeading": "SENTINEL SOFTWARE CONSOLE",
+          "description": "Centralized administration dashboard and client applications.",
+          "items": [
+            {
+              "name": "NX Sentinel Enterprise Console v5.4",
+              "platform": "CentOS / Windows Server"
+            },
+            {
+              "name": "NX Guard Mobile Utility (iOS / Android)",
+              "platform": "Flutter Client Hub"
+            }
+          ],
+          "bgColor": "#FFFFFF",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 8,
+          "image": "https://res.cloudinary.com/m9ebzvfd/image/upload/v1784445616/nx_solutions_cms/nzwinnqyjshvxv9qmurc.jpg"
+        },
+        {
+          "id": "case-study",
+          "name": "Case Study",
+          "heading": "Real-World Case Study",
+          "subHeading": "SUCCESS STORY",
+          "description": "See how NX Solution successfully automated access control for a major global institution.",
+          "items": [
+            {
+              "label": "Client",
+              "value": "Delhi International Academy (DIA)"
+            },
+            {
+              "label": "Incident reduction",
+              "value": "98% decline in gate tailgating within 14 days"
+            },
+            {
+              "label": "Testimonial",
+              "value": "\"The transition to automated gate alerts was flawless and eliminated our primary vulnerability overnight.\" — Dr. R. Sharma, Principal"
+            }
+          ],
+          "bgColor": "#F8FAFC",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 9,
+          "image": "https://res.cloudinary.com/m9ebzvfd/image/upload/v1784445603/nx_solutions_cms/cxb9gzvplekqvekzpozr.jpg"
+        },
+        {
+          "id": "faqs",
+          "name": "FAQs",
+          "heading": "Frequently Asked Questions",
+          "subHeading": "FAQS",
+          "description": "Got questions about the setup, cost, and installation? Find quick answers below.",
+          "items": [
+            {
+              "q": "Is facial data stored securely on the cloud?",
+              "a": "No, all face templates are converted into non-reversible mathematical vectors stored locally. We never store raw face images."
+            },
+            {
+              "q": "How long does the installation take?",
+              "a": "Standard gates can be fully provisioned, wired, and calibrated within 48 to 72 hours."
+            },
+            {
+              "q": "What happens if the local internet goes down?",
+              "a": "The local NX Sentinel Processing Station operates completely offline, processing all rules and alerts autonomously."
+            }
+          ],
+          "bgColor": "#FFFFFF",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 10,
+          "image": "https://res.cloudinary.com/m9ebzvfd/image/upload/v1784445593/nx_solutions_cms/f3xpk6608dak0mrmroz1.jpg"
+        },
+        {
+          "id": "cta",
+          "name": "CTA",
+          "heading": "Ready to Secure Your Premises?",
+          "subHeading": "GET STARTED TODAY",
+          "description": "Get in touch with an NX Solution engineer for an on-site vulnerability assessment.",
+          "items": [],
+          "bgColor": "#F8FAFC",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 11,
+          "image": "https://res.cloudinary.com/m9ebzvfd/image/upload/v1784445585/nx_solutions_cms/it6w1sewwc2rfym8xtnc.jpg"
+        },
+        {
+          "id": "lead-form",
+          "name": "Lead Form",
+          "heading": "Request an Enterprise Consultation",
+          "subHeading": "BOOK A LIVE DEMO",
+          "description": "Submit your requirements below and our deployment team will reach out within 1 business hour.",
+          "items": [],
+          "bgColor": "#FFFFFF",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 12,
+          "image": "https://res.cloudinary.com/m9ebzvfd/image/upload/v1784445577/nx_solutions_cms/sblmaapdwaf8ihgbjfk8.jpg"
+        }
+      ],
+      "slug": "bde7tcv-solution",
+      "status": "draft",
+      "title": "AI Solution: bde7tcv",
+      "zoneId": "zone-1784029724180-439"
+    },
+    {
+      "id": "sol-1784451463470-145",
+      "heroSubtitle": "Level 5 Integrated Tactical Countermeasure",
+      "heroTitle": "Enterprise AI Automation for unauthoried entry",
+      "industryId": "ind-edu",
+      "institutionId": "inst-1-1784001788478",
+      "moduleId": "mod-1784451456009-116",
+      "problemId": "prob-1784353663886-515",
+      "publicId": "SOL_YM3SR2ES46EDSDDN05TA",
+      "sections": [
+        {
+          "id": "hero",
+          "name": "Hero Section",
+          "heading": "Deploy AI Solution: unauthoried entry Security Systems",
+          "subHeading": "INTEGRATED ENTERPRISE SOLUTION",
+          "description": "Protect critical operational areas from unauthorized disruptions with highly automated, AI-driven detection engines.",
+          "items": [],
+          "bgColor": "#FFFFFF",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 0
+        },
+        {
+          "id": "problem-overview",
+          "name": "Problem Overview",
+          "heading": "Understanding the Problem & Risk",
+          "subHeading": "THE CORE THREAT",
+          "description": "Manual security checks create massive delays, false positive fatigue, and leave blind spots which lead directly to compromised safety.",
+          "items": [],
+          "bgColor": "#F8FAFC",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 1
+        },
+        {
+          "id": "challenges",
+          "name": "Current Challenges",
+          "heading": "Key Vulnerability Challenges",
+          "subHeading": "WHAT NEEDS RESOLUTION",
+          "description": "Traditional surveillance leaves multiple open doors for intrusions and lack of automated alerts.",
+          "items": [
+            {
+              "id": "1",
+              "text": "Slow manual identification times (minutes instead of milliseconds)"
+            },
+            {
+              "id": "2",
+              "text": "High rate of false positives on standard CCTV motion sensors"
+            },
+            {
+              "id": "3",
+              "text": "Lack of instant notification to field guards and officers"
+            }
+          ],
+          "bgColor": "#FFFFFF",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 2
+        },
+        {
+          "id": "features",
+          "name": "Features",
+          "heading": "Enterprise Feature Capabilities",
+          "subHeading": "ADVANCED TECH STACK",
+          "description": "Powered by proprietary computer vision and neural detection hardware.",
+          "items": [
+            {
+              "id": "1",
+              "title": "Edge Facial Recognition",
+              "desc": "Verify identities directly at the gate with ultra-low latency."
+            },
+            {
+              "id": "2",
+              "title": "Intrusion Alerting",
+              "desc": "Instantly notify security desks with live clip feeds upon violation."
+            },
+            {
+              "id": "3",
+              "title": "Plate Verification (ANPR)",
+              "desc": "Scan and whitelist registered delivery & employee vehicles automatically."
+            }
+          ],
+          "bgColor": "#F8FAFC",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 3
+        },
+        {
+          "id": "workflow",
+          "name": "Solution Workflow",
+          "heading": "Step-by-Step Solution Workflow",
+          "subHeading": "HOW IT WORKS",
+          "description": "A fully automated pipeline from initial camera feed intake to target mitigation.",
+          "items": [
+            {
+              "step": "01",
+              "title": "Capture & Detect",
+              "desc": "AI camera senses human or vehicle entry and extracts structural tags."
+            },
+            {
+              "step": "02",
+              "title": "Identity Analysis",
+              "desc": "Local AI engine matches tags against active white/blacklist rosters."
+            },
+            {
+              "step": "03",
+              "title": "Instant Escalation",
+              "desc": "On mismatch, alarms trigger and NX Sentinel app sends push notifications to guards."
+            }
+          ],
+          "bgColor": "#FFFFFF",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 4
+        },
+        {
+          "id": "benefits",
+          "name": "Benefits",
+          "heading": "Quantifiable Enterprise Benefits",
+          "subHeading": "RETURN ON INVESTMENT",
+          "description": "Upgrade your facilities with solid metrics that scale operations.",
+          "items": [
+            {
+              "metric": "99.8%",
+              "label": "Intrusion Detection Accuracy"
+            },
+            {
+              "metric": "< 1sec",
+              "label": "Security Notification Latency"
+            },
+            {
+              "metric": "70%",
+              "label": "Reduction in Manual Guard Costs"
+            }
+          ],
+          "bgColor": "#F8FAFC",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 5
+        },
+        {
+          "id": "ai-modules",
+          "name": "AI Modules",
+          "heading": "Deep Learning Core AI Modules",
+          "subHeading": "COMPUTER VISION STACK",
+          "description": "State-of-the-art neural networks fine-tuned on custom high-risk enterprise feeds.",
+          "items": [
+            {
+              "name": "NX-FaceDetect-v3",
+              "type": "Face Verification model",
+              "accuracy": "99.9%"
+            },
+            {
+              "name": "NX-PlateScanner-v2",
+              "type": "Vehicle & ANPR model",
+              "accuracy": "98.5%"
+            },
+            {
+              "name": "NX-AnomalousTrack-v1",
+              "type": "Loitering & crowd model",
+              "accuracy": "96.2%"
+            }
+          ],
+          "bgColor": "#FFFFFF",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 6
+        },
+        {
+          "id": "hardware",
+          "name": "Hardware Requirements",
+          "heading": "Recommended Hardware Infrastructure",
+          "subHeading": "EDGE APPLIANCES",
+          "description": "Best paired with enterprise high-speed processing hubs.",
+          "items": [
+            {
+              "name": "NX AI Dome Camera (PoE)",
+              "specs": "4MP, 4 TOPS local Edge NPU"
+            },
+            {
+              "name": "NX Sentinel Processing Station",
+              "specs": "16-channel Local Server Core"
+            }
+          ],
+          "bgColor": "#F8FAFC",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 7
+        },
+        {
+          "id": "software",
+          "name": "Software Requirements",
+          "heading": "Software & Integration Requirements",
+          "subHeading": "SENTINEL SOFTWARE CONSOLE",
+          "description": "Centralized administration dashboard and client applications.",
+          "items": [
+            {
+              "name": "NX Sentinel Enterprise Console v5.4",
+              "platform": "CentOS / Windows Server"
+            },
+            {
+              "name": "NX Guard Mobile Utility (iOS / Android)",
+              "platform": "Flutter Client Hub"
+            }
+          ],
+          "bgColor": "#FFFFFF",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 8
+        },
+        {
+          "id": "case-study",
+          "name": "Case Study",
+          "heading": "Real-World Case Study",
+          "subHeading": "SUCCESS STORY",
+          "description": "See how NX Solution successfully automated access control for a major global institution.",
+          "items": [
+            {
+              "label": "Client",
+              "value": "Delhi International Academy (DIA)"
+            },
+            {
+              "label": "Incident reduction",
+              "value": "98% decline in gate tailgating within 14 days"
+            },
+            {
+              "label": "Testimonial",
+              "value": "\"The transition to automated gate alerts was flawless and eliminated our primary vulnerability overnight.\" — Dr. R. Sharma, Principal"
+            }
+          ],
+          "bgColor": "#F8FAFC",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 9
+        },
+        {
+          "id": "faqs",
+          "name": "FAQs",
+          "heading": "Frequently Asked Questions",
+          "subHeading": "FAQS",
+          "description": "Got questions about the setup, cost, and installation? Find quick answers below.",
+          "items": [
+            {
+              "q": "Is facial data stored securely on the cloud?",
+              "a": "No, all face templates are converted into non-reversible mathematical vectors stored locally. We never store raw face images."
+            },
+            {
+              "q": "How long does the installation take?",
+              "a": "Standard gates can be fully provisioned, wired, and calibrated within 48 to 72 hours."
+            },
+            {
+              "q": "What happens if the local internet goes down?",
+              "a": "The local NX Sentinel Processing Station operates completely offline, processing all rules and alerts autonomously."
+            }
+          ],
+          "bgColor": "#FFFFFF",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 10
+        },
+        {
+          "id": "cta",
+          "name": "CTA",
+          "heading": "Ready to Secure Your Premises?",
+          "subHeading": "GET STARTED TODAY",
+          "description": "Get in touch with an NX Solution engineer for an on-site vulnerability assessment.",
+          "items": [],
+          "bgColor": "#F8FAFC",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 11
+        },
+        {
+          "id": "lead-form",
+          "name": "Lead Form",
+          "heading": "Request an Enterprise Consultation",
+          "subHeading": "BOOK A LIVE DEMO",
+          "description": "Submit your requirements below and our deployment team will reach out within 1 business hour.",
+          "items": [],
+          "bgColor": "#FFFFFF",
+          "textColor": "#1E293B",
+          "visible": true,
+          "displayOrder": 12
+        }
+      ],
+      "slug": "unauthoried-entry-solution",
+      "status": "draft",
+      "title": "AI Solution: unauthoried entry",
+      "zoneId": "zone-1784353646976-255"
+    }
+  ],
+  "problemSolutions": [
+    {
+      "id": "ps-mapping-1784049230824-95",
+      "problemId": "prob-1784049172510-307",
+      "solutionId": "sol-1784049230822-685"
+    },
+    {
+      "id": "ps-mapping-1784291711201-573",
+      "problemId": "prob-1784291691635-899",
+      "solutionId": "sol-1784291711197-573"
+    },
+    {
+      "id": "ps-mapping-1784291711342-560",
+      "problemId": "prob-1784291691635-899",
+      "solutionId": "sol-1784291711340-478"
+    },
+    {
+      "id": "ps-mapping-1784353670313-608",
+      "problemId": "prob-1784353663886-515",
+      "solutionId": "sol-1784353670310-833"
+    },
+    {
+      "id": "ps-mapping-1784445448133-584",
+      "problemId": "prob-1784291691635-899",
+      "solutionId": "sol-1784445448129-141"
+    },
+    {
+      "id": "ps-mapping-1784451463474-482",
+      "problemId": "prob-1784353663886-515",
+      "solutionId": "sol-1784451463470-145"
+    }
+  ],
+  "solutionLeads": [],
+  "industries": [
+    {
+      "id": "ind-edu",
+      "name": "Education",
+      "slug": "education",
+      "shortDescription": "Smart Campus, Security, Attendance & more",
+      "description": "Smart Campus, Security, Attendance & more",
+      "coverImage": "https://res.cloudinary.com/m9ebzvfd/image/upload/v1784145203/nx_solutions_cms/vlhjvydpskbj6n9r4nb2.png",
+      "cardImage": "https://res.cloudinary.com/m9ebzvfd/image/upload/v1784145203/nx_solutions_cms/vlhjvydpskbj6n9r4nb2.png",
+      "icon": "GraduationCap",
+      "bannerImage": "",
+      "seo": {
+        "metaTitle": "Education",
+        "metaDescription": "Smart Campus, Security, Attendance & more",
+        "keywords": ""
+      },
+      "cta": {
+        "buttonText": "Learn More",
+        "buttonLink": "/institution"
+      },
+      "status": "published",
+      "featured": true,
+      "sortOrder": 0,
+      "createdAt": "2026-07-18T05:07:13.434Z",
+      "updatedAt": "2026-07-18T05:07:13.435Z",
+      "publicId": "IND_X58Z939B4C02VPFE8HW4"
+    },
+    {
+      "id": "ind-health",
+      "name": "Healthcare",
+      "slug": "healthcare",
+      "shortDescription": "Hospital Security, Patient Tracking & more",
+      "description": "Hospital Security, Patient Tracking & more",
+      "coverImage": "",
+      "cardImage": "",
+      "icon": "HeartPulse",
+      "bannerImage": "",
+      "seo": {
+        "metaTitle": "Healthcare",
+        "metaDescription": "Hospital Security, Patient Tracking & more",
+        "keywords": ""
+      },
+      "cta": {
+        "buttonText": "Learn More",
+        "buttonLink": "/industries?industry=healthcare"
+      },
+      "status": "published",
+      "featured": true,
+      "sortOrder": 1,
+      "createdAt": "2026-07-18T05:07:13.435Z",
+      "updatedAt": "2026-07-18T05:07:13.435Z",
+      "publicId": "IND_TFGGA2R5D0ZPC5WW8Z0F"
+    },
+    {
+      "id": "ind-mfg",
+      "name": "Manufacturing",
+      "slug": "manufacturing",
+      "shortDescription": "Factory Security, PPE, Asset Tracking & more",
+      "description": "Factory Security, PPE, Asset Tracking & more",
+      "coverImage": "",
+      "cardImage": "",
+      "icon": "Factory",
+      "bannerImage": "",
+      "seo": {
+        "metaTitle": "Manufacturing",
+        "metaDescription": "Factory Security, PPE, Asset Tracking & more",
+        "keywords": ""
+      },
+      "cta": {
+        "buttonText": "Learn More",
+        "buttonLink": "/industries?industry=manufacturing"
+      },
+      "status": "published",
+      "featured": true,
+      "sortOrder": 2,
+      "createdAt": "2026-07-18T05:07:13.435Z",
+      "updatedAt": "2026-07-18T05:07:13.435Z",
+      "publicId": "IND_D18SJW93VSMBR6453T95"
+    },
+    {
+      "id": "ind-corp",
+      "name": "Corporate",
+      "slug": "corporate",
+      "shortDescription": "Office Security, Attendance, Visitor Management",
+      "description": "Office Security, Attendance, Visitor Management",
+      "coverImage": "",
+      "cardImage": "",
+      "icon": "Building2",
+      "bannerImage": "",
+      "seo": {
+        "metaTitle": "Corporate",
+        "metaDescription": "Office Security, Attendance, Visitor Management",
+        "keywords": ""
+      },
+      "cta": {
+        "buttonText": "Learn More",
+        "buttonLink": "/industries?industry=corporate"
+      },
+      "status": "published",
+      "featured": true,
+      "sortOrder": 3,
+      "createdAt": "2026-07-18T05:07:13.435Z",
+      "updatedAt": "2026-07-18T05:07:13.435Z",
+      "publicId": "IND_6M14G5TKCKGVB6DVGRNE"
+    },
+    {
+      "id": "ind-soc",
+      "name": "Smart Society",
+      "slug": "smart-society",
+      "shortDescription": "Security, Visitor, Parking, Water Mgmt",
+      "description": "Security, Visitor, Parking, Water Mgmt",
+      "coverImage": "",
+      "cardImage": "",
+      "icon": "Users",
+      "bannerImage": "",
+      "seo": {
+        "metaTitle": "Smart Society",
+        "metaDescription": "Security, Visitor, Parking, Water Mgmt",
+        "keywords": ""
+      },
+      "cta": {
+        "buttonText": "Learn More",
+        "buttonLink": "/industries?industry=society"
+      },
+      "status": "published",
+      "featured": true,
+      "sortOrder": 4,
+      "createdAt": "2026-07-18T05:07:13.435Z",
+      "updatedAt": "2026-07-18T05:07:13.435Z",
+      "publicId": "IND_J92WP67HQR5X056S9TGK"
+    },
+    {
+      "id": "ind-log",
+      "name": "Logistics & Fleet",
+      "slug": "logistics-fleet",
+      "shortDescription": "Fleet Tracking, Driver Monitoring & more",
+      "description": "Fleet Tracking, Driver Monitoring & more",
+      "coverImage": "",
+      "cardImage": "",
+      "icon": "Truck",
+      "bannerImage": "",
+      "seo": {
+        "metaTitle": "Logistics & Fleet",
+        "metaDescription": "Fleet Tracking, Driver Monitoring & more",
+        "keywords": ""
+      },
+      "cta": {
+        "buttonText": "Learn More",
+        "buttonLink": "/industries?industry=logistics"
+      },
+      "status": "published",
+      "featured": true,
+      "sortOrder": 5,
+      "createdAt": "2026-07-18T05:07:13.435Z",
+      "updatedAt": "2026-07-18T05:07:13.435Z",
+      "publicId": "IND_E99QG9YVC89Y7F5EGVV4"
+    },
+    {
+      "id": "ind-city",
+      "name": "Smart City",
+      "slug": "smart-city",
+      "shortDescription": "Surveillance, Traffic, Environment & more",
+      "description": "Surveillance, Traffic, Environment & more",
+      "coverImage": "",
+      "cardImage": "",
+      "icon": "Milestone",
+      "bannerImage": "",
+      "seo": {
+        "metaTitle": "Smart City",
+        "metaDescription": "Surveillance, Traffic, Environment & more",
+        "keywords": ""
+      },
+      "cta": {
+        "buttonText": "Learn More",
+        "buttonLink": "/industries?industry=city"
+      },
+      "status": "published",
+      "featured": true,
+      "sortOrder": 6,
+      "createdAt": "2026-07-18T05:07:13.435Z",
+      "updatedAt": "2026-07-18T05:07:13.435Z",
+      "publicId": "IND_W714K2PTANEVW54BJFZX"
+    },
+    {
+      "id": "ind-gov",
+      "name": "Government",
+      "slug": "government",
+      "shortDescription": "Public Security, Smart Governance & more",
+      "description": "Public Security, Smart Governance & more",
+      "coverImage": "",
+      "cardImage": "",
+      "icon": "Building",
+      "bannerImage": "",
+      "seo": {
+        "metaTitle": "Government",
+        "metaDescription": "Public Security, Smart Governance & more",
+        "keywords": ""
+      },
+      "cta": {
+        "buttonText": "Learn More",
+        "buttonLink": "/industries?industry=government"
+      },
+      "status": "published",
+      "featured": true,
+      "sortOrder": 7,
+      "createdAt": "2026-07-18T05:07:13.435Z",
+      "updatedAt": "2026-07-18T05:07:13.435Z",
+      "publicId": "IND_5DGACQBM9SEKR9WTF1CD"
+    },
+    {
+      "id": "ind-1784007317299",
+      "name": "Abhishak",
+      "slug": "abhishak1",
+      "shortDescription": "Advanced security solutions & automation customized for this sector.",
+      "description": "Advanced security solutions & automation customized for this sector.",
+      "coverImage": "",
+      "cardImage": "",
+      "icon": "Truck",
+      "bannerImage": "",
+      "seo": {
+        "metaTitle": "Abhishak",
+        "metaDescription": "Advanced security solutions & automation customized for this sector.",
+        "keywords": ""
+      },
+      "cta": {
+        "buttonText": "Learn More",
+        "buttonLink": ""
+      },
+      "status": "published",
+      "featured": true,
+      "sortOrder": 8,
+      "createdAt": "2026-07-18T05:07:13.435Z",
+      "updatedAt": "2026-07-18T05:07:13.435Z",
+      "publicId": "IND_PNX8KY5R1PDBQAW23H6V"
+    }
+  ],
+  "institutions": [
+    {
+      "id": "inst-0-1784001788478",
+      "industryId": "ind-health",
+      "name": "School",
+      "slug": "school",
+      "shortDescription": "Primary, Secondary & Higher Secondary",
+      "description": "Primary, Secondary & Higher Secondary",
+      "cardImage": "https://res.cloudinary.com/m9ebzvfd/image/upload/v1784145157/nx_solutions_cms/jyosm982dramhbpvumy5.png",
+      "coverImage": "https://res.cloudinary.com/m9ebzvfd/image/upload/v1784145157/nx_solutions_cms/jyosm982dramhbpvumy5.png",
+      "bannerImage": "",
+      "icon": "School",
+      "contact": {
+        "email": "",
+        "phone": "",
+        "website": ""
+      },
+      "seo": {
+        "metaTitle": "School",
+        "metaDescription": "Primary, Secondary & Higher Secondary",
+        "keywords": ""
+      },
+      "cta": {
+        "buttonText": "Learn More",
+        "buttonLink": "/school"
+      },
+      "status": "published",
+      "featured": true,
+      "sortOrder": 0,
+      "createdAt": "2026-07-18T05:07:13.436Z",
+      "updatedAt": "2026-07-18T05:07:13.436Z",
+      "publicId": "INS_9C17HJ1NE20T67Q1P4AQ"
+    },
+    {
+      "id": "inst-1-1784001788478",
+      "industryId": "ind-edu",
+      "name": "College",
+      "slug": "college",
+      "shortDescription": "Degree, Engineering & Professional Colleges",
+      "description": "Degree, Engineering & Professional Colleges",
+      "cardImage": "",
+      "coverImage": "",
+      "bannerImage": "",
+      "icon": "Building2",
+      "contact": {
+        "email": "",
+        "phone": "",
+        "website": ""
+      },
+      "seo": {
+        "metaTitle": "College",
+        "metaDescription": "Degree, Engineering & Professional Colleges",
+        "keywords": ""
+      },
+      "cta": {
+        "buttonText": "Learn More",
+        "buttonLink": "/college"
+      },
+      "status": "published",
+      "featured": true,
+      "sortOrder": 1,
+      "createdAt": "2026-07-18T05:07:13.436Z",
+      "updatedAt": "2026-07-18T05:07:13.436Z",
+      "publicId": "INS_KX7AEMC24SW5B1P3YD2T"
+    },
+    {
+      "id": "inst-2-1784001788478",
+      "industryId": "ind-health",
+      "name": "University",
+      "slug": "university",
+      "shortDescription": "Universities & Deemed Universities",
+      "description": "Universities & Deemed Universities",
+      "cardImage": "",
+      "coverImage": "",
+      "bannerImage": "",
+      "icon": "Building",
+      "contact": {
+        "email": "",
+        "phone": "",
+        "website": ""
+      },
+      "seo": {
+        "metaTitle": "University",
+        "metaDescription": "Universities & Deemed Universities",
+        "keywords": ""
+      },
+      "cta": {
+        "buttonText": "Learn More",
+        "buttonLink": "/university"
+      },
+      "status": "published",
+      "featured": true,
+      "sortOrder": 2,
+      "createdAt": "2026-07-18T05:07:13.436Z",
+      "updatedAt": "2026-07-18T05:07:13.436Z",
+      "publicId": "INS_13EVCT9BVAMRFHBBMTM1"
+    },
+    {
+      "id": "inst-3-1784001788478",
+      "industryId": "ind-health",
+      "name": "Coaching Institute",
+      "slug": "coaching-institute",
+      "shortDescription": "Coaching, Training & Skill Institutes",
+      "description": "Coaching, Training & Skill Institutes",
+      "cardImage": "",
+      "coverImage": "",
+      "bannerImage": "",
+      "icon": "Award",
+      "contact": {
+        "email": "",
+        "phone": "",
+        "website": ""
+      },
+      "seo": {
+        "metaTitle": "Coaching Institute",
+        "metaDescription": "Coaching, Training & Skill Institutes",
+        "keywords": ""
+      },
+      "cta": {
+        "buttonText": "Learn More",
+        "buttonLink": "/coaching-institute"
+      },
+      "status": "published",
+      "featured": true,
+      "sortOrder": 3,
+      "createdAt": "2026-07-18T05:07:13.436Z",
+      "updatedAt": "2026-07-18T05:07:13.436Z",
+      "publicId": "INS_R866AAT3W0KEZA8FEM1G"
+    },
+    {
+      "id": "inst-4-1784001788478",
+      "industryId": "ind-health",
+      "name": "Hostel",
+      "slug": "hostel",
+      "shortDescription": "Boys, Girls & PG Hostels",
+      "description": "Boys, Girls & PG Hostels",
+      "cardImage": "",
+      "coverImage": "",
+      "bannerImage": "",
+      "icon": "Hotel",
+      "contact": {
+        "email": "",
+        "phone": "",
+        "website": ""
+      },
+      "seo": {
+        "metaTitle": "Hostel",
+        "metaDescription": "Boys, Girls & PG Hostels",
+        "keywords": ""
+      },
+      "cta": {
+        "buttonText": "Learn More",
+        "buttonLink": "/hostel"
+      },
+      "status": "published",
+      "featured": true,
+      "sortOrder": 4,
+      "createdAt": "2026-07-18T05:07:13.436Z",
+      "updatedAt": "2026-07-18T05:07:13.436Z",
+      "publicId": "INS_22EJYYYY2R8KG0SW1TJM"
+    },
+    {
+      "id": "inst-5-1784001788478",
+      "industryId": "ind-edu",
+      "name": "Library",
+      "slug": "library",
+      "shortDescription": "Library Management Solutions",
+      "description": "Library Management Solutions",
+      "cardImage": "",
+      "coverImage": "",
+      "bannerImage": "",
+      "icon": "BookOpen",
+      "contact": {
+        "email": "",
+        "phone": "",
+        "website": ""
+      },
+      "seo": {
+        "metaTitle": "Library",
+        "metaDescription": "Library Management Solutions",
+        "keywords": ""
+      },
+      "cta": {
+        "buttonText": "Learn More",
+        "buttonLink": "/library"
+      },
+      "status": "published",
+      "featured": true,
+      "sortOrder": 5,
+      "createdAt": "2026-07-18T05:07:13.436Z",
+      "updatedAt": "2026-07-18T05:07:13.436Z",
+      "publicId": "INS_YZTBC6SAA18M0F6PCH7S"
+    },
+    {
+      "id": "inst-6-1784001788478",
+      "industryId": "ind-edu",
+      "name": "Playground",
+      "slug": "playground",
+      "shortDescription": "Sports & Activity Management",
+      "description": "Sports & Activity Management",
+      "cardImage": "",
+      "coverImage": "",
+      "bannerImage": "",
+      "icon": "Gamepad2",
+      "contact": {
+        "email": "",
+        "phone": "",
+        "website": ""
+      },
+      "seo": {
+        "metaTitle": "Playground",
+        "metaDescription": "Sports & Activity Management",
+        "keywords": ""
+      },
+      "cta": {
+        "buttonText": "Learn More",
+        "buttonLink": "/playground"
+      },
+      "status": "published",
+      "featured": true,
+      "sortOrder": 6,
+      "createdAt": "2026-07-18T05:07:13.436Z",
+      "updatedAt": "2026-07-18T05:07:13.436Z",
+      "publicId": "INS_RMCM06EBKB868QCSKB79"
+    },
+    {
+      "id": "inst-7-1784001788478",
+      "industryId": "ind-edu",
+      "name": "Exam Center",
+      "slug": "exam-center",
+      "shortDescription": "Exam & Assessment Management",
+      "description": "Exam & Assessment Management",
+      "cardImage": "",
+      "coverImage": "",
+      "bannerImage": "",
+      "icon": "ClipboardList",
+      "contact": {
+        "email": "",
+        "phone": "",
+        "website": ""
+      },
+      "seo": {
+        "metaTitle": "Exam Center",
+        "metaDescription": "Exam & Assessment Management",
+        "keywords": ""
+      },
+      "cta": {
+        "buttonText": "Learn More",
+        "buttonLink": "/exam-center"
+      },
+      "status": "published",
+      "featured": true,
+      "sortOrder": 7,
+      "createdAt": "2026-07-18T05:07:13.436Z",
+      "updatedAt": "2026-07-18T05:07:13.436Z",
+      "publicId": "INS_KYYX3HJN1YCEP4WKWBFZ"
+    },
+    {
+      "id": "inst-card-1784202160510",
+      "industryId": "ind-1784007317299",
+      "name": "Abhishake school ",
+      "slug": "area",
+      "shortDescription": "NX high-precision access systems keep classroom safety unified and simple.",
+      "description": "NX high-precision access systems keep classroom safety unified and simple.",
+      "cardImage": "",
+      "coverImage": "",
+      "bannerImage": "",
+      "icon": "School",
+      "contact": {
+        "email": "",
+        "phone": "",
+        "website": ""
+      },
+      "seo": {
+        "metaTitle": "Abhishake school ",
+        "metaDescription": "NX high-precision access systems keep classroom safety unified and simple.",
+        "keywords": ""
+      },
+      "cta": {
+        "buttonText": "Learn More",
+        "buttonLink": "/area"
+      },
+      "status": "published",
+      "featured": true,
+      "sortOrder": 8,
+      "createdAt": "2026-07-18T05:07:13.436Z",
+      "updatedAt": "2026-07-18T05:07:13.436Z",
+      "publicId": "INS_70NSFA979WGCBRW40SJG"
+    }
+  ],
+  "modules": []
+}
