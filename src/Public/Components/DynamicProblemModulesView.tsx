@@ -127,7 +127,7 @@ export default function DynamicProblemModulesView({
                   title={item.name}
                   description={item.shortDescription || item.description || 'Enterprise modular security sub-system.'}
                   iconName={item.icon || 'Cpu'}
-                  onClick={() => navigate(`/industries/${industryPublicId}/${institutionPublicId}/${areaPublicId}/${problemPublicId}/${item.slug || item.id}`)}
+                  onClick={() => navigate(`/industries/${industryPublicId}/${institutionPublicId}/${areaPublicId}/${problemPublicId}/${item.publicId || item.slug || item.id}`)}
                 />
               ))}
 

@@ -74,7 +74,7 @@ export function DynamicIndustryView({
                   description={item.shortDescription || item.description || item.desc || 'Primary, Secondary & Higher Education'}
                   imageSrc={item.coverImage || item.image || item.cardImage}
                   iconName={item.icon}
-                  onClick={() => navigate(`/industries/${industryPublicId}/${item.publicId}`)}
+                  onClick={() => navigate(`/industries/${industryPublicId}/${item.publicId || item.slug || item.id}`)}
                 />
               ))}
 
@@ -155,7 +155,7 @@ export function DynamicInstitutionView({
                   description={item.description || 'Facility Premises Zone'}
                   imageSrc={item.coverImage || item.image}
                   iconName="MapPin"
-                  onClick={() => navigate(`/industries/${industryPublicId}/${institutionPublicId}/${item.publicId}`)}
+                  onClick={() => navigate(`/industries/${industryPublicId}/${institutionPublicId}/${item.publicId || item.slug || item.id}`)}
                 />
               ))}
 
@@ -243,7 +243,7 @@ export function DynamicZoneView({
                   title={item.name}
                   description={item.description || 'Operational security vulnerability.'}
                   iconName="AlertTriangle"
-                  onClick={() => navigate(`/industries/${industryPublicId}/${institutionPublicId}/${areaPublicId}/${item.publicId}`)}
+                  onClick={() => navigate(`/industries/${industryPublicId}/${institutionPublicId}/${areaPublicId}/${item.publicId || item.slug || item.id}`)}
                   isRedTheme={true} // Problem page elements use red theme
                 />
               ))}
