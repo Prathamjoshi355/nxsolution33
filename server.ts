@@ -2901,6 +2901,15 @@ app.use((req, res, next) => {
     });
   });
 
+  // Global Express Error Handler
+  app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
+    console.error('[API Unhandled Error]:', err);
+    res.status(500).json({
+      success: false,
+      error: err?.message || 'Internal Server Error'
+    });
+  });
+
 export { app };
 
 // Only start local listening server if not running in Vercel Serverless environment

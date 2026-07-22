@@ -1131,27 +1131,44 @@ class DatabaseEngine {
     this.init();
   }
 
+  private ensureDataCollections() {
+    if (!this.data) this.loadDefaults();
+    if (!this.data.themeSettings) this.data.themeSettings = DEFAULT_THEME;
+    if (!this.data.headerSettings) this.data.headerSettings = DEFAULT_HEADER;
+    if (!this.data.footerSettings) this.data.footerSettings = DEFAULT_FOOTER;
+    if (!Array.isArray(this.data.pages)) this.data.pages = DEFAULT_PAGES;
+    if (!Array.isArray(this.data.products)) this.data.products = DEFAULT_PRODUCTS;
+    if (!Array.isArray(this.data.caseStudies)) this.data.caseStudies = DEFAULT_CASE_STUDIES;
+    if (!Array.isArray(this.data.leads)) this.data.leads = [];
+    if (!Array.isArray(this.data.logs)) this.data.logs = [];
+    if (!Array.isArray(this.data.users)) this.data.users = DEFAULT_USERS;
+    if (!Array.isArray(this.data.roles)) this.data.roles = DEFAULT_ROLES;
+    if (!Array.isArray(this.data.zones)) this.data.zones = [];
+    if (!Array.isArray(this.data.problems)) this.data.problems = [];
+    if (!Array.isArray(this.data.zoneProblems)) this.data.zoneProblems = [];
+    if (!Array.isArray(this.data.solutions)) this.data.solutions = [];
+    if (!Array.isArray(this.data.problemSolutions)) this.data.problemSolutions = [];
+    if (!Array.isArray(this.data.solutionLeads)) this.data.solutionLeads = [];
+    if (!Array.isArray(this.data.industries)) this.data.industries = [];
+    if (!Array.isArray(this.data.institutions)) this.data.institutions = [];
+    if (!Array.isArray(this.data.modules)) this.data.modules = [];
+    if (!Array.isArray(this.data.technologyEcosystem)) this.data.technologyEcosystem = [...DEFAULT_TECHNOLOGIES];
+    if (!Array.isArray(this.data.technologyCategories)) this.data.technologyCategories = [...DEFAULT_TECH_CATEGORIES];
+    if (!Array.isArray(this.data.testimonials)) this.data.testimonials = [...DEFAULT_TESTIMONIALS];
+  }
+
   private init() {
     if (fs.existsSync(DB_FILE_PATH)) {
       try {
         const fileContent = fs.readFileSync(DB_FILE_PATH, 'utf-8');
         this.data = JSON.parse(fileContent);
-        
-        // Safely initialize any new enterprise relationship collections if missing
-        if (!this.data.problems) this.data.problems = [];
-        if (!this.data.zoneProblems) this.data.zoneProblems = [];
-        if (!this.data.solutions) this.data.solutions = [];
-        if (!this.data.problemSolutions) this.data.problemSolutions = [];
-        if (!this.data.solutionLeads) this.data.solutionLeads = [];
-        if (!this.data.industries) this.data.industries = [];
-        if (!this.data.institutions) this.data.institutions = [];
-        if (!this.data.modules) this.data.modules = [];
+        this.ensureDataCollections();
 
         // Seed industries from industries page if empty
         if (!this.data.industries || this.data.industries.length === 0) {
-          const page = this.data.pages?.find(p => p.slug === '/industries');
-          const gridSec = page?.sections.find(s => s.type === 'Industries' || s.id === 'industries-grid');
-          const items = gridSec ? (gridSec.content.items || []) : [];
+          const page = this.data.pages?.find(p => p && p.slug === '/industries');
+          const gridSec = page?.sections?.find(s => s && (s.type === 'Industries' || s.id === 'industries-grid'));
+          const items = gridSec ? (gridSec.content?.items || []) : [];
           this.data.industries = items.map((item: any, idx: number) => ({
             id: item.id || `ind-${idx}-${Date.now()}`,
             name: item.title || '',
@@ -1182,9 +1199,9 @@ class DatabaseEngine {
 
         // Seed institutions from institution page if empty
         if (!this.data.institutions || this.data.institutions.length === 0) {
-          const page = this.data.pages?.find(p => p.slug === '/institution');
-          const gridSec = page?.sections.find(s => s.type === 'Institution' || s.id === 'institution-grid' || s.id === 'institution-selector');
-          const items = gridSec ? (gridSec.content.items || []) : [];
+          const page = this.data.pages?.find(p => p && p.slug === '/institution');
+          const gridSec = page?.sections?.find(s => s && (s.type === 'Institution' || s.id === 'institution-grid' || s.id === 'institution-selector'));
+          const items = gridSec ? (gridSec.content?.items || []) : [];
           this.data.institutions = items.map((item: any, idx: number) => {
             const indId = (item.industryIds && item.industryIds.length > 0) ? item.industryIds[0] : 'ind-edu';
             return {
@@ -1223,10 +1240,10 @@ class DatabaseEngine {
         }
 
         // Ensure Institution menu is removed from header menu links to hide it completely as requested
-        if (this.data && this.data.headerSettings && this.data.headerSettings.menus) {
+        if (this.data && this.data.headerSettings && Array.isArray(this.data.headerSettings.menus)) {
           const originalLength = this.data.headerSettings.menus.length;
           this.data.headerSettings.menus = this.data.headerSettings.menus.filter(
-            m => m.label !== 'Institution' && m.url !== '/institution'
+            m => m && m.label !== 'Institution' && m.url !== '/institution'
           );
           if (this.data.headerSettings.menus.length !== originalLength) {
             this.save();
@@ -1239,6 +1256,7 @@ class DatabaseEngine {
     } else {
       this.loadDefaults();
     }
+    this.ensureDataCollections();
 
     // Seeding default zones if not present
     if (!this.data.zones || this.data.zones.length === 0) {
@@ -2358,9 +2376,10 @@ Operating in local JSON file-based database mode (db.json).
 
   // Batch process to ensure publicId exists for all entities
   public ensurePublicIds() {
+    if (!this.data) return;
     let changed = false;
 
-    if (this.data.industries) {
+    if (Array.isArray(this.data.industries)) {
       this.data.industries.forEach(item => {
         if (!item.publicId || !item.publicId.startsWith('IND_')) {
           item.publicId = generatePublicId('IND');
@@ -2370,7 +2389,7 @@ Operating in local JSON file-based database mode (db.json).
       });
     }
 
-    if (this.data.institutions) {
+    if (Array.isArray(this.data.institutions)) {
       this.data.institutions.forEach(item => {
         if (!item.publicId || !item.publicId.startsWith('INS_')) {
           item.publicId = generatePublicId('INS');
@@ -2380,7 +2399,7 @@ Operating in local JSON file-based database mode (db.json).
       });
     }
 
-    if (this.data.zones) {
+    if (Array.isArray(this.data.zones)) {
       this.data.zones.forEach(item => {
         if (!item.publicId || !item.publicId.startsWith('ARE_')) {
           item.publicId = generatePublicId('ARE');
@@ -2390,7 +2409,7 @@ Operating in local JSON file-based database mode (db.json).
       });
     }
 
-    if (this.data.problems) {
+    if (Array.isArray(this.data.problems)) {
       this.data.problems.forEach(item => {
         if (!item.publicId || !item.publicId.startsWith('PRB_')) {
           item.publicId = generatePublicId('PRB');
@@ -2400,7 +2419,7 @@ Operating in local JSON file-based database mode (db.json).
       });
     }
 
-    if (this.data.solutions) {
+    if (Array.isArray(this.data.solutions)) {
       this.data.solutions.forEach(item => {
         if (!item.publicId || !item.publicId.startsWith('SOL_')) {
           item.publicId = generatePublicId('SOL');
@@ -2410,7 +2429,7 @@ Operating in local JSON file-based database mode (db.json).
       });
     }
 
-    if (this.data.modules) {
+    if (Array.isArray(this.data.modules)) {
       this.data.modules.forEach(item => {
         if (!item.publicId || !item.publicId.startsWith('MOD_')) {
           item.publicId = generatePublicId('MOD');
@@ -2420,12 +2439,12 @@ Operating in local JSON file-based database mode (db.json).
       });
     }
 
-    if (this.data.pages) {
-      const homePage = this.data.pages.find(p => p.slug === '/');
-      if (homePage) {
-        const hasSection = homePage.sections.some(s => s.type === 'ChallengesToSolutions' || s.id === 'home-challenges-to-solutions');
+    if (Array.isArray(this.data.pages)) {
+      const homePage = this.data.pages.find(p => p && p.slug === '/');
+      if (homePage && Array.isArray(homePage.sections)) {
+        const hasSection = homePage.sections.some(s => s && (s.type === 'ChallengesToSolutions' || s.id === 'home-challenges-to-solutions'));
         if (!hasSection) {
-          const idx = homePage.sections.findIndex(s => s.id === 'home-about-nx');
+          const idx = homePage.sections.findIndex(s => s && s.id === 'home-about-nx');
           const newSection = {
             id: 'home-challenges-to-solutions',
             name: 'From Challenges to Solutions',
@@ -2458,9 +2477,9 @@ Operating in local JSON file-based database mode (db.json).
             homePage.sections.push(newSection);
           }
           // Same for draftSections
-          if (homePage.draftSections) {
-            const draftIdx = homePage.draftSections.findIndex(s => s.id === 'home-about-nx');
-            const hasDraftSection = homePage.draftSections.some(s => s.type === 'ChallengesToSolutions' || s.id === 'home-challenges-to-solutions');
+          if (Array.isArray(homePage.draftSections)) {
+            const draftIdx = homePage.draftSections.findIndex(s => s && s.id === 'home-about-nx');
+            const hasDraftSection = homePage.draftSections.some(s => s && (s.type === 'ChallengesToSolutions' || s.id === 'home-challenges-to-solutions'));
             if (!hasDraftSection) {
               if (draftIdx !== -1) {
                 homePage.draftSections.splice(draftIdx + 1, 0, newSection);
@@ -2474,9 +2493,9 @@ Operating in local JSON file-based database mode (db.json).
         }
 
         // Ensure Clients Trust Us section exists right after Technology Ecosystem
-        const hasClientsSection = homePage.sections.some(s => s.type === 'ClientsTrustUs' || s.id === 'home-clients-trust-us');
+        const hasClientsSection = homePage.sections.some(s => s && (s.type === 'ClientsTrustUs' || s.id === 'home-clients-trust-us'));
         if (!hasClientsSection) {
-          const techIdx = homePage.sections.findIndex(s => s.type === 'TechnologyEcosystem' || s.id === 'home-technology-ecosystem');
+          const techIdx = homePage.sections.findIndex(s => s && (s.type === 'TechnologyEcosystem' || s.id === 'home-technology-ecosystem'));
           const clientsSection = {
             id: 'home-clients-trust-us',
             name: 'Clients Trust Us',
@@ -2537,9 +2556,9 @@ Operating in local JSON file-based database mode (db.json).
             homePage.sections.push(clientsSection);
           }
 
-          if (homePage.draftSections) {
-            const draftTechIdx = homePage.draftSections.findIndex(s => s.type === 'TechnologyEcosystem' || s.id === 'home-technology-ecosystem');
-            const hasDraftClients = homePage.draftSections.some(s => s.type === 'ClientsTrustUs' || s.id === 'home-clients-trust-us');
+          if (Array.isArray(homePage.draftSections)) {
+            const draftTechIdx = homePage.draftSections.findIndex(s => s && (s.type === 'TechnologyEcosystem' || s.id === 'home-technology-ecosystem'));
+            const hasDraftClients = homePage.draftSections.some(s => s && (s.type === 'ClientsTrustUs' || s.id === 'home-clients-trust-us'));
             if (!hasDraftClients) {
               if (draftTechIdx !== -1) {
                 homePage.draftSections.splice(draftTechIdx + 1, 0, clientsSection);
