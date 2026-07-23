@@ -27,6 +27,7 @@ export function DynamicIndustryView({
   theme,
   headerSettings,
   footerSettings,
+  pages,
   isAdminLoggedIn
 }: ViewProps) {
   const { industryPublicId } = useParams<{ industryPublicId: string }>();
@@ -51,6 +52,7 @@ export function DynamicIndustryView({
       theme={theme}
       headerSettings={headerSettings}
       footerSettings={footerSettings}
+      pages={pages}
       isAdminLoggedIn={isAdminLoggedIn}
       isLoading={isLoading}
       errorMsg={!industry ? "The requested industry sector could not be retrieved from active CMS configurations." : null}
@@ -98,6 +100,7 @@ export function DynamicInstitutionView({
   theme,
   headerSettings,
   footerSettings,
+  pages,
   isAdminLoggedIn
 }: ViewProps) {
   const { industryPublicId, institutionPublicId } = useParams<{ industryPublicId: string; institutionPublicId: string }>();
@@ -131,6 +134,7 @@ export function DynamicInstitutionView({
       theme={theme}
       headerSettings={headerSettings}
       footerSettings={footerSettings}
+      pages={pages}
       isAdminLoggedIn={isAdminLoggedIn}
       isLoading={isLoading}
       errorMsg={!hasConfig ? "The requested institution sector details are not configured on the live database." : null}
@@ -179,6 +183,7 @@ export function DynamicZoneView({
   theme,
   headerSettings,
   footerSettings,
+  pages,
   isAdminLoggedIn
 }: ViewProps) {
   const { industryPublicId, institutionPublicId, areaPublicId } = useParams<{ industryPublicId: string; institutionPublicId: string; areaPublicId: string }>();
@@ -220,6 +225,7 @@ export function DynamicZoneView({
       theme={theme}
       headerSettings={headerSettings}
       footerSettings={footerSettings}
+      pages={pages}
       isAdminLoggedIn={isAdminLoggedIn}
       isLoading={isLoading}
       errorMsg={!hasConfig ? "The requested zone details could not be found or loaded correctly." : null}

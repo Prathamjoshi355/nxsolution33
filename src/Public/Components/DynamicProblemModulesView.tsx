@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import { ThemeSettings, HeaderSettings, FooterSettings } from '../../types';
+import { ThemeSettings, HeaderSettings, FooterSettings, Page } from '../../types';
 import { apiService } from '../Services/api';
 import {
   PageContainer,
@@ -16,6 +16,7 @@ interface ViewProps {
   theme: ThemeSettings;
   headerSettings: HeaderSettings;
   footerSettings: FooterSettings;
+  pages?: Page[];
   isAdminLoggedIn: boolean;
 }
 
@@ -23,6 +24,7 @@ export default function DynamicProblemModulesView({
   theme,
   headerSettings,
   footerSettings,
+  pages,
   isAdminLoggedIn
 }: ViewProps) {
   const { industryPublicId, institutionPublicId, areaPublicId, problemPublicId } = useParams<{
@@ -104,6 +106,7 @@ export default function DynamicProblemModulesView({
       theme={theme}
       headerSettings={headerSettings}
       footerSettings={footerSettings}
+      pages={pages}
       isAdminLoggedIn={isAdminLoggedIn}
       isLoading={isLoading}
       errorMsg={!hasConfig ? "The requested operational problem details could not be found or loaded correctly." : null}

@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import Header from '../Shared/Header/Header';
 import Footer from '../Shared/Footer/Footer';
-import { ThemeSettings, HeaderSettings, FooterSettings, Solution, Problem, SolutionSection } from '../../types';
+import { ThemeSettings, HeaderSettings, FooterSettings, Solution, Problem, SolutionSection, Page } from '../../types';
 import { apiService } from '../Services/api';
 import { motion } from 'motion/react';
 import {
@@ -26,6 +26,7 @@ interface SolutionViewProps {
   theme: ThemeSettings;
   headerSettings: HeaderSettings;
   footerSettings: FooterSettings;
+  pages?: Page[];
   isAdminLoggedIn: boolean;
 }
 
@@ -189,6 +190,7 @@ export default function DynamicSolutionView({
   theme,
   headerSettings,
   footerSettings,
+  pages,
   isAdminLoggedIn
 }: SolutionViewProps) {
   const { industryPublicId, institutionPublicId, areaPublicId, problemPublicId, modulePublicId, solutionPublicId } = useParams<{
@@ -321,14 +323,14 @@ export default function DynamicSolutionView({
   if (loading) {
     return (
       <div className="flex flex-col min-h-screen bg-slate-50">
-        <Header settings={headerSettings} theme={theme} isAdminLoggedIn={isAdminLoggedIn} />
+        <Header settings={headerSettings} theme={theme} isAdminLoggedIn={isAdminLoggedIn} pages={pages} />
         <main className="flex-grow flex items-center justify-center py-24">
           <div className="text-center space-y-4">
             <div className="w-10 h-10 border-4 border-[#0059bb] border-t-transparent rounded-full animate-spin mx-auto"></div>
             <p className="text-xs text-slate-500 font-semibold tracking-wider uppercase">Initializing Enterprise Blueprint...</p>
           </div>
         </main>
-        <Footer settings={footerSettings} theme={theme} />
+        <Footer settings={footerSettings} theme={theme} pages={pages} />
       </div>
     );
   }
@@ -336,7 +338,7 @@ export default function DynamicSolutionView({
   if (errorMsg || !solution || !problem) {
     return (
       <div className="flex flex-col min-h-screen bg-slate-50">
-        <Header settings={headerSettings} theme={theme} isAdminLoggedIn={isAdminLoggedIn} />
+        <Header settings={headerSettings} theme={theme} isAdminLoggedIn={isAdminLoggedIn} pages={pages} />
         <main className="flex-grow flex items-center justify-center py-24">
           <div className="text-center max-w-md mx-auto p-8 bg-white rounded-2xl shadow-sm border border-slate-200">
             <AlertTriangle className="w-12 h-12 text-red-500 mx-auto mb-4 animate-pulse" />
@@ -360,7 +362,7 @@ export default function DynamicSolutionView({
             </div>
           </div>
         </main>
-        <Footer settings={footerSettings} theme={theme} />
+        <Footer settings={footerSettings} theme={theme} pages={pages} />
       </div>
     );
   }
@@ -757,7 +759,7 @@ export default function DynamicSolutionView({
 
   return (
     <div className="flex flex-col min-h-screen bg-[#fbf9f8] text-slate-800 font-sans selection:bg-[#0059bb] selection:text-white">
-      <Header settings={headerSettings} theme={theme} isAdminLoggedIn={isAdminLoggedIn} />
+      <Header settings={headerSettings} theme={theme} isAdminLoggedIn={isAdminLoggedIn} pages={pages} />
 
       {/* DYNAMIC METADATA BREADCRUMB */}
       <div className="bg-white py-4 w-full">
@@ -811,7 +813,7 @@ export default function DynamicSolutionView({
         ))}
       </main>
 
-      <Footer settings={footerSettings} theme={theme} />
+      <Footer settings={footerSettings} theme={theme} pages={pages} />
     </div>
   );
 }

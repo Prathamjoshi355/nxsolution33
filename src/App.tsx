@@ -744,6 +744,7 @@ export default function App() {
               theme={theme}
               headerSettings={headerSettings}
               footerSettings={footerSettings}
+              pages={pages}
               isAdminLoggedIn={isAdminLoggedIn}
             />
           }
@@ -756,6 +757,7 @@ export default function App() {
               theme={theme}
               headerSettings={headerSettings}
               footerSettings={footerSettings}
+              pages={pages}
               isAdminLoggedIn={isAdminLoggedIn}
             />
           }
@@ -768,6 +770,7 @@ export default function App() {
               theme={theme}
               headerSettings={headerSettings}
               footerSettings={footerSettings}
+              pages={pages}
               isAdminLoggedIn={isAdminLoggedIn}
             />
           }

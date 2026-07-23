@@ -412,8 +412,9 @@ export default function SectionRenderer({ section, theme, products = [], onFormS
       id={`section-${section.id}`}
       className={`relative w-full overflow-hidden transition-all duration-300 ${animationClass}`}
       style={{
-        paddingTop: section.id === 'home-hero' ? undefined : '56px',
-        paddingBottom: section.id === 'home-hero' ? undefined : '56px',
+        paddingTop: section.id === 'home-challenges-to-solutions' ? '0px' : (section.id === 'home-about-nx' ? '56px' : (section.id === 'home-industries-serve' ? '42px' : (section.id === 'home-solution-process' ? '0px' : (section.id === 'home-hero' ? undefined : '56px')))),
+        paddingBottom: section.id === 'home-challenges-to-solutions' ? '0px' : (section.id === 'home-about-nx' ? '30px' : (section.id === 'home-industries-serve' ? '0px' : (section.id === 'home-hero' ? undefined : '56px'))),
+        paddingLeft: (section.id === 'home-challenges-to-solutions' || section.id === 'home-industries-serve' || section.id === 'home-solution-process') ? '1px' : undefined,
         marginTop: '0px',
         marginBottom: '0px',
         backgroundColor: section.id === 'home-hero' ? (bgImg ? undefined : '#0F172A') : '#FFFFFF',
@@ -675,7 +676,7 @@ export default function SectionRenderer({ section, theme, products = [], onFormS
             
             {/* Header: Left-Aligned exactly like the reference */}
             <div className="flex items-center gap-2.5 mb-6">
-              <h2 className="text-[13px] font-black tracking-wider text-slate-800 uppercase font-sans">
+              <h2 className="text-[20px] font-black tracking-wider text-slate-800 uppercase font-sans">
                 {content.title || 'INDUSTRIES WE SERVE'}
               </h2>
             </div>
@@ -809,7 +810,7 @@ export default function SectionRenderer({ section, theme, products = [], onFormS
                       {/* Card Footer with text indented to sit beside the overlapping icon */}
                       <div className="h-[60px] w-full pl-[44px] pr-2 flex items-center bg-white flex-shrink-0 select-none">
                         {/* Industry Name */}
-                        <span className="text-[12px] font-bold text-slate-850 truncate select-none leading-none">
+                        <span className="text-[14px] font-bold text-slate-850 truncate select-none leading-none">
                           {item.name}
                         </span>
                       </div>
@@ -927,25 +928,26 @@ export default function SectionRenderer({ section, theme, products = [], onFormS
               className="w-full relative transition-all duration-300 bg-white"
               style={{ 
                 backgroundColor: '#ffffff',
-                paddingTop: '56px',
-                paddingBottom: '56px',
+                paddingTop: '0px',
+                paddingBottom: '0px',
+                paddingLeft: '0px',
                 marginTop: '0px',
                 marginBottom: '0px',
               }}
             >
-              <div className="max-w-[1400px] mx-auto px-4 md:px-12">
+              <div className="max-w-[1400px] mx-auto pl-0 pr-0">
                 
                 {/* Header: Centered or Left aligned */}
                 <div className={`flex items-center gap-2.5 mb-8 ${align === 'center' ? 'justify-center' : 'justify-start'}`}>
                   <h2 
-                    className="text-[13px] font-black tracking-wider uppercase font-sans text-slate-800"
+                    className="text-[20px] font-black tracking-wider uppercase font-sans text-slate-800 mt-0 pt-[1px] pl-0 pr-[7px] w-full text-left"
                   >
                     {sectionHeader.badgeText || 'OUR SOLUTION ENGINEERING PROCESS'}
                   </h2>
                 </div>
 
                 {/* Horizontal steps flow */}
-                <div className="select-none">
+                <div className="select-none w-full max-w-[1295px] ml-0">
                   <div className="no-scrollbar overflow-x-auto flex items-start gap-3 md:gap-0 md:flex-row md:justify-between pb-6 select-none touch-pan-x">
                     {steps.map((step: any, idx: number) => {
                       const circleSize = step.circleSize || '90';
@@ -1139,18 +1141,19 @@ export default function SectionRenderer({ section, theme, products = [], onFormS
               className="w-full relative transition-all duration-300 bg-white"
               style={{ 
                 backgroundColor: '#ffffff',
-                paddingTop: '56px',
-                paddingBottom: '56px',
+                paddingTop: '0px',
+                paddingBottom: '0px',
+                paddingLeft: '3px',
                 marginTop: '0px',
                 marginBottom: '0px',
               }}
             >
-              <div className="max-w-[1400px] mx-auto px-4 md:px-12">
+              <div className="max-w-[1400px] mx-auto px-0">
                 
                 {/* Header: Centered or Left aligned */}
                 <div className={`flex items-center gap-2.5 mb-8 ${align === 'center' ? 'justify-center' : 'justify-start'}`}>
                   <h2 
-                    className="text-[13px] font-black tracking-wider uppercase font-sans text-slate-800"
+                    className="text-[20px] font-black tracking-wider uppercase font-sans text-slate-800 text-left w-full"
                   >
                     {sectionHeader.badgeText || 'OUR SOLUTIONS'}
                   </h2>
@@ -1269,18 +1272,18 @@ export default function SectionRenderer({ section, theme, products = [], onFormS
               className="w-full relative transition-all duration-300 bg-white"
               style={{ 
                 backgroundColor: '#ffffff',
-                paddingTop: '56px',
-                paddingBottom: '56px',
+                paddingTop: '0px',
+                paddingBottom: '0px',
                 marginTop: '0px',
                 marginBottom: '0px',
               }}
             >
-              <div className="max-w-[1400px] mx-auto px-4 md:px-12">
+              <div className="max-w-[1400px] mx-auto px-0">
                 
                 {/* Header: Centered or Left aligned */}
                 <div className={`flex items-center gap-2.5 mb-8 ${align === 'center' ? 'justify-center' : 'justify-start'}`}>
                   <h2 
-                    className="text-[13px] font-black tracking-wider uppercase font-sans text-slate-800"
+                    className="text-[20px] font-black tracking-wider uppercase font-sans text-slate-800 text-left w-full"
                   >
                     {sectionHeader.badgeText || 'OUR CURRENT WORK'}
                   </h2>
@@ -1604,18 +1607,18 @@ export default function SectionRenderer({ section, theme, products = [], onFormS
               className="w-full relative transition-all duration-300 bg-white"
               style={{ 
                 backgroundColor: '#ffffff',
-                paddingTop: '56px',
-                paddingBottom: '56px',
+                paddingTop: '0px',
+                paddingBottom: '0px',
                 marginTop: '0px',
                 marginBottom: '0px',
               }}
             >
-              <div className="max-w-[1400px] mx-auto px-4 md:px-12">
+              <div className="max-w-[1400px] mx-auto pl-[1px] pr-0">
                 
                 {/* Section Header */}
                 <div className={`flex items-center gap-2.5 mb-6 ${align === 'center' ? 'justify-center' : 'justify-start'}`}>
                   <h2 
-                    className="text-[13px] font-black tracking-wider uppercase font-sans text-slate-800"
+                    className="text-[20px] font-black tracking-wider uppercase font-sans text-slate-800 text-left w-full"
                   >
                     {sectionHeader.badgeText || 'TECHNOLOGY ECOSYSTEM'}
                   </h2>
@@ -1750,8 +1753,8 @@ export default function SectionRenderer({ section, theme, products = [], onFormS
               className="w-full relative transition-all duration-300 bg-white"
               style={{
                 backgroundColor: '#ffffff',
-                paddingTop: '56px',
-                paddingBottom: '56px',
+                paddingTop: '0px',
+                paddingBottom: '0px',
                 marginTop: '0px',
                 marginBottom: '0px',
               }}
@@ -1761,7 +1764,7 @@ export default function SectionRenderer({ section, theme, products = [], onFormS
                 {/* Section Header */}
                 <div className={`flex items-center gap-2.5 mb-6 md:mb-8 ${align === 'center' ? 'justify-center' : 'justify-start'}`}>
                   <h2 
-                    className="text-[13px] md:text-sm font-black tracking-wider uppercase font-sans text-slate-800"
+                    className="text-[20px] font-black tracking-wider uppercase font-sans text-slate-800 text-left w-full -mt-[6px] ml-0 md:-ml-[42px]"
                   >
                     {sectionHeader.badgeText || 'CLIENTS TRUST US'}
                   </h2>
@@ -3166,14 +3169,14 @@ export default function SectionRenderer({ section, theme, products = [], onFormS
           return (
             <div 
               className={`w-full space-y-12 py-8`}
-              style={{ textAlign: contentAlign as any }}
+              style={{ textAlign: contentAlign as any, paddingTop: '0px', paddingLeft: '1px' }}
             >
               <div className={`grid grid-cols-1 lg:grid-cols-12 gap-12 items-center ${imgPosition === 'left' ? '' : ''}`}>
                 {/* Text Column */}
                 <div className={`space-y-6 lg:col-span-7 ${imgPosition === 'left' ? 'lg:order-last' : ''}`}>
                   {/* Section Title with Badge */}
                   <div className={`flex items-center gap-2.5 ${contentAlign === 'center' ? 'justify-center' : 'justify-start'}`}>
-                    <h2 className="text-[13px] md:text-sm font-black tracking-wider text-slate-800 uppercase font-sans">
+                    <h2 className="text-[20px] font-black tracking-wider text-slate-800 uppercase font-sans">
                       {content.badgeText || 'ABOUT NX SOLUTION'}
                     </h2>
                   </div>
@@ -3235,7 +3238,7 @@ export default function SectionRenderer({ section, theme, products = [], onFormS
 
               {/* Bottom Cards Row */}
               {activeCards.length > 0 && (
-                <div className={`grid ${gridColsClass} gap-6 pt-4`}>
+                <div className={`grid ${gridColsClass} gap-6 pt-0 mt-[-17px] ml-0`}>
                   {activeCards.map((card: any, index: number) => {
                     const cardStyle = card.styles || {};
                     const isHoverEnabled = cardStyle.hoverEffect !== false;
@@ -3404,7 +3407,7 @@ export default function SectionRenderer({ section, theme, products = [], onFormS
                 {/* Header block matching user's layout */}
                 <div className="flex items-center gap-2.5 mb-8 justify-start">
                   <h2 
-                    className="text-[13px] md:text-sm font-black tracking-wider text-slate-800 uppercase font-sans"
+                    className="text-[20px] font-black tracking-wider text-slate-800 uppercase font-sans"
                   >
                     {badgeTxt || 'FROM CHALLENGES TO SOLUTIONS'}
                   </h2>

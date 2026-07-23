@@ -32,6 +32,14 @@ export default function Header({ settings, theme, isAdminLoggedIn, pages }: Head
       ? 'font-serif'
       : 'font-sans';
 
+  const isPageVisible = (url: string) => {
+    if (!pages || pages.length === 0) return true;
+    const cleanUrl = url.split('?')[0].toLowerCase();
+    const page = pages.find(p => p.slug.toLowerCase() === cleanUrl);
+    if (!page) return true;
+    return page.visible !== false;
+  };
+
   // Customized styling for home vs other pages (made fully uniform dark theme across all pages)
   const headerBg = 'bg-[#030e17] backdrop-blur-md border-b border-[#050b19]';
   const headerStyle = { height: '60px' };
@@ -65,10 +73,7 @@ export default function Header({ settings, theme, isAdminLoggedIn, pages }: Head
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center space-x-2" id="header-desktop-nav">
-          {settings.menus.filter(menu => {
-            const page = pages?.find(p => p.slug === menu.url);
-            return !page || page.visible !== false;
-          }).map((menu, idx) => {
+          {settings.menus.filter(menu => isPageVisible(menu.url)).map((menu, idx) => {
             // Let's filter out Home and Contact from the main desktop navigation bar to keep it super clean and match the screenshot exactly (Industries, Solutions, Products, Services, Resources, About Us)
             if (menu.label.toLowerCase() === 'home' || menu.label.toLowerCase() === 'contact') {
               return null;
@@ -87,10 +92,7 @@ export default function Header({ settings, theme, isAdminLoggedIn, pages }: Head
 
                 {menu.dropdown && menu.dropdown.length > 0 && (
                   <div className="absolute top-full left-0 mt-1 w-52 rounded-xl shadow-lg border py-2 hidden group-hover:block z-50 animate-fade-in bg-slate-950 border-slate-800 text-slate-200">
-                    {menu.dropdown.filter(sub => {
-                      const page = pages?.find(p => p.slug === sub.url);
-                      return !page || page.visible !== false;
-                    }).map((sub, sIdx) => (
+                    {menu.dropdown.filter(sub => isPageVisible(sub.url)).map((sub, sIdx) => (
                       <Link
                         key={sIdx}
                         to={sub.url}
@@ -143,10 +145,7 @@ export default function Header({ settings, theme, isAdminLoggedIn, pages }: Head
       {/* Mobile Drawer */}
       {isOpen && (
         <div className="lg:hidden absolute top-full left-0 w-full shadow-md py-4 px-4 flex flex-col space-y-2 z-50 bg-slate-950 border-b border-slate-900 text-slate-200">
-          {settings.menus.filter(menu => {
-            const page = pages?.find(p => p.slug === menu.url);
-            return !page || page.visible !== false;
-          }).map((menu, idx) => (
+          {settings.menus.filter(menu => isPageVisible(menu.url)).map((menu, idx) => (
             <div key={idx} className="flex flex-col">
               <button
                 onClick={() => {
@@ -164,10 +163,7 @@ export default function Header({ settings, theme, isAdminLoggedIn, pages }: Head
 
               {menu.dropdown && activeDropdown === menu.label && (
                 <div className="pl-6 flex flex-col space-y-1 py-1.5 rounded-lg mt-1 bg-slate-900/50">
-                  {menu.dropdown.filter(sub => {
-                    const page = pages?.find(p => p.slug === sub.url);
-                    return !page || page.visible !== false;
-                  }).map((sub, sIdx) => (
+                  {menu.dropdown.filter(sub => isPageVisible(sub.url)).map((sub, sIdx) => (
                     <button
                       key={sIdx}
                       onClick={() => handleMenuClick(sub.url)}

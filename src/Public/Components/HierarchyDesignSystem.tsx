@@ -4,7 +4,7 @@ import * as Icons from 'lucide-react';
 import { motion } from 'motion/react';
 import Header from '../Shared/Header/Header';
 import Footer from '../Shared/Footer/Footer';
-import { ThemeSettings, HeaderSettings, FooterSettings } from '../../types';
+import { ThemeSettings, HeaderSettings, FooterSettings, Page } from '../../types';
 
 // Design Tokens for reference
 export const DESIGN_TOKENS = {
@@ -230,6 +230,7 @@ interface PageContainerProps {
   theme: ThemeSettings;
   headerSettings: HeaderSettings;
   footerSettings: FooterSettings;
+  pages?: Page[];
   isAdminLoggedIn: boolean;
   isLoading?: boolean;
   errorMsg?: string | null;
@@ -241,6 +242,7 @@ export function PageContainer({
   theme,
   headerSettings,
   footerSettings,
+  pages,
   isAdminLoggedIn,
   isLoading,
   errorMsg,
@@ -250,7 +252,7 @@ export function PageContainer({
   if (isLoading) {
     return (
       <div className="flex flex-col min-h-screen animate-fade-in" style={{ backgroundColor: '#fbf9f8' }}>
-        <Header settings={headerSettings} theme={theme} isAdminLoggedIn={isAdminLoggedIn} />
+        <Header settings={headerSettings} theme={theme} isAdminLoggedIn={isAdminLoggedIn} pages={pages} />
         <main className="flex-grow flex items-center justify-center py-24">
           <div className="text-center space-y-3 animate-pulse">
             <div className="w-8 h-8 border-4 border-[#0059bb] border-t-transparent rounded-full animate-spin mx-auto"></div>
@@ -259,7 +261,7 @@ export function PageContainer({
             </p>
           </div>
         </main>
-        <Footer settings={footerSettings} theme={theme} />
+        <Footer settings={footerSettings} theme={theme} pages={pages} />
       </div>
     );
   }
@@ -267,7 +269,7 @@ export function PageContainer({
   if (errorMsg) {
     return (
       <div className="flex flex-col min-h-screen" style={{ backgroundColor: '#fbf9f8' }}>
-        <Header settings={headerSettings} theme={theme} isAdminLoggedIn={isAdminLoggedIn} />
+        <Header settings={headerSettings} theme={theme} isAdminLoggedIn={isAdminLoggedIn} pages={pages} />
         <main className="flex-grow flex items-center justify-center py-24">
           <div className="text-center max-w-md mx-auto p-8 bg-white rounded-2xl shadow-sm border border-slate-200/50">
             <Icons.AlertTriangle className="w-12 h-12 text-amber-500 mx-auto mb-4" />
@@ -280,20 +282,20 @@ export function PageContainer({
             </Link>
           </div>
         </main>
-        <Footer settings={footerSettings} theme={theme} />
+        <Footer settings={footerSettings} theme={theme} pages={pages} />
       </div>
     );
   }
 
   return (
     <div className="flex flex-col min-h-screen" style={{ backgroundColor: '#fbf9f8' }}>
-      <Header settings={headerSettings} theme={theme} isAdminLoggedIn={isAdminLoggedIn} />
+      <Header settings={headerSettings} theme={theme} isAdminLoggedIn={isAdminLoggedIn} pages={pages} />
       
       <main className="flex-grow">
         {children}
       </main>
 
-      <Footer settings={footerSettings} theme={theme} />
+      <Footer settings={footerSettings} theme={theme} pages={pages} />
     </div>
   );
 }
